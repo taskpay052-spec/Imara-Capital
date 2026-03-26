@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>FAQ | Imara Capital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A2C3E;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --navy: #0A1E3C;
+            --gold: #C6A43F;
+            --gold-dark: #B28C2E;
+            --gray-dark: #2D3A4B;
+            --gray: #4A5568;
+            --gray-light: #F7F9FC;
+            --white: #FFFFFF;
+            --green: #2E7D32;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            min-height: 48px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo-imara {
+            color: var(--navy);
+        }
+
+        .logo-capital {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-apply {
+            padding: 10px 24px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--navy);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            padding: 20px;
+            gap: 16px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            padding: 12px 0;
+            min-height: 44px;
+        }
+
+        .mobile-apply {
+            text-align: center;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-section {
+            margin-top: -40px;
+            margin-bottom: 40px;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 18px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 18px 20px 18px 50px;
+            font-size: 16px;
+            border: none;
+            border-radius: 60px;
+            box-shadow: var(--shadow);
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(198, 164, 63, 0.3);
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .category-btn {
+            padding: 10px 24px;
+            border-radius: 40px;
+            background: var(--white);
+            border: 1px solid #E2E8F0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .category-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .category-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        /* FAQ Grid */
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 48px;
+        }
+
+        .faq-category h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--navy);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(198, 164, 63, 0.05);
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            transition: transform 0.3s;
+            font-size: 18px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px 24px;
+            display: none;
+            color: var(--gray);
+            line-height: 1.7;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin-bottom: 12px;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 6px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+        }
+
+        .no-results i {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        /* Still Have Questions */
+        .still-questions {
+            background: var(--gray-light);
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .still-questions h2 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .still-questions p {
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .still-questions .btn {
+            margin: 0 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links, .nav-apply {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .page-header {
+                padding: 48px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .search-container input {
+                padding: 16px 16px 16px 48px;
+                font-size: 14px;
+            }
+            
+            .category-tabs {
+                gap: 8px;
+            }
+            
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .faq-question {
+                padding: 16px;
+                font-size: 15px;
+            }
+            
+            .faq-answer {
+                padding: 0 16px 16px 16px;
+                font-size: 14px;
+            }
+            
+            .still-questions h2 {
+                font-size: 24px;
+            }
+            
+            .still-questions .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .faq-category h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-imara">Imara</span> <span class="logo-capital">Capital</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="rates.html">Rates</a>
+            <a href="about.html">About</a>
+            <a href="faq.html" class="active">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="apply.html" class="btn btn-primary nav-apply">Apply Now</a>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rates.html">Rates</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about borrowing with Imara Capital. Find answers to common questions below.</p>
+    </div>
+</section>
+
+<!-- Search Section -->
+<section class="search-section">
+    <div class="container">
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search questions... e.g., interest rate, M-Pesa, repayment">
+        </div>
+    </div>
+</section>
+
+<!-- Category Tabs -->
+<div class="container">
+    <div class="category-tabs" id="categoryTabs">
+        <button class="category-btn active" data-category="all">All Questions</button>
+        <button class="category-btn" data-category="general">General</button>
+        <button class="category-btn" data-category="application">Application</button>
+        <button class="category-btn" data-category="rates">Rates & Fees</button>
+        <button class="category-btn" data-category="repayment">Repayment</button>
+        <button class="category-btn" data-category="security">Security & Privacy</button>
+    </div>
+</div>
+
+<!-- FAQ Content -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="faq-grid" id="faqGrid">
+            <!-- General Category -->
+            <div class="faq-category" data-category="general">
+                <h2>General Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is Imara Capital licensed?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Imara Capital is a fully licensed Credit Provider under the Central Bank of Kenya (CBK). We are also registered with the Office of the Data Protection Commissioner (ODPC) and comply with all Kenyan lending regulations. Our license number is [TBD] and can be verified on the CBK website.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you operate in all counties?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We serve customers across all 47 counties in Kenya. As long as you have a valid National ID and an active M-Pesa account, you can apply from anywhere in the country.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is Imara Capital's mission?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our mission is to provide Kenyans with fair, transparent, and accessible financing. We believe in <strong>Strong Finance. Smart Growth.</strong> — helping you build a better financial future without hidden fees or predatory practices.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Application Category -->
+            <div class="faq-category" data-category="application">
+                <h2>Application Process</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What do I need to apply for a loan?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You'll need:</p>
+                        <ul>
+                            <li>Valid Kenyan National ID</li>
+                            <li>Active M-Pesa account (registered in your name)</li>
+                            <li>Last 3 months' bank statement OR payslip</li>
+                            <li>Active phone number</li>
+                            <li>For business loans: Business registration documents</li>
+                            <li>For asset finance: Proforma invoice</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does the application take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The online application form takes just <strong>2-3 minutes</strong> to complete. Most applicants receive a decision within 24 hours, and funds are disbursed within 1 hour of acceptance.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does checking my rate affect my credit score?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No! We use a <strong>soft pull</strong> to check your rate. This does NOT affect your credit score. Only when you accept the loan offer do we perform a full credit check.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I save my application and continue later?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our application form has a <strong>Save & Resume</strong> feature. You can start your application on your phone, save it, and finish on your laptop later. We'll send you a link via SMS or email.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rates & Fees Category -->
+            <div class="faq-category" data-category="rates">
+                <h2>Rates & Fees</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are your interest rates?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our rates vary based on your credit profile, loan amount, and term:</p>
+                        <ul>
+                            <li><strong>Personal Loans:</strong> 3% – 12% per month</li>
+                            <li><strong>Business Loans:</strong> 4% – 10% per month</li>
+                            <li><strong>Asset Finance:</strong> 3.5% – 8% per month</li>
+                        </ul>
+                        <p>Better credit scores qualify for lower rates. Use our <a href="index.html" style="color: var(--gold);">loan calculator</a> to estimate your payment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are there any hidden fees?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Absolutely not!</strong> We believe in complete transparency. The only fees are:</p>
+                        <ul>
+                            <li><strong>Origination Fee:</strong> 1% – 5% (deducted at disbursement)</li>
+                            <li><strong>Late Payment Fee:</strong> KSh 500 or 5% of overdue amount (after 7 days)</li>
+                        </ul>
+                        <p><strong>No prepayment penalty. No early settlement fees. No hidden charges.</strong></p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I pay my loan early?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! There is <strong>no prepayment penalty</strong>. You can pay off your loan early and save on interest. Simply contact us or pay the remaining balance via M-Pesa PayBill.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Repayment Category -->
+            <div class="faq-category" data-category="repayment">
+                <h2>Repayment</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I make repayments?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Repayment is simple via <strong>M-Pesa PayBill</strong>:</p>
+                        <ol>
+                            <li>Go to M-Pesa menu</li>
+                            <li>Select <strong>Lipa na M-Pesa</strong> → <strong>PayBill</strong></li>
+                            <li>Enter Business Number: <strong>[TBD]</strong></li>
+                            <li>Enter Account Number: <strong>Your Loan ID</strong></li>
+                            <li>Enter amount and PIN</li>
+                            <li>Confirm payment</li>
+                        </ol>
+                        <p>You'll receive SMS reminders 3 days before each due date.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens if I miss a payment?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you miss a payment:</p>
+                        <ul>
+                            <li><strong>After 7 days:</strong> A late fee of KSh 500 or 5% (whichever is higher) applies</li>
+                            <li><strong>After 30 days:</strong> We'll contact you to arrange a repayment plan</li>
+                            <li><strong>After 90 days:</strong> Default may result in CRB listing and potential legal action</li>
+                        </ul>
+                        <p><strong>We're here to help!</strong> If you're struggling, contact us early to discuss flexible repayment options.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you report to Credit Reference Bureaus (CRB)?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we report to licensed CRBs (<strong>Metropol</strong> and <strong>TransUnion</strong>).</p>
+                        <p><strong>Good news:</strong> Timely repayments help <strong>build your credit score</strong>! We'll notify you before any negative listing and give you an opportunity to resolve any issues.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security & Privacy Category -->
+            <div class="faq-category" data-category="security">
+                <h2>Security & Privacy</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data safe with Imara Capital?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We are registered with the <strong>Office of the Data Protection Commissioner (ODPC)</strong> and fully comply with the <strong>Data Protection Act 2019</strong>. Your data is:</p>
+                        <ul>
+                            <li>Encrypted in transit and at rest</li>
+                            <li>Never shared without your consent</li>
+                            <li>Stored on secure, ISO-certified servers</li>
+                            <li>Only accessed by authorized personnel</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you share my information with third parties?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We only share your information:</p>
+                        <ul>
+                            <li>With Credit Reference Bureaus (as required by law)</li>
+                            <li>With your explicit consent</li>
+                            <li>When required by regulatory authorities (CBK, ODPC)</li>
+                        </ul>
+                        <p>We never sell your data to marketers or third parties.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I request my data or delete my account?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You have the right to:</p>
+                        <ul>
+                            <li>Request a copy of your data</li>
+                            <li>Correct inaccurate information</li>
+                            <li>Request deletion of your data (subject to legal retention requirements)</li>
+                        </ul>
+                        <p>Contact our Data Protection Officer at <strong>dpo@imaracapital.co.ke</strong> or call <strong>0700 000 000</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No questions found</h3>
+            <p>We couldn't find any questions matching your search. Try different keywords or contact us directly.</p>
+            <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;">Contact Support</a>
+        </div>
+    </div>
+</section>
+
+<!-- Still Have Questions -->
+<section class="still-questions">
+    <div class="container">
+        <h2>Still have questions?</h2>
+        <p>We're here to help. Reach out to our support team and we'll get back to you within 24 hours.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        <a href="https://wa.me/254700000000?text=Hello%20Imara%20Capital%2C%20I%20have%20a%20question%20about" class="btn btn-outline" style="margin-left: 12px;">Chat on WhatsApp</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Imara Capital</h4>
+                <p>Strong Finance. Smart Growth.</p>
+                <p>CBK License: [TBD]</p>
+                <p>ODPC Registration: [TBD]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Loans</h4>
+                <a href="#">Personal Loans</a>
+                <a href="#">Business Loans</a>
+                <a href="#">Asset Finance</a>
+                <a href="rates.html">Rates & Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> 0700 000 000</p>
+                <p><i class="fab fa-whatsapp"></i> 0700 000 000</p>
+                <p><i class="fas fa-envelope"></i> hello@imaracapital.co.ke</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Imara Capital. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+    
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+    
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+    
+    // Category Filter
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const faqCategories = document.querySelectorAll('.faq-category');
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+    const faqGrid = document.getElementById('faqGrid');
+    
+    let currentCategory = 'all';
+    
+    function filterFAQs() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let hasVisibleResults = false;
+        
+        faqCategories.forEach(category => {
+            const categoryName = category.getAttribute('data-category');
+            const faqItemsInCategory = category.querySelectorAll('.faq-item');
+            let categoryHasVisible = false;
+            
+            if (currentCategory !== 'all' && categoryName !== currentCategory) {
+                category.style.display = 'none';
+                return;
+            }
+            
+            faqItemsInCategory.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (searchTerm === '' || question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    categoryHasVisible = true;
+                    hasVisibleResults = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            if (categoryHasVisible && (currentCategory === 'all' || categoryName === currentCategory)) {
+                category.style.display = 'block';
+            } else {
+                category.style.display = 'none';
+            }
+        });
+        
+        noResults.style.display = hasVisibleResults ? 'none' : 'block';
+        faqGrid.style.display = hasVisibleResults ? 'block' : 'none';
+    }
+    
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCategory = btn.getAttribute('data-category');
+            filterFAQs();
+        });
+    });
+    
+    searchInput.addEventListener('input', filterFAQs);
+    
+    // Open first FAQ item by default
+    if (faqItems.length > 0) {
+        faqItems[0].classList.add('active');
+    }
+</script>
+
+</body>
+</html>

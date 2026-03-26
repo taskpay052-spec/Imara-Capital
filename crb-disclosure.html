@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CRB Disclosure | Imara Capital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A2C3E;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --navy: #0A1E3C;
+            --gold: #C6A43F;
+            --gold-dark: #B28C2E;
+            --gray-dark: #2D3A4B;
+            --gray: #4A5568;
+            --gray-light: #F7F9FC;
+            --white: #FFFFFF;
+            --green: #2E7D32;
+            --red: #D32F2F;
+            --orange: #F39C12;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            min-height: 48px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo-imara {
+            color: var(--navy);
+        }
+
+        .logo-capital {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--navy);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            padding: 20px;
+            gap: 16px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            padding: 12px 0;
+            min-height: 44px;
+        }
+
+        .mobile-apply {
+            text-align: center;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
+            color: var(--white);
+            padding: 60px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .last-updated {
+            margin-top: 16px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Content */
+        .content-section {
+            padding: 60px 0 80px;
+        }
+
+        .legal-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .legal-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 40px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .legal-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 24px 0 12px 0;
+        }
+
+        .legal-content p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin: 16px 0 16px 24px;
+            color: var(--gray);
+        }
+
+        .legal-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .legal-content .highlight-box {
+            background: var(--gray-light);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .legal-content .warning-box {
+            background: rgba(211, 47, 47, 0.05);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 4px solid var(--red);
+        }
+
+        .legal-content .success-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 4px solid var(--green);
+        }
+
+        .legal-content .info-box {
+            background: rgba(243, 156, 18, 0.05);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 4px solid var(--orange);
+        }
+
+        .crb-card {
+            background: var(--white);
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s;
+        }
+
+        .crb-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .crb-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(198, 164, 63, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .crb-icon i {
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        .crb-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .crb-content p {
+            margin-bottom: 0;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--gray-light);
+            padding: 24px 32px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .toc ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 14px;
+            }
+            
+            .content-section {
+                padding: 40px 0 60px;
+            }
+            
+            .legal-content h2 {
+                font-size: 24px;
+            }
+            
+            .legal-content h3 {
+                font-size: 18px;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .crb-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-imara">Imara</span> <span class="logo-capital">Capital</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="rates.html">Rates</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="apply.html" class="btn btn-primary nav-apply">Apply Now</a>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rates.html">Rates</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Credit Reference Bureau Disclosure</h1>
+        <p>Understanding how we report your loan information and how it affects your credit score</p>
+        <div class="last-updated">Last Updated: January 1, 2025</div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="content-section">
+    <div class="container">
+        <div class="legal-content">
+            
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#what-is-crb">1. What is a Credit Reference Bureau (CRB)?</a></li>
+                    <li><a href="#our-partners">2. Our CRB Partners</a></li>
+                    <li><a href="#what-we-report">3. What We Report</a></li>
+                    <li><a href="#positive-reporting">4. Positive Reporting</a></li>
+                    <li><a href="#negative-reporting">5. Negative Reporting</a></li>
+                    <li><a href="#notification">6. Notification Before Reporting</a></li>
+                    <li><a href="#how-it-affects">7. How CRB Listing Affects You</a></li>
+                    <li><a href="#checking-report">8. Checking Your Credit Report</a></li>
+                    <li><a href="#dispute-resolution">9. Dispute Resolution Process</a></li>
+                    <li><a href="#clearing-listing">10. Clearing Your CRB Listing</a></li>
+                    <li><a href="#retention-period">11. Information Retention Period</a></li>
+                    <li><a href="#your-rights">12. Your Rights</a></li>
+                    <li><a href="#contact">13. Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- What is CRB -->
+            <h2 id="what-is-crb">1. What is a Credit Reference Bureau (CRB)?</h2>
+            <p>A Credit Reference Bureau (CRB) is a licensed institution that collects and maintains credit information on individuals and businesses. In Kenya, CRBs are regulated by the Central Bank of Kenya (CBK) under the Banking Act.</p>
+            <p>CRBs help lenders make informed lending decisions by providing credit histories of borrowers. They also help consumers build credit profiles that can improve their access to credit over time.</p>
+            <div class="info-box">
+                <p><strong>📊 Did You Know?</strong> Your credit report contains your credit history, including loans you've taken, repayment behavior, and any defaults. This information is used by banks, SACCOs, and other lenders to assess your creditworthiness.</p>
+            </div>
+
+            <!-- Our Partners -->
+            <h2 id="our-partners">2. Our CRB Partners</h2>
+            <p>Imara Capital reports loan information to the following licensed Credit Reference Bureaus in Kenya:</p>
+            
+            <div class="crb-card">
+                <div class="crb-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="crb-content">
+                    <h4>Metropol CRB Kenya Limited</h4>
+                    <p>Website: <a href="https://www.metropol.co.ke" target="_blank" style="color: var(--gold);">www.metropol.co.ke</a></p>
+                    <p>Phone: 0709 111 000</p>
+                </div>
+            </div>
+            
+            <div class="crb-card">
+                <div class="crb-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="crb-content">
+                    <h4>TransUnion Africa (formerly CreditInfo)</h4>
+                    <p>Website: <a href="https://www.transunion.co.ke" target="_blank" style="color: var(--gold);">www.transunion.co.ke</a></p>
+                    <p>Phone: 020 513 2700</p>
+                </div>
+            </div>
+
+            <!-- What We Report -->
+            <h2 id="what-we-report">3. What We Report</h2>
+            <p>We report the following information about your loan to CRBs:</p>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, ID number, phone number, date of birth</li>
+                <li><strong>Loan Details:</strong> Loan amount, type of loan, date of disbursement</li>
+                <li><strong>Repayment History:</strong> Payment dates, amounts paid, outstanding balance</li>
+                <li><strong>Loan Status:</strong> Active, fully paid, or in default</li>
+                <li><strong>Default Information:</strong> Amount in arrears, days overdue</li>
+                <li><strong>Loan Closure:</strong> Date of final payment if loan is fully repaid</li>
+            </ul>
+
+            <!-- Positive Reporting -->
+            <h2 id="positive-reporting">4. Positive Reporting</h2>
+            <div class="success-box">
+                <p><strong>✅ Good News!</strong> We report <strong>positive credit information</strong> to CRBs. This means:</p>
+                <ul style="margin-bottom: 0;">
+                    <li>On-time payments help <strong>build your credit score</strong></li>
+                    <li>A good credit history increases your chances of getting future loans</li>
+                    <li>You may qualify for <strong>lower interest rates</strong> with a strong credit profile</li>
+                    <li>Full repayment of loans is recorded and improves your creditworthiness</li>
+                </ul>
+            </div>
+            <p>Positive reporting is beneficial because it creates a credit history that demonstrates your reliability as a borrower. This can help you access larger loans with better terms in the future.</p>
+
+            <!-- Negative Reporting -->
+            <h2 id="negative-reporting">5. Negative Reporting</h2>
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> We are required by law to report <strong>negative credit information</strong> when you default on your loan. This includes:</p>
+                <ul style="margin-bottom: 0;">
+                    <li>Late payments beyond 30 days</li>
+                    <li>Default status when payments are overdue</li>
+                    <li>Loan write-offs or restructuring</li>
+                    <li>Legal actions related to loan recovery</li>
+                </ul>
+            </div>
+            <p>Negative information remains on your credit report for up to <strong>5 years</strong> (or 7 years for judgments) and can significantly affect your ability to access credit from other lenders.</p>
+
+            <!-- Notification -->
+            <h2 id="notification">6. Notification Before Reporting</h2>
+            <p>We are committed to fairness and transparency. Before reporting any negative information to CRBs, we will:</p>
+            <ul>
+                <li>Send you a <strong>written notice</strong> via SMS and email at least <strong>14 days</strong> before reporting</li>
+                <li>Provide you with <strong>details of the default</strong> and the amount owed</li>
+                <li>Give you an <strong>opportunity to remedy</strong> the default by making payment</li>
+                <li>Provide <strong>contact information</strong> to discuss repayment options</li>
+            </ul>
+            <div class="highlight-box">
+                <p><strong>📞 Need Help?</strong> If you receive a default notice, contact us immediately at <strong>0700 000 000</strong>. We may be able to arrange a repayment plan to prevent CRB listing.</p>
+            </div>
+
+            <!-- How It Affects You -->
+            <h2 id="how-it-affects">7. How CRB Listing Affects You</h2>
+            <p>Being listed negatively with a CRB can have serious consequences:</p>
+            <ul>
+                <li><strong>Difficulty getting new loans:</strong> Banks, SACCOs, and other lenders may reject your applications</li>
+                <li><strong>Higher interest rates:</strong> If you qualify, you may be charged higher interest rates</li>
+                <li><strong>Employment challenges:</strong> Some employers check credit reports during hiring</li>
+                <li><strong>Mobile lending restrictions:</strong> Digital lenders may deny you loans</li>
+                <li><strong>Long-term impact:</strong> Negative information stays on your report for up to 5 years</li>
+            </ul>
+
+            <!-- Checking Your Report -->
+            <h2 id="checking-report">8. Checking Your Credit Report</h2>
+            <p>You have the right to access your credit report for free once per year from each CRB. Here's how:</p>
+            
+            <h3>Metropol CRB</h3>
+            <ul>
+                <li>Website: <a href="https://www.metropol.co.ke" target="_blank" style="color: var(--gold);">www.metropol.co.ke</a></li>
+                <li>Via USSD: Dial *433#</li>
+                <li>Mobile App: Download "CreditScore" app</li>
+            </ul>
+            
+            <h3>TransUnion Africa</h3>
+            <ul>
+                <li>Website: <a href="https://www.transunion.co.ke" target="_blank" style="color: var(--gold);">www.transunion.co.ke</a></li>
+                <li>Via USSD: Dial *433*3#</li>
+                <li>Email: kenya@transunion.com</li>
+            </ul>
+
+            <!-- Dispute Resolution -->
+            <h2 id="dispute-resolution">9. Dispute Resolution Process</h2>
+            <p>If you believe the information we reported to CRBs is inaccurate, you have the right to dispute it. Follow these steps:</p>
+            
+            <h3>Step 1: Contact Imara Capital First</h3>
+            <ul>
+                <li>Call us at <strong>0700 000 000</strong></li>
+                <li>Email <strong>crbdisputes@imaracapital.co.ke</strong></li>
+                <li>Provide your loan details and explain the inaccuracy</li>
+                <li>Attach any supporting documents (payment receipts, bank statements)</li>
+            </ul>
+            <p>We will investigate and respond within <strong>14 days</strong>. If we made an error, we will correct it and notify the CRB to update your report.</p>
+            
+            <h3>Step 2: Escalate to CRB if Unresolved</h3>
+            <p>If you are not satisfied with our response, you can escalate to the CRB directly:</p>
+            <ul>
+                <li><strong>Metropol CRB:</strong> disputes@metropol.co.ke | 0709 111 000</li>
+                <li><strong>TransUnion:</strong> kenya_disputes@transunion.com | 020 513 2700</li>
+            </ul>
+            
+            <h3>Step 3: Escalate to Central Bank of Kenya</h3>
+            <p>If still unresolved, you can lodge a complaint with the Central Bank of Kenya:</p>
+            <ul>
+                <li>Email: <strong>ccd@centralbank.go.ke</strong></li>
+                <li>Phone: 020 286 0000</li>
+                <li>Website: <a href="https://www.centralbank.go.ke" target="_blank" style="color: var(--gold);">www.centralbank.go.ke</a></li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>📝 Tip:</strong> Keep records of all communications, including emails, SMS, and payment receipts. These will help if you need to dispute any information.</p>
+            </div>
+
+            <!-- Clearing Listing -->
+            <h2 id="clearing-listing">10. Clearing Your CRB Listing</h2>
+            <p>If you have been negatively listed, you can clear your record by:</p>
+            <ul>
+                <li><strong>Full Repayment:</strong> Pay the outstanding amount in full. We will update your status to "Settled" within 14 days</li>
+                <li><strong>Repayment Plan:</strong> If you cannot pay in full, contact us to arrange a repayment plan. Once the plan is completed, we will update your status</li>
+                <li><strong>Time:</strong> Even after settlement, negative information may remain on your report for up to 5 years, but it will be marked as "Settled" or "Closed"</li>
+            </ul>
+            <div class="success-box">
+                <p><strong>✅ Once you clear your default:</strong> We will update the CRB within <strong>7 business days</strong> to reflect your status as "Settled." You can request a free credit report to confirm the update.</p>
+            </div>
+
+            <!-- Retention Period -->
+            <h2 id="retention-period">11. Information Retention Period</h2>
+            <p>CRBs retain information according to CBK guidelines:</p>
+            <ul>
+                <li><strong>Positive Information:</strong> Retained indefinitely (helps build your credit history)</li>
+                <li><strong>Negative Information:</strong> Retained for up to 5 years</li>
+                <li><strong>Judgments/Court Orders:</strong> Retained for up to 7 years</li>
+                <li><strong>Fraud Alerts:</strong> Retained for the duration of the alert</li>
+            </ul>
+
+            <!-- Your Rights -->
+            <h2 id="your-rights">12. Your Rights</h2>
+            <p>Under the CRB Regulations and Data Protection Act, you have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request your credit report for free once per year</li>
+                <li><strong>Dispute:</strong> Challenge inaccurate information at no cost</li>
+                <li><strong>Correction:</strong> Have incorrect information corrected within 14 days</li>
+                <li><strong>Notification:</strong> Be notified before negative information is reported</li>
+                <li><strong>Consent:</strong> Provide consent before credit checks are performed</li>
+                <li><strong>Compensation:</strong> Seek compensation for damages caused by inaccurate reporting</li>
+            </ul>
+
+            <!-- Contact -->
+            <h2 id="contact">13. Contact Us</h2>
+            <p>For questions about CRB reporting or to discuss your loan status, contact us:</p>
+            <ul>
+                <li><strong>CRB Disputes Email:</strong> crbdisputes@imaracapital.co.ke</li>
+                <li><strong>Phone:</strong> 0700 000 000</li>
+                <li><strong>WhatsApp:</strong> 0700 000 000</li>
+                <li><strong>Customer Support:</strong> support@imaracapital.co.ke</li>
+                <li><strong>Address:</strong> Imara Capital, Westlands, Nairobi, Kenya</li>
+            </ul>
+            
+            <div class="highlight-box" style="margin-top: 32px;">
+                <p><strong>📞 Need Help?</strong> If you're struggling with repayment, contact us before we report negative information. We're here to work with you and find a solution. Early communication can help protect your credit score.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Imara Capital</h4>
+                <p>Strong Finance. Smart Growth.</p>
+                <p>CBK License: [TBD]</p>
+                <p>ODPC Registration: [TBD]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Loans</h4>
+                <a href="#">Personal Loans</a>
+                <a href="#">Business Loans</a>
+                <a href="#">Asset Finance</a>
+                <a href="rates.html">Rates & Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="econsent.html">E-Sign Consent</a>
+                <a href="crb-disclosure.html">CRB Disclosure</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Imara Capital. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+    
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>

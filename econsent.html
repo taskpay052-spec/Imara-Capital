@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>E-Sign Consent | Imara Capital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A2C3E;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --navy: #0A1E3C;
+            --gold: #C6A43F;
+            --gold-dark: #B28C2E;
+            --gray-dark: #2D3A4B;
+            --gray: #4A5568;
+            --gray-light: #F7F9FC;
+            --white: #FFFFFF;
+            --green: #2E7D32;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            min-height: 48px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo-imara {
+            color: var(--navy);
+        }
+
+        .logo-capital {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--navy);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            padding: 20px;
+            gap: 16px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            padding: 12px 0;
+            min-height: 44px;
+        }
+
+        .mobile-apply {
+            text-align: center;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
+            color: var(--white);
+            padding: 60px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .last-updated {
+            margin-top: 16px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Content */
+        .content-section {
+            padding: 60px 0 80px;
+        }
+
+        .legal-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .legal-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 40px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .legal-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 24px 0 12px 0;
+        }
+
+        .legal-content p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin: 16px 0 16px 24px;
+            color: var(--gray);
+        }
+
+        .legal-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .legal-content .highlight-box {
+            background: var(--gray-light);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .legal-content .consent-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 24px;
+            border-radius: 16px;
+            margin: 32px 0;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            text-align: center;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .consent-checkbox input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .consent-checkbox label {
+            font-weight: 500;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        .signature-area {
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .signature-area input {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px 16px;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 16px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .signature-area input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--gray-light);
+            padding: 24px 32px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .toc ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 14px;
+            }
+            
+            .content-section {
+                padding: 40px 0 60px;
+            }
+            
+            .legal-content h2 {
+                font-size: 24px;
+            }
+            
+            .legal-content h3 {
+                font-size: 18px;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .consent-checkbox {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-imara">Imara</span> <span class="logo-capital">Capital</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="rates.html">Rates</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="apply.html" class="btn btn-primary nav-apply">Apply Now</a>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rates.html">Rates</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Electronic Signature Consent</h1>
+        <p>Your consent to conduct business electronically with Imara Capital</p>
+        <div class="last-updated">Last Updated: January 1, 2025</div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="content-section">
+    <div class="container">
+        <div class="legal-content">
+            
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#introduction">1. Introduction</a></li>
+                    <li><a href="#scope">2. Scope of Electronic Transactions</a></li>
+                    <li><a href="#right-to-withdraw">3. Right to Withdraw Consent</a></li>
+                    <li><a href="#hardware-software">4. Hardware & Software Requirements</a></li>
+                    <li><a href="#electronic-signature">5. Electronic Signature</a></li>
+                    <li><a href="#record-retention">6. Record Retention</a></li>
+                    <li><a href="#updating-info">7. Updating Your Information</a></li>
+                    <li><a href="#consent">8. Your Consent</a></li>
+                    <li><a href="#contact">9. Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Introduction -->
+            <h2 id="introduction">1. Introduction</h2>
+            <p>Imara Capital ("we," "our," or "us") offers you the ability to apply for loans, review documents, and sign agreements electronically. This Electronic Signature Consent ("E-Sign Consent") explains your rights and obligations when conducting business with us electronically.</p>
+            <div class="highlight-box">
+                <p><strong>📢 Important:</strong> By providing your consent, you agree to receive documents and conduct transactions electronically. This consent applies to all interactions with Imara Capital, including loan applications, agreements, disclosures, and communications.</p>
+            </div>
+
+            <!-- Scope -->
+            <h2 id="scope">2. Scope of Electronic Transactions</h2>
+            <p>When you consent to electronic transactions, you agree that we may provide you with the following documents and communications electronically:</p>
+            <ul>
+                <li>Loan applications and related forms</li>
+                <li>Loan agreements, promissory notes, and security documents</li>
+                <li>Disclosures required by law (Truth in Lending, Privacy Policy, etc.)</li>
+                <li>Account statements and transaction history</li>
+                <li>Payment reminders and due date notifications</li>
+                <li>Privacy notices and policy updates</li>
+                <li>Terms and conditions changes</li>
+                <li>Customer service communications</li>
+                <li>Credit reporting notifications</li>
+                <li>Collection notices and payment arrangements</li>
+            </ul>
+            <p>We will provide these documents to you via:</p>
+            <ul>
+                <li>Email to the address you provide</li>
+                <li>SMS text messages to your registered phone number</li>
+                <li>Secure links to our website or mobile platform</li>
+                <li>Notifications within your online account (once available)</li>
+            </ul>
+
+            <!-- Right to Withdraw -->
+            <h2 id="right-to-withdraw">3. Right to Withdraw Consent</h2>
+            <p>You have the right to withdraw your consent to receive electronic communications at any time. However, withdrawing consent may affect your ability to obtain or maintain a loan with us, as many of our processes are designed for electronic delivery.</p>
+            
+            <h3>3.1 How to Withdraw Consent</h3>
+            <p>To withdraw your consent, contact us at:</p>
+            <ul>
+                <li><strong>Email:</strong> econsent@imaracapital.co.ke</li>
+                <li><strong>Phone:</strong> 0700 000 000</li>
+                <li><strong>Mail:</strong> Imara Capital, Westlands, Nairobi, Kenya</li>
+            </ul>
+            
+            <h3>3.2 Effects of Withdrawal</h3>
+            <p>If you withdraw your consent:</p>
+            <ul>
+                <li>We may convert your account to paper-based communications</li>
+                <li>We may charge a reasonable fee for paper delivery (if applicable)</li>
+                <li>Processing of new loan applications may be delayed</li>
+                <li>Existing loans will continue to be serviced, but future communications will be in paper format</li>
+                <li>You may be required to sign paper documents for new transactions</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>⚠️ Note:</strong> Withdrawal of consent does not affect the legal validity or enforceability of any documents already signed electronically.</p>
+            </div>
+
+            <!-- Hardware & Software -->
+            <h2 id="hardware-software">4. Hardware & Software Requirements</h2>
+            <p>To access and retain electronic communications, you will need the following:</p>
+            
+            <h3>4.1 Minimum Requirements</h3>
+            <ul>
+                <li>A computer, tablet, or smartphone with internet access</li>
+                <li>A current web browser (Chrome, Firefox, Safari, Edge) with 128-bit encryption enabled</li>
+                <li>Valid email address and phone number</li>
+                <li>Ability to view PDF files (Adobe Acrobat Reader or similar)</li>
+                <li>Sufficient storage space to save documents or a printer to print physical copies</li>
+            </ul>
+            
+            <h3>4.2 Mobile Access</h3>
+            <ul>
+                <li>For mobile users, our website is optimized for smartphones and tablets</li>
+                <li>You may need a data connection (Wi-Fi or mobile data) to access documents</li>
+                <li>Documents can be saved to your device or viewed in your browser</li>
+            </ul>
+            
+            <h3>4.3 Your Responsibility</h3>
+            <p>You are responsible for maintaining the necessary hardware and software to access electronic communications. We will not be liable for any delays or failures caused by your inability to access electronic communications due to technical issues on your end.</p>
+
+            <!-- Electronic Signature -->
+            <h2 id="electronic-signature">5. Electronic Signature</h2>
+            <p>By clicking "I Agree," "Sign," "Accept," or similar buttons on our website or mobile platform, you are signing documents electronically. Your electronic signature is legally binding and has the same effect as a handwritten signature under Kenyan law, including the Kenya Information and Communications Act and the Law of Contract Act.</p>
+            
+            <h3>5.1 How Electronic Signatures Work</h3>
+            <ul>
+                <li>When you check a box indicating agreement, you are signing electronically</li>
+                <li>When you click "Accept" on a loan offer, you are signing the loan agreement</li>
+                <li>When you type your name in a signature field, you are affirming your identity and intent</li>
+                <li>When you confirm via SMS or email verification, you are authenticating your signature</li>
+            </ul>
+            
+            <h3>5.2 Intent to Sign</h3>
+            <p>By using our electronic signature process, you affirm that you intend to be legally bound by the documents you sign. You acknowledge that your electronic signature is your agreement to the terms and conditions contained in those documents.</p>
+            
+            <div class="highlight-box">
+                <p><strong>⚖️ Legal Effect:</strong> Your electronic signature has the same legal force and effect as a handwritten signature on paper. You cannot later deny the validity of an electronic signature simply because it was applied electronically.</p>
+            </div>
+
+            <!-- Record Retention -->
+            <h2 id="record-retention">6. Record Retention</h2>
+            <p>We will retain electronic records of all documents you sign and communications we send for the period required by Kenyan law (typically 7 years from the date of loan closure). You should also retain copies of important documents for your records.</p>
+            
+            <h3>6.1 How to Save Documents</h3>
+            <ul>
+                <li>Download and save PDF files to your computer or device</li>
+                <li>Print physical copies for your records</li>
+                <li>Forward important emails to a secure folder</li>
+                <li>Take screenshots of critical information (though PDF downloads are preferred)</li>
+            </ul>
+            
+            <h3>6.2 Accessing Historical Documents</h3>
+            <p>If you need copies of previously signed documents, you may request them by contacting our support team. We may charge a reasonable fee for producing paper copies of archived documents.</p>
+
+            <!-- Updating Info -->
+            <h2 id="updating-info">7. Updating Your Information</h2>
+            <p>It is your responsibility to keep your contact information current. If your email address or phone number changes, you must update it immediately by:</p>
+            <ul>
+                <li>Logging into your online account (if available)</li>
+                <li>Contacting our customer support at 0700 000 000</li>
+                <li>Sending an email to updates@imaracapital.co.ke</li>
+            </ul>
+            <p>Failure to maintain accurate contact information may result in missed communications, which could affect your loan status or lead to default.</p>
+
+            <!-- Consent Form -->
+            <h2 id="consent">8. Your Consent</h2>
+            <p>Please read the following carefully before providing your consent:</p>
+            
+            <div class="consent-box">
+                <p><strong>By checking the box below and providing your signature, you acknowledge and agree to the following:</strong></p>
+                <ul style="text-align: left; margin-top: 16px;">
+                    <li>I have read and understand this Electronic Signature Consent.</li>
+                    <li>I agree to conduct business with Imara Capital electronically.</li>
+                    <li>I consent to receive all documents, disclosures, and communications electronically.</li>
+                    <li>I understand that my electronic signature has the same legal effect as a handwritten signature.</li>
+                    <li>I have the required hardware and software to access electronic documents.</li>
+                    <li>I will keep my contact information current.</li>
+                    <li>I understand I have the right to withdraw consent at any time.</li>
+                </ul>
+                
+                <div class="consent-checkbox">
+                    <input type="checkbox" id="consentCheckbox">
+                    <label for="consentCheckbox">I agree to the terms of this Electronic Signature Consent</label>
+                </div>
+                
+                <div class="signature-area" id="signatureArea" style="display: none;">
+                    <p><strong>Type your full legal name to sign electronically:</strong></p>
+                    <input type="text" id="fullName" placeholder="e.g., John Mwangi Kimathi">
+                    <p style="font-size: 12px; margin-top: 8px;">Typing your name constitutes your electronic signature</p>
+                </div>
+                
+                <div id="signatureButtonArea" style="display: none; margin-top: 20px;">
+                    <button class="btn btn-primary" id="submitConsent">Confirm E-Sign Consent</button>
+                </div>
+                
+                <div id="successMessage" style="display: none; margin-top: 20px; padding: 16px; background: var(--gray-light); border-radius: 12px;">
+                    <i class="fas fa-check-circle" style="color: var(--green); font-size: 24px; margin-bottom: 8px;"></i>
+                    <p style="margin-bottom: 0;"><strong>Consent Recorded</strong></p>
+                    <p style="font-size: 14px;">Your electronic signature consent has been recorded. Reference: <span id="refNumber"></span></p>
+                    <p style="font-size: 12px; margin-top: 8px;">Date: <span id="consentDate"></span></p>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <h2 id="contact">9. Contact Us</h2>
+            <p>If you have questions about this E-Sign Consent or need assistance with electronic transactions, please contact us:</p>
+            <ul>
+                <li><strong>Phone:</strong> 0700 000 000</li>
+                <li><strong>WhatsApp:</strong> 0700 000 000</li>
+                <li><strong>Email:</strong> econsent@imaracapital.co.ke</li>
+                <li><strong>Support:</strong> support@imaracapital.co.ke</li>
+                <li><strong>Address:</strong> Imara Capital, Westlands, Nairobi, Kenya</li>
+            </ul>
+            
+            <div class="highlight-box" style="margin-top: 32px;">
+                <p><strong>📞 Need Help?</strong> If you have trouble accessing electronic documents or prefer paper copies, contact us and we'll be happy to assist you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Imara Capital</h4>
+                <p>Strong Finance. Smart Growth.</p>
+                <p>CBK License: [TBD]</p>
+                <p>ODPC Registration: [TBD]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Loans</h4>
+                <a href="#">Personal Loans</a>
+                <a href="#">Business Loans</a>
+                <a href="#">Asset Finance</a>
+                <a href="rates.html">Rates & Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="econsent.html">E-Sign Consent</a>
+                <a href="crb-disclosure.html">CRB Disclosure</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Imara Capital. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+    
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+    
+    // Consent Checkbox Logic
+    const consentCheckbox = document.getElementById('consentCheckbox');
+    const signatureArea = document.getElementById('signatureArea');
+    const signatureButtonArea = document.getElementById('signatureButtonArea');
+    const fullNameInput = document.getElementById('fullName');
+    const submitBtn = document.getElementById('submitConsent');
+    const successMessage = document.getElementById('successMessage');
+    const refNumberSpan = document.getElementById('refNumber');
+    const consentDateSpan = document.getElementById('consentDate');
+    
+    consentCheckbox.addEventListener('change', () => {
+        if (consentCheckbox.checked) {
+            signatureArea.style.display = 'block';
+            signatureButtonArea.style.display = 'block';
+        } else {
+            signatureArea.style.display = 'none';
+            signatureButtonArea.style.display = 'none';
+        }
+    });
+    
+    submitBtn.addEventListener('click', () => {
+        const fullName = fullNameInput.value.trim();
+        
+        if (!fullName) {
+            alert('Please type your full legal name to sign');
+            return;
+        }
+        
+        // Generate reference number
+        const refNumber = 'ESIGN-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 1000000);
+        const consentDate = new Date().toLocaleString('en-KE', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        refNumberSpan.textContent = refNumber;
+        consentDateSpan.textContent = consentDate;
+        
+        // Hide consent form, show success
+        const consentBox = document.querySelector('.consent-box');
+        consentBox.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // In a real implementation, you would save this to your backend
+        console.log('E-Sign Consent Recorded:', {
+            name: fullName,
+            reference: refNumber,
+            date: consentDate,
+            consent: true
+        });
+        
+        // Optional: Scroll to success message
+        successMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>

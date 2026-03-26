@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Privacy Policy | Imara Capital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A2C3E;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --navy: #0A1E3C;
+            --gold: #C6A43F;
+            --gold-dark: #B28C2E;
+            --gray-dark: #2D3A4B;
+            --gray: #4A5568;
+            --gray-light: #F7F9FC;
+            --white: #FFFFFF;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            min-height: 48px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo-imara {
+            color: var(--navy);
+        }
+
+        .logo-capital {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--navy);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            padding: 20px;
+            gap: 16px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            padding: 12px 0;
+            min-height: 44px;
+        }
+
+        .mobile-apply {
+            text-align: center;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
+            color: var(--white);
+            padding: 60px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .last-updated {
+            margin-top: 16px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Content */
+        .content-section {
+            padding: 60px 0 80px;
+        }
+
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .legal-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 40px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .legal-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 24px 0 12px 0;
+        }
+
+        .legal-content p {
+            color: var(--gray);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin: 16px 0 16px 24px;
+            color: var(--gray);
+        }
+
+        .legal-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .legal-content .highlight-box {
+            background: var(--gray-light);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .legal-content .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .legal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .legal-content th, .legal-content td {
+            border: 1px solid #E2E8F0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .legal-content th {
+            background: var(--gray-light);
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--gray-light);
+            padding: 24px 32px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .toc h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .toc ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 14px;
+            }
+            
+            .content-section {
+                padding: 40px 0 60px;
+            }
+            
+            .legal-content h2 {
+                font-size: 24px;
+            }
+            
+            .legal-content h3 {
+                font-size: 18px;
+            }
+            
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-imara">Imara</span> <span class="logo-capital">Capital</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="rates.html">Rates</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="apply.html" class="btn btn-primary nav-apply">Apply Now</a>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rates.html">Rates</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy matters to us. Learn how we collect, use, and protect your personal information.</p>
+        <div class="last-updated">Last Updated: January 1, 2025</div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="content-section">
+    <div class="container">
+        <div class="legal-content">
+            
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#introduction">1. Introduction</a></li>
+                    <li><a href="#information-we-collect">2. Information We Collect</a></li>
+                    <li><a href="#how-we-use">3. How We Use Your Information</a></li>
+                    <li><a href="#legal-basis">4. Legal Basis for Processing</a></li>
+                    <li><a href="#sharing">5. Sharing Your Information</a></li>
+                    <li><a href="#data-security">6. Data Security</a></li>
+                    <li><a href="#data-retention">7. Data Retention</a></li>
+                    <li><a href="#your-rights">8. Your Rights</a></li>
+                    <li><a href="#cookies">9. Cookies</a></li>
+                    <li><a href="#children">10. Children's Privacy</a></li>
+                    <li><a href="#changes">11. Changes to This Policy</a></li>
+                    <li><a href="#contact">12. Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Introduction -->
+            <h2 id="introduction">1. Introduction</h2>
+            <p>Imara Capital ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, apply for a loan, or use our services.</p>
+            <p>We comply with the <strong>Kenya Data Protection Act, 2019</strong> and are registered with the Office of the Data Protection Commissioner (ODPC). Our registration number is [TBD].</p>
+            <div class="highlight-box">
+                <p><strong>📢 Important:</strong> By using our services, you consent to the collection and use of your information as described in this Privacy Policy. Please read it carefully.</p>
+            </div>
+
+            <!-- Information We Collect -->
+            <h2 id="information-we-collect">2. Information We Collect</h2>
+            <p>We collect several types of information to provide and improve our services:</p>
+            
+            <h3>2.1 Personal Information</h3>
+            <p>When you apply for a loan, we collect:</p>
+            <ul>
+                <li>Full name (as on National ID)</li>
+                <li>National ID number</li>
+                <li>Date of birth</li>
+                <li>Phone number (M-Pesa registered)</li>
+                <li>Email address</li>
+                <li>Physical address and county</li>
+                <li>Employment and income information</li>
+                <li>Bank statements and M-Pesa statements</li>
+                <li>Credit history via Credit Reference Bureaus (CRBs)</li>
+            </ul>
+
+            <h3>2.2 Usage Data</h3>
+            <p>We automatically collect information about your interaction with our website:</p>
+            <ul>
+                <li>IP address</li>
+                <li>Browser type and version</li>
+                <li>Pages visited and time spent</li>
+                <li>Device information</li>
+                <li>Referring website</li>
+            </ul>
+
+            <!-- How We Use -->
+            <h2 id="how-we-use">3. How We Use Your Information</h2>
+            <p>We use your information for the following purposes:</p>
+            <ul>
+                <li><strong>Loan Processing:</strong> To evaluate your loan application, verify your identity, and determine your creditworthiness.</li>
+                <li><strong>Loan Servicing:</strong> To disburse funds, process repayments, and manage your loan account.</li>
+                <li><strong>Customer Support:</strong> To respond to your inquiries and provide assistance.</li>
+                <li><strong>CRB Reporting:</strong> To report your repayment history to licensed Credit Reference Bureaus as required by law.</li>
+                <li><strong>Legal Compliance:</strong> To comply with regulatory requirements from the Central Bank of Kenya and other authorities.</li>
+                <li><strong>Improvement:</strong> To analyze usage and improve our services and website.</li>
+                <li><strong>Communications:</strong> To send you important updates, reminders, and promotional offers (you may opt out).</li>
+            </ul>
+
+            <!-- Legal Basis -->
+            <h2 id="legal-basis">4. Legal Basis for Processing</h2>
+            <p>Under the Data Protection Act, we process your information based on:</p>
+            <ul>
+                <li><strong>Contractual Necessity:</strong> Processing is necessary for the loan agreement we enter with you.</li>
+                <li><strong>Legal Obligation:</strong> Processing is required to comply with CBK regulations and anti-money laundering laws.</li>
+                <li><strong>Legitimate Interests:</strong> Processing is necessary for our legitimate business interests (e.g., fraud prevention).</li>
+                <li><strong>Consent:</strong> For marketing communications, you may withdraw consent at any time.</li>
+            </ul>
+
+            <!-- Sharing -->
+            <h2 id="sharing">5. Sharing Your Information</h2>
+            <p>We share your information only in the following circumstances:</p>
+            <ul>
+                <li><strong>Credit Reference Bureaus (CRBs):</strong> We report your loan information to Metropol and TransUnion as required by law.</li>
+                <li><strong>Regulatory Authorities:</strong> We may share information with the Central Bank of Kenya, ODPC, or other government agencies when required.</li>
+                <li><strong>Service Providers:</strong> We work with trusted partners who assist with payment processing, data storage, and customer support. These partners are contractually bound to protect your data.</li>
+                <li><strong>Legal Requirements:</strong> We may disclose information if required by law or to protect our rights.</li>
+            </ul>
+            <div class="highlight-box">
+                <p><strong>⚠️ Important:</strong> We <strong>never</strong> sell your personal information to third parties for marketing purposes.</p>
+            </div>
+
+            <!-- Data Security -->
+            <h2 id="data-security">6. Data Security</h2>
+            <p>We implement robust security measures to protect your information:</p>
+            <ul>
+                <li><strong>Encryption:</strong> All data is encrypted in transit (SSL/TLS) and at rest.</li>
+                <li><strong>Access Controls:</strong> Only authorized personnel have access to your information.</li>
+                <li><strong>Regular Audits:</strong> We conduct regular security assessments and penetration testing.</li>
+                <li><strong>Secure Storage:</strong> Data is stored on ISO-certified secure servers.</li>
+            </ul>
+            <p>While we strive to protect your data, no method of transmission over the internet is 100% secure. We encourage you to keep your account credentials confidential.</p>
+
+            <!-- Data Retention -->
+            <h2 id="data-retention">7. Data Retention</h2>
+            <p>We retain your information for as long as necessary to fulfill the purposes outlined in this policy:</p>
+            <ul>
+                <li><strong>Active Loans:</strong> Data is retained for the duration of the loan plus 7 years (as required by financial regulations).</li>
+                <li><strong>Completed Loans:</strong> Data is retained for 7 years after loan closure.</li>
+                <li><strong>Declined Applications:</strong> Data is retained for 1 year.</li>
+                <li><strong>Marketing Data:</strong> Retained until you opt out.</li>
+            </ul>
+
+            <!-- Your Rights -->
+            <h2 id="your-rights">8. Your Rights</h2>
+            <p>Under the Data Protection Act, you have the following rights:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you.</li>
+                <li><strong>Right to Rectification:</strong> Correct inaccurate or incomplete information.</li>
+                <li><strong>Right to Erasure:</strong> Request deletion of your data (subject to legal retention requirements).</li>
+                <li><strong>Right to Restrict Processing:</strong> Limit how we use your data in certain circumstances.</li>
+                <li><strong>Right to Data Portability:</strong> Receive your data in a structured, machine-readable format.</li>
+                <li><strong>Right to Object:</strong> Object to processing based on legitimate interests or direct marketing.</li>
+                <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time (where applicable).</li>
+            </ul>
+            <p>To exercise these rights, contact our Data Protection Officer at <strong>dpo@imaracapital.co.ke</strong> or call <strong>0700 000 000</strong>.</p>
+            <div class="highlight-box">
+                <p><strong>📞 Complaints:</strong> If you're unsatisfied with our response, you have the right to lodge a complaint with the Office of the Data Protection Commissioner at <a href="https://www.odpc.go.ke" target="_blank">www.odpc.go.ke</a>.</p>
+            </div>
+
+            <!-- Cookies -->
+            <h2 id="cookies">9. Cookies</h2>
+            <p>We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small files stored on your device that help us:</p>
+            <ul>
+                <li>Remember your preferences</li>
+                <li>Analyze website traffic</li>
+                <li>Improve website functionality</li>
+            </ul>
+            <p>You can control cookies through your browser settings. However, disabling cookies may affect certain features of our website.</p>
+
+            <!-- Children's Privacy -->
+            <h2 id="children">10. Children's Privacy</h2>
+            <p>Our services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from minors. If you believe we have inadvertently collected information from a minor, please contact us immediately.</p>
+
+            <!-- Changes -->
+            <h2 id="changes">11. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last Updated" date. We encourage you to review this policy periodically. Material changes will be communicated via email or website notification.</p>
+
+            <!-- Contact -->
+            <h2 id="contact">12. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> dpo@imaracapital.co.ke</li>
+                <li><strong>Phone:</strong> 0700 000 000</li>
+                <li><strong>WhatsApp:</strong> 0700 000 000</li>
+                <li><strong>Address:</strong> Imara Capital, Westlands, Nairobi, Kenya</li>
+                <li><strong>Data Protection Officer:</strong> [Name], dpo@imaracapital.co.ke</li>
+            </ul>
+            
+            <div class="highlight-box" style="margin-top: 32px;">
+                <p><strong>🏢 ODPC Registration:</strong> Imara Capital is registered with the Office of the Data Protection Commissioner under Registration Number [TBD]. For complaints, visit <a href="https://www.odpc.go.ke" target="_blank">www.odpc.go.ke</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Imara Capital</h4>
+                <p>Strong Finance. Smart Growth.</p>
+                <p>CBK License: [TBD]</p>
+                <p>ODPC Registration: [TBD]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Loans</h4>
+                <a href="#">Personal Loans</a>
+                <a href="#">Business Loans</a>
+                <a href="#">Asset Finance</a>
+                <a href="rates.html">Rates & Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="econsent.html">E-Sign Consent</a>
+                <a href="crb-disclosure.html">CRB Disclosure</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Imara Capital. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+    
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>

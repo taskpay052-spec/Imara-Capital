@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About Us | Imara Capital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A2C3E;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --navy: #0A1E3C;
+            --gold: #C6A43F;
+            --gold-dark: #B28C2E;
+            --gray-dark: #2D3A4B;
+            --gray: #4A5568;
+            --gray-light: #F7F9FC;
+            --white: #FFFFFF;
+            --green: #2E7D32;
+            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            min-height: 48px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo-imara {
+            color: var(--navy);
+        }
+
+        .logo-capital {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-apply {
+            padding: 10px 24px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--navy);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            padding: 20px;
+            gap: 16px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            padding: 12px 0;
+            min-height: 44px;
+        }
+
+        .mobile-apply {
+            text-align: center;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background: var(--gray-light);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px auto;
+        }
+
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .story-image {
+            background: linear-gradient(135deg, rgba(198, 164, 63, 0.1), rgba(10, 30, 60, 0.05));
+            border-radius: 32px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .story-image i {
+            font-size: 80px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .story-image h3 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .story-image p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid #E2E8F0;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(198, 164, 63, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .value-icon i {
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .value-card .swahili {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid #E2E8F0;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--navy), #1E3A5F);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 3px solid var(--gold);
+        }
+
+        .team-avatar i {
+            font-size: 48px;
+            color: var(--gold);
+        }
+
+        .team-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .team-title {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .team-bio {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Licenses Section */
+        .licenses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .license-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s;
+        }
+
+        .license-card:hover {
+            border-color: var(--gold);
+        }
+
+        .license-card i {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .license-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .license-card p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .license-status {
+            display: inline-block;
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ======================================== */
+        /* ENHANCED MOBILE OPTIMIZATION */
+        /* ======================================== */
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-apply {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .page-header {
+                padding: 48px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+                padding: 0 16px;
+            }
+            
+            .section {
+                padding: 48px 0;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+                padding: 0 16px;
+                margin-bottom: 32px;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .story-content {
+                order: 2;
+            }
+            
+            .story-image {
+                order: 1;
+                padding: 32px 24px;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .value-card {
+                padding: 24px 20px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .team-card {
+                padding: 24px;
+            }
+            
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .team-avatar i {
+                font-size: 40px;
+            }
+            
+            .licenses-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            
+            .stat-item h3 {
+                font-size: 32px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            
+            .cta-section {
+                padding: 48px 0;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+            
+            .cta-section p {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+                width: auto;
+                display: inline-block;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            /* Better touch targets */
+            .value-card, .team-card, .license-card {
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(198, 164, 63, 0.2);
+            }
+            
+            a, button {
+                min-height: 44px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .stat-item h3 {
+                font-size: 28px;
+            }
+            
+            .stat-item p {
+                font-size: 12px;
+            }
+            
+            .value-card h3 {
+                font-size: 20px;
+            }
+            
+            .team-card h3 {
+                font-size: 18px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .story-image i {
+                font-size: 60px;
+            }
+            
+            .story-image h3 {
+                font-size: 20px;
+            }
+        }
+        
+        /* Disable zoom on input focus */
+        @media (max-width: 768px) {
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-imara">Imara</span> <span class="logo-capital">Capital</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="rates.html">Rates</a>
+            <a href="about.html" class="active">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <a href="apply.html" class="btn btn-primary nav-apply">Apply Now</a>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="rates.html">Rates</a>
+    <a href="about.html">About</a>
+    <a href="#">Contact</a>
+    <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
+</div>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>About Imara Capital</h1>
+        <p>We're on a mission to provide Kenyans with fair, transparent, and accessible financing. Strong Finance. Smart Growth.</p>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="section">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">Our Story</h2>
+                <p>Imara Capital was founded with a simple belief: <strong>Kenyans deserve better lending.</strong> No hidden fees. No predatory practices. Just honest, straightforward financing that helps you grow.</p>
+                <p>We saw too many Kenyans trapped in cycles of debt with digital lenders who cared more about profits than people. Hidden charges, aggressive collection tactics, and unfair terms became the norm.</p>
+                <p>We decided to do things differently. <strong>Imara Capital</strong> — meaning "strong" in Swahili — was born to be a pillar of trust in the Kenyan lending market. We're a Kenyan company, licensed by the Central Bank of Kenya, and committed to serving our community with integrity.</p>
+                <p>Today, we've helped over <strong>5,000 Kenyans</strong> access fair financing to grow their businesses, pay school fees, handle emergencies, and build better futures.</p>
+            </div>
+            <div class="story-image">
+                <i class="fas fa-handshake"></i>
+                <h3>Your Trusted Financial Partner</h3>
+                <p>Licensed by the Central Bank of Kenya<br>Registered with ODPC<br>Proudly serving Kenya since 2024</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Values Section -->
+<section class="section-light">
+    <div class="container">
+        <h2 class="section-title">Our Values</h2>
+        <p class="section-subtitle">These principles guide everything we do at Imara Capital.</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Strong</h3>
+                <span class="swahili">Imara</span>
+                <p>We stand firm. Financially stable, legally compliant, and here to stay. You can count on us.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Transparent</h3>
+                <span class="swahili">Wazi</span>
+                <p>No hidden fees. No fine print tricks. What you see is what you get — always.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Fast</h3>
+                <span class="swahili">Haraka</span>
+                <p>Your time matters. We process applications and disburse funds quickly — within 24 hours.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Respectful</h3>
+                <span class="swahili">Heshima</span>
+                <p>Every customer is treated with dignity. We're here to help, not exploit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Leadership Team</h2>
+        <p class="section-subtitle">Experienced professionals committed to your financial success.</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>[Name Placeholder]</h3>
+                <div class="team-title">Founder & CEO</div>
+                <p class="team-bio">20+ years experience in banking and microfinance. Passionate about financial inclusion in Kenya.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>[Name Placeholder]</h3>
+                <div class="team-title">Head of Credit</div>
+                <p class="team-bio">Former credit manager at leading Kenyan bank. Expert in responsible lending and risk assessment.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>[Name Placeholder]</h3>
+                <div class="team-title">Head of Operations</div>
+                <p class="team-bio">Tech and operations leader focused on delivering fast, seamless customer experiences.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Licenses & Registrations Section -->
+<section class="section-light">
+    <div class="container">
+        <h2 class="section-title">Licenses & Registrations</h2>
+        <p class="section-subtitle">We're fully compliant with Kenyan regulations. Your trust is our priority.</p>
+        
+        <div class="licenses-grid">
+            <div class="license-card">
+                <i class="fas fa-building"></i>
+                <h4>CBK Credit Provider License</h4>
+                <p>Licensed by the Central Bank of Kenya</p>
+                <span class="license-status">License No: [TBD]</span>
+            </div>
+            
+            <div class="license-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>ODPC Registration</h4>
+                <p>Office of the Data Protection Commissioner</p>
+                <span class="license-status">Registration No: [TBD]</span>
+            </div>
+            
+            <div class="license-card">
+                <i class="fas fa-chart-line"></i>
+                <h4>CRB Partner</h4>
+                <p>Licensed Credit Reference Bureau Partner</p>
+                <span class="license-status">Metropol | TransUnion</span>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 32px;">
+            <p style="color: var(--gray); font-size: 14px;">
+                <i class="fas fa-check-circle" style="color: var(--gold);"></i> Equal Opportunity Lender<br>
+                <i class="fas fa-check-circle" style="color: var(--gold);"></i> Compliant with Data Protection Act 2019<br>
+                <i class="fas fa-check-circle" style="color: var(--gold);"></i> Member of Kenya Bankers Association (Affiliate)
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5,000+</h3>
+                <p>Customers Served</p>
+            </div>
+            <div class="stat-item">
+                <h3>KSh 50M+</h3>
+                <p>Loans Disbursed</p>
+            </div>
+            <div class="stat-item">
+                <h3>24hrs</h3>
+                <p>Average Approval</p>
+            </div>
+            <div class="stat-item">
+                <h3>47</h3>
+                <p>Counties Served</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Grow with Us?</h2>
+        <p>Join thousands of Kenyans who trust Imara Capital for fair, transparent financing.</p>
+        <a href="apply.html" class="btn btn-primary">Apply for a Loan</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Imara Capital</h4>
+                <p>Strong Finance. Smart Growth.</p>
+                <p>CBK License: [TBD]</p>
+                <p>ODPC Registration: [TBD]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Loans</h4>
+                <a href="#">Personal Loans</a>
+                <a href="#">Business Loans</a>
+                <a href="#">Asset Finance</a>
+                <a href="rates.html">Rates & Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="about.html">About Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> 0700 000 000</p>
+                <p><i class="fas fa-envelope"></i> hello@imaracapital.co.ke</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Imara Capital. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when a link is clicked
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>
