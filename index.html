@@ -29,6 +29,7 @@
 
         :root {
             --navy: #0A1E3C;
+            --navy-light: #123456;
             --gold: #C6A43F;
             --gold-dark: #B28C2E;
             --gray-dark: #2D3A4B;
@@ -37,6 +38,7 @@
             --white: #FFFFFF;
             --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 30px 50px -15px rgba(0, 0, 0, 0.1);
         }
 
         .container {
@@ -79,6 +81,11 @@
         .btn-secondary:hover {
             background: var(--gold);
             color: var(--navy);
+        }
+
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 18px;
         }
 
         /* Navigation */
@@ -167,83 +174,89 @@
             text-align: center;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0A1E3C 0%, #123456 100%);
-            color: var(--white);
-            padding: 80px 0;
+        /* Hero Banner - New Compact Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 48px 0 0 0;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(198, 164, 63, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        .hero-title {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.2;
+        .banner-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(198, 164, 63, 0.2);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gold);
             margin-bottom: 24px;
         }
 
-        .hero-highlight {
+        .banner-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .banner-content h1 span {
             color: var(--gold);
         }
 
-        .hero-description {
+        .banner-content p {
             font-size: 18px;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 32px;
             line-height: 1.6;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .trust-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .trust-badges span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .trust-badges i {
-            color: var(--gold);
-        }
-
-        .hero-stats {
-            background: rgba(255, 255, 255, 0.1);
+        /* Stats Strip */
+        .stats-strip {
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+            padding: 20px 0;
+            margin-top: 48px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .stat {
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
             text-align: center;
         }
 
         .stat-number {
-            display: block;
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--gold);
+            display: block;
         }
 
         .stat-label {
@@ -257,24 +270,35 @@
         }
 
         .calculator-section {
-            background: var(--gray-light);
+            background: var(--white);
+            padding-top: 60px;
         }
 
         .calculator-card {
             background: var(--white);
             border-radius: 32px;
             padding: 48px;
-            box-shadow: var(--shadow);
-            max-width: 800px;
-            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: -40px auto 0 auto;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .calculator-title {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 32px;
+            font-weight: 800;
             color: var(--navy);
             text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .calculator-subtitle {
+            text-align: center;
+            color: var(--gray);
             margin-bottom: 32px;
+            font-size: 16px;
         }
 
         .calculator-form {
@@ -305,11 +329,13 @@
         }
 
         .amount-input input[type="number"] {
-            width: 120px;
-            padding: 10px;
+            width: 140px;
+            padding: 12px;
             border: 1px solid #E2E8F0;
             border-radius: 12px;
             font-size: 16px;
+            font-weight: 600;
+            text-align: center;
         }
 
         .period-input select {
@@ -318,16 +344,19 @@
             border: 1px solid #E2E8F0;
             border-radius: 12px;
             font-size: 16px;
+            background: var(--white);
+            cursor: pointer;
         }
 
         .calculator-results {
-            background: var(--gray-light);
-            border-radius: 20px;
-            padding: 24px;
+            background: linear-gradient(135deg, var(--gray-light) 0%, #FFFFFF 100%);
+            border-radius: 24px;
+            padding: 28px;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
+            border: 1px solid #E2E8F0;
         }
 
         .result-item {
@@ -340,11 +369,13 @@
             font-size: 14px;
             color: var(--gray);
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .result-value {
             display: block;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--navy);
         }
@@ -352,6 +383,7 @@
         .calculator-apply {
             display: block;
             text-align: center;
+            width: 100%;
         }
 
         .calculator-note {
@@ -397,6 +429,7 @@
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
         }
 
         .product-icon {
@@ -453,6 +486,11 @@
         .feature {
             text-align: center;
             padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
         }
 
         .feature-icon {
@@ -492,9 +530,13 @@
             text-align: center;
         }
 
+        .step {
+            position: relative;
+        }
+
         .step-number {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             background: var(--gold);
             color: var(--navy);
             border-radius: 50%;
@@ -581,60 +623,43 @@
                 display: flex;
             }
             
-            .hero {
-                padding: 48px 0;
-            }
-            
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .hero-title {
+            .banner-content h1 {
                 font-size: 32px;
             }
             
-            .hero-buttons {
-                flex-direction: column;
-                gap: 12px;
+            .banner-content p {
+                font-size: 16px;
             }
             
-            .hero-buttons .btn {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .hero-stats {
-                flex-direction: row;
-                justify-content: center;
-                padding: 20px;
+            .stats-grid {
+                gap: 30px;
             }
             
             .stat-number {
-                font-size: 28px;
+                font-size: 22px;
             }
             
-            .trust-badges {
-                justify-content: center;
-                gap: 12px;
-            }
-            
-            .trust-badges span {
-                font-size: 11px;
+            .stat-label {
+                font-size: 12px;
             }
             
             .calculator-card {
                 padding: 24px;
-                margin: 0 16px;
+                margin-top: -30px;
             }
             
             .calculator-title {
                 font-size: 24px;
             }
             
+            .calculator-subtitle {
+                font-size: 14px;
+            }
+            
             .calculator-results {
                 flex-direction: column;
-                gap: 12px;
+                gap: 16px;
+                padding: 20px;
             }
             
             .result-item {
@@ -682,19 +707,20 @@
             
             .product-card {
                 padding: 24px;
-                margin: 0 16px;
             }
             
             .product-title {
                 font-size: 20px;
             }
             
-            .feature {
-                padding: 20px;
-            }
-            
             .feature-title {
                 font-size: 18px;
+            }
+            
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
             }
             
             .step-icon i {
@@ -709,28 +735,14 @@
                 text-align: center;
             }
             
-            .footer-col {
-                margin-bottom: 8px;
-            }
-            
             .container {
                 padding: 0 20px;
-            }
-            
-            /* Better touch targets */
-            .btn, button, .product-card, .feature {
-                cursor: pointer;
-                -webkit-tap-highlight-color: rgba(198, 164, 63, 0.2);
             }
         }
         
         @media (max-width: 480px) {
-            .hero-title {
+            .banner-content h1 {
                 font-size: 28px;
-            }
-            
-            .hero-description {
-                font-size: 16px;
             }
             
             .section-title {
@@ -745,20 +757,16 @@
                 font-size: 24px;
             }
             
+            .stats-grid {
+                gap: 20px;
+            }
+            
             .stat-number {
-                font-size: 24px;
-            }
-            
-            .stat-label {
-                font-size: 12px;
-            }
-            
-            .result-value {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
         
-        /* Disable zoom on input focus for better mobile experience */
+        /* Disable zoom on input focus */
         @media (max-width: 768px) {
             input, select, textarea {
                 font-size: 16px !important;
@@ -805,45 +813,47 @@
     <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
 </div>
 
-<!-- Hero Section -->
-<section class="hero">
+<!-- Hero Banner - Compact & Professional -->
+<section class="hero-banner">
     <div class="container">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <h1 class="hero-title">Strong Finance.<br><span class="hero-highlight">Smart Growth.</span></h1>
-                <p class="hero-description">Personal and business loans for Kenyans who want to move forward. Fast disbursement via M-Pesa. Transparent rates. No hidden fees.</p>
-                <div class="hero-buttons">
-                    <a href="apply.html" class="btn btn-primary">Check Your Rate</a>
-                    <a href="how-it-works.html" class="btn btn-secondary">How It Works</a>
+        <div class="banner-content">
+            <span class="badge"><i class="fas fa-star"></i> Trusted by 5,000+ Kenyans</span>
+            <h1>Fast, Fair & Transparent<br><span>Loans in Kenya</span></h1>
+            <p>Get personal and business loans from KSh 5,000 to KSh 500,000. Fast M-Pesa disbursement. No hidden fees. CBK licensed.</p>
+        </div>
+    </div>
+    
+    <!-- Stats Strip -->
+    <div class="stats-strip">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">KSh 50M+</span>
+                    <span class="stat-label">Loans Disbursed</span>
                 </div>
-                <div class="trust-badges">
-                    <span><i class="fas fa-check-circle"></i> CBK Licensed</span>
-                    <span><i class="fas fa-check-circle"></i> ODPC Registered</span>
-                    <span><i class="fas fa-lock"></i> SSL Secure</span>
-                    <span><i class="fas fa-users"></i> 5,000+ Customers</span>
+                <div class="stat-item">
+                    <span class="stat-number">24 Hours</span>
+                    <span class="stat-label">Average Approval</span>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">KSh 50M+</span>
-                        <span class="stat-label">Disbursed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24hrs</span>
-                        <span class="stat-label">Approval Time</span>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">47</span>
+                    <span class="stat-label">Counties Served</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Loan Calculator Section -->
+<!-- Loan Calculator Section - Now at the Top -->
 <section class="section calculator-section">
     <div class="container">
         <div class="calculator-card">
             <h2 class="calculator-title">How much do you need?</h2>
+            <p class="calculator-subtitle">Use our calculator to estimate your monthly payment</p>
             <div class="calculator-form">
                 <div class="calculator-field">
                     <label>Loan Amount (KSh)</label>
@@ -885,7 +895,7 @@
                         <span class="result-value" id="interestRate">4% per month</span>
                     </div>
                 </div>
-                <a href="apply.html" class="btn btn-primary calculator-apply">Apply Now</a>
+                <a href="apply.html" class="btn btn-primary calculator-apply btn-large">Apply Now →</a>
                 <p class="calculator-note">Rates range from 3% to 12% per month based on credit profile. Terms and conditions apply.</p>
             </div>
         </div>
