@@ -174,12 +174,13 @@
             text-align: center;
         }
 
-        /* Hero Slider Section */
+        /* Hero Slider Section - Reduced Height */
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 85vh;
-            min-height: 500px;
+            height: 65vh;
+            min-height: 450px;
+            max-height: 550px;
             overflow: hidden;
         }
 
@@ -196,7 +197,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -231,15 +232,15 @@
         }
 
         .slide-content h1 {
-            font-size: 56px;
+            font-size: 48px;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             animation: fadeInUp 0.8s ease-out;
         }
 
         .slide-content p {
-            font-size: 20px;
-            margin-bottom: 32px;
+            font-size: 18px;
+            margin-bottom: 28px;
             max-width: 600px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease-out 0.2s both;
@@ -252,17 +253,17 @@
         /* Slider Navigation Dots */
         .slider-dots {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 12px;
+            gap: 10px;
             z-index: 10;
         }
 
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
@@ -271,8 +272,8 @@
 
         .dot.active {
             background: var(--gold);
-            width: 30px;
-            border-radius: 6px;
+            width: 28px;
+            border-radius: 5px;
         }
 
         .dot:hover {
@@ -283,7 +284,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -291,14 +292,10 @@
             }
         }
 
-        /* Calculator Section */
-        .section {
-            padding: 80px 0;
-        }
-
+        /* Calculator Section - Tight spacing */
         .calculator-section {
             background: var(--white);
-            padding: 60px 0 80px 0;
+            padding: 48px 0 80px 0;
         }
 
         .calculator-card {
@@ -418,7 +415,11 @@
             margin-top: 16px;
         }
 
-        /* Products Section */
+        /* Other Sections */
+        .section {
+            padding: 80px 0;
+        }
+
         .section-title {
             font-size: 36px;
             font-weight: 700;
@@ -497,7 +498,6 @@
             flex-wrap: wrap;
         }
 
-        /* Features Section */
         .features-section {
             background: var(--gray-light);
         }
@@ -547,16 +547,11 @@
             line-height: 1.6;
         }
 
-        /* Steps Section */
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
             text-align: center;
-        }
-
-        .step {
-            position: relative;
         }
 
         .step-number {
@@ -591,7 +586,6 @@
             line-height: 1.6;
         }
 
-        /* Footer */
         .footer {
             background: var(--navy);
             color: var(--white);
@@ -649,17 +643,28 @@
             }
             
             .hero-slider {
-                height: 70vh;
-                min-height: 450px;
+                height: 55vh;
+                min-height: 380px;
+                max-height: 450px;
             }
             
             .slide-content h1 {
-                font-size: 32px;
+                font-size: 28px;
+                margin-bottom: 12px;
             }
             
             .slide-content p {
-                font-size: 16px;
+                font-size: 14px;
+                margin-bottom: 20px;
                 padding: 0 16px;
+            }
+            
+            .slider-dots {
+                bottom: 12px;
+            }
+            
+            .calculator-section {
+                padding: 32px 0 60px 0;
             }
             
             .calculator-card {
@@ -673,16 +678,17 @@
             
             .calculator-subtitle {
                 font-size: 14px;
+                margin-bottom: 24px;
             }
             
             .calculator-results {
                 flex-direction: column;
-                gap: 16px;
+                gap: 12px;
                 padding: 20px;
             }
             
             .result-item {
-                padding: 12px;
+                padding: 10px;
                 background: var(--white);
                 border-radius: 16px;
             }
@@ -712,10 +718,6 @@
             
             .section {
                 padding: 48px 0;
-            }
-            
-            .calculator-section {
-                padding: 40px 0 60px 0;
             }
             
             .section-title {
@@ -766,16 +768,17 @@
         
         @media (max-width: 480px) {
             .hero-slider {
-                height: 60vh;
-                min-height: 400px;
+                height: 50vh;
+                min-height: 340px;
+                max-height: 400px;
             }
             
             .slide-content h1 {
-                font-size: 28px;
+                font-size: 24px;
             }
             
             .slide-content p {
-                font-size: 14px;
+                font-size: 13px;
             }
             
             .section-title {
@@ -788,6 +791,11 @@
             
             .logo {
                 font-size: 24px;
+            }
+            
+            .btn-large {
+                padding: 12px 28px;
+                font-size: 14px;
             }
         }
         
@@ -838,7 +846,7 @@
     <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
 </div>
 
-<!-- Hero Slider Section - Replaces Welcome Banner -->
+<!-- Hero Slider Section - Reduced Height -->
 <section class="hero-slider">
     <div class="slider-container" id="sliderContainer">
         <div class="slide active" style="background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg')">
@@ -866,7 +874,7 @@
     <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- Loan Calculator Section -->
+<!-- Loan Calculator Section - Tight spacing after hero -->
 <section class="calculator-section">
     <div class="container">
         <div class="calculator-card">
@@ -1131,10 +1139,8 @@
     sliderContainer.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         if (touchStartX - touchEndX > 50) {
-            // Swipe left
             nextSlide();
         } else if (touchEndX - touchStartX > 50) {
-            // Swipe right
             let prev = currentSlide - 1;
             if (prev < 0) prev = slides.length - 1;
             goToSlide(prev);
@@ -1153,14 +1159,13 @@
         let amount = parseFloat(loanAmount.value);
         let term = parseInt(loanTerm.value);
         
-        let rate = 0.04; // 4% default rate
+        let rate = 0.04;
         if (amount < 10000) rate = 0.05;
         else if (amount < 50000) rate = 0.045;
         else if (amount < 200000) rate = 0.04;
         else rate = 0.035;
         
-        let monthlyRate = rate;
-        let monthlyPayment = (amount * monthlyRate) + (amount / term);
+        let monthlyPayment = (amount * rate) + (amount / term);
         let totalRepayment = monthlyPayment * term;
         
         monthlyPaymentSpan.innerHTML = `KSh ${Math.round(monthlyPayment).toLocaleString()}`;
