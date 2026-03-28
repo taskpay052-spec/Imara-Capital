@@ -28,14 +28,17 @@
         }
 
         :root {
-            --navy: #0A1E3C;
-            --navy-light: #123456;
-            --gold: #C6A43F;
-            --gold-dark: #B28C2E;
+            --navy: #0A2540;
+            --navy-light: #1A3A5C;
+            --teal: #2C7A7B;
+            --teal-dark: #235B5C;
+            --gold: #F5A623;
+            --gold-dark: #E09512;
             --gray-dark: #2D3A4B;
             --gray: #4A5568;
-            --gray-light: #F7F9FC;
+            --gray-light: #F8F9FA;
             --white: #FFFFFF;
+            --green: #2E7D32;
             --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
             --shadow-lg: 0 30px 50px -15px rgba(0, 0, 0, 0.1);
@@ -62,25 +65,35 @@
         }
 
         .btn-primary {
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--teal);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--gold-dark);
+            background: var(--teal-dark);
             transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
+            color: var(--teal);
+            border: 2px solid var(--teal);
         }
 
         .btn-secondary:hover {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .btn-gold {
             background: var(--gold);
             color: var(--navy);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
         }
 
         /* Navigation */
@@ -113,7 +126,7 @@
         }
 
         .logo-capital {
-            color: var(--gold);
+            color: var(--teal);
         }
 
         .nav-links {
@@ -133,11 +146,17 @@
         }
 
         .nav-links a:hover {
-            color: var(--gold);
+            color: var(--teal);
         }
 
         .nav-apply {
             padding: 10px 24px;
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .nav-apply:hover {
+            background: var(--teal-dark);
         }
 
         .mobile-menu-btn {
@@ -170,6 +189,8 @@
 
         .mobile-apply {
             text-align: center;
+            background: var(--teal);
+            color: var(--white);
         }
 
         /* Hero Section */
@@ -192,11 +213,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 30, 60, 0.65) 0%, rgba(10, 30, 60, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.75) 0%, rgba(10, 37, 64, 0.6) 100%);
             z-index: 1;
         }
 
-        /* Calculator Section (unchanged) */
+        /* Calculator Section */
         .calculator-section {
             background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%);
             padding: 0;
@@ -226,12 +247,12 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(198, 164, 63, 0.1);
+            background: rgba(44, 122, 123, 0.1);
             padding: 8px 20px;
             border-radius: 100px;
             font-size: 13px;
             font-weight: 500;
-            color: var(--gold);
+            color: var(--teal);
             margin-bottom: 32px;
         }
 
@@ -275,7 +296,7 @@
         }
 
         .input-group label i {
-            color: var(--gold);
+            color: var(--teal);
             font-size: 18px;
         }
 
@@ -307,7 +328,7 @@
             width: 22px;
             height: 22px;
             border-radius: 50%;
-            background: var(--gold);
+            background: var(--teal);
             cursor: pointer;
             border: 3px solid var(--white);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -322,7 +343,7 @@
         }
 
         .current-amount .currency {
-            color: var(--gold);
+            color: var(--teal);
             margin-right: 4px;
             font-size: 20px;
         }
@@ -347,14 +368,14 @@
         }
 
         .term-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            border-color: var(--teal);
+            color: var(--teal);
         }
 
         .term-btn.active {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--navy);
+            background: var(--teal);
+            border-color: var(--teal);
+            color: var(--white);
         }
 
         .calculator-breakdown {
@@ -378,7 +399,7 @@
             content: '';
             width: 4px;
             height: 20px;
-            background: var(--gold);
+            background: var(--teal);
             border-radius: 2px;
         }
 
@@ -400,7 +421,7 @@
 
         .breakdown-card:hover {
             transform: translateY(-4px);
-            border-color: var(--gold);
+            border-color: var(--teal);
             box-shadow: var(--shadow);
         }
 
@@ -417,7 +438,7 @@
         .breakdown-icon {
             width: 48px;
             height: 48px;
-            background: rgba(198, 164, 63, 0.1);
+            background: rgba(44, 122, 123, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -427,7 +448,7 @@
 
         .breakdown-icon i {
             font-size: 20px;
-            color: var(--gold);
+            color: var(--teal);
         }
 
         .breakdown-label {
@@ -448,7 +469,7 @@
         }
 
         .interest-badge {
-            background: rgba(198, 164, 63, 0.15);
+            background: rgba(245, 166, 35, 0.15);
             padding: 2px 8px;
             border-radius: 20px;
             font-size: 10px;
@@ -468,15 +489,15 @@
             margin-top: 8px;
             font-size: 16px;
             font-weight: 700;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--teal);
+            color: var(--white);
             border-radius: 60px;
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .apply-btn:hover {
-            background: var(--gold-dark);
+            background: var(--teal-dark);
             transform: translateY(-2px);
             gap: 16px;
         }
@@ -492,11 +513,7 @@
             gap: 6px;
         }
 
-        /* ======================================== */
-        /* REDESIGNED SECTIONS - MODERN & MOBILE-FRIENDLY */
-        /* ======================================== */
-
-        /* Loan Products Section - Modern Cards */
+        /* Loan Products Section */
         .products-section {
             padding: 80px 0;
             background: var(--white);
@@ -545,14 +562,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            background: linear-gradient(90deg, var(--teal), var(--gold));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
 
         .product-card-modern:hover {
             transform: translateY(-8px);
-            border-color: var(--gold);
+            border-color: var(--teal);
             box-shadow: var(--shadow-lg);
         }
 
@@ -563,7 +580,7 @@
         .product-icon-modern {
             width: 80px;
             height: 80px;
-            background: rgba(198, 164, 63, 0.1);
+            background: rgba(44, 122, 123, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -573,7 +590,7 @@
 
         .product-icon-modern i {
             font-size: 36px;
-            color: var(--gold);
+            color: var(--teal);
         }
 
         .product-card-modern h3 {
@@ -603,10 +620,10 @@
             border-radius: 30px;
             font-size: 13px;
             font-weight: 500;
-            color: var(--gold);
+            color: var(--teal);
         }
 
-        /* Features Grid - Modern */
+        /* Features Section */
         .features-section-modern {
             background: var(--gray-light);
             padding: 80px 0;
@@ -629,14 +646,14 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--gold);
+            border-color: var(--teal);
             box-shadow: var(--shadow);
         }
 
         .feature-icon-modern {
             width: 70px;
             height: 70px;
-            background: rgba(198, 164, 63, 0.1);
+            background: rgba(44, 122, 123, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -646,7 +663,7 @@
 
         .feature-icon-modern i {
             font-size: 30px;
-            color: var(--gold);
+            color: var(--teal);
         }
 
         .feature-card h3 {
@@ -662,7 +679,7 @@
             font-size: 14px;
         }
 
-        /* Steps Section - Modern */
+        /* Steps Section */
         .steps-section-modern {
             padding: 80px 0;
             background: var(--white);
@@ -686,14 +703,14 @@
 
         .step-card:hover {
             transform: translateY(-5px);
-            border-color: var(--gold);
+            border-color: var(--teal);
         }
 
         .step-number-modern {
             width: 56px;
             height: 56px;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--teal);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -709,7 +726,7 @@
 
         .step-icon-modern i {
             font-size: 48px;
-            color: var(--gold);
+            color: var(--teal);
         }
 
         .step-card h3 {
@@ -764,10 +781,7 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* ======================================== */
-        /* ENHANCED MOBILE OPTIMIZATION */
-        /* ======================================== */
-
+        /* Mobile Optimization */
         @media (max-width: 768px) {
             .nav-links, .nav-apply {
                 display: none;
@@ -843,12 +857,6 @@
                 margin: 0 16px;
             }
             
-            .product-card-modern h3,
-            .feature-card h3,
-            .step-card h3 {
-                font-size: 20px;
-            }
-            
             .products-section,
             .features-section-modern,
             .steps-section-modern {
@@ -896,10 +904,6 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 8px;
-            }
-            
-            .product-card-modern {
-                margin: 0;
             }
         }
     </style>
@@ -1019,7 +1023,7 @@
     </div>
 </section>
 
-<!-- Loan Products Section - Modern Redesign -->
+<!-- Loan Products Section -->
 <section class="products-section">
     <div class="container">
         <div class="section-header">
@@ -1061,7 +1065,7 @@
     </div>
 </section>
 
-<!-- Why Choose Us Section - Modern Redesign -->
+<!-- Why Choose Us Section -->
 <section class="features-section-modern">
     <div class="container">
         <div class="section-header">
@@ -1093,7 +1097,7 @@
     </div>
 </section>
 
-<!-- How It Works Section - Modern Redesign -->
+<!-- How It Works Section -->
 <section class="steps-section-modern">
     <div class="container">
         <div class="section-header">
