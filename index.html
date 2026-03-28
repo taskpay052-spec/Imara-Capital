@@ -174,83 +174,28 @@
             text-align: center;
         }
 
-        /* Hero Slider Section - Clean, no text overlay */
-        .hero-slider {
+        /* Hero Section - Single Image */
+        .hero-section {
             position: relative;
             width: 100%;
             height: 70vh;
-            min-height: 480px;
-            max-height: 600px;
-            overflow: hidden;
-        }
-
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            min-height: 500px;
+            max-height: 650px;
+            background-image: url('https://images.pexels.com/photos/5691792/pexels-photo-5691792.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             background-repeat: no-repeat;
         }
 
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide::before {
+        .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 30, 60, 0.7) 0%, rgba(10, 30, 60, 0.55) 100%);
+            background: linear-gradient(135deg, rgba(10, 30, 60, 0.65) 0%, rgba(10, 30, 60, 0.5) 100%);
             z-index: 1;
-        }
-
-        /* No text content overlay - removed all text */
-        .slide-content {
-            display: none;
-        }
-
-        /* Slider Navigation Dots */
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--gold);
-            width: 28px;
-            border-radius: 5px;
-        }
-
-        .dot:hover {
-            background: var(--gold);
         }
 
         /* Calculator Section - Full width with edge-to-edge spacing */
@@ -636,10 +581,11 @@
                 display: flex;
             }
             
-            .hero-slider {
-                height: 45vh;
-                min-height: 320px;
-                max-height: 400px;
+            .hero-section {
+                height: 50vh;
+                min-height: 350px;
+                max-height: 450px;
+                background-position: center 40%;
             }
             
             .calculator-wrapper {
@@ -748,19 +694,15 @@
                 padding: 0 20px;
             }
             
-            .slider-dots {
-                bottom: 12px;
-            }
-            
             .calculator-apply {
                 max-width: 100%;
             }
         }
         
         @media (max-width: 480px) {
-            .hero-slider {
-                height: 40vh;
-                min-height: 280px;
+            .hero-section {
+                height: 45vh;
+                min-height: 300px;
             }
             
             .calculator-title {
@@ -827,20 +769,8 @@
     <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
 </div>
 
-<!-- Hero Slider Section - Updated with Better Images -->
-<section class="hero-slider">
-    <div class="slider-container" id="sliderContainer">
-        <!-- Slide 1: Modern African Business Professional -->
-        <div class="slide active" style="background-image: url('sandbox:/mnt/data/bc288a04-b5c7-4227-ad9e-84dfc3020eea.png')"></div>
-        
-        <!-- Slide 2: Mobile Banking / Digital Finance -->
-        <div class="slide" style="background-image: url('https://images.pexels.com/photos/6991225/pexels-photo-6991225.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
-        
-        <!-- Slide 3: Business Growth & Success -->
-        <div class="slide" style="background-image: url('https://images.pexels.com/photos/6209760/pexels-photo-6209760.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
-    </div>
-    <div class="slider-dots" id="sliderDots"></div>
-</section>
+<!-- Hero Section - Single Professional Image -->
+<section class="hero-section"></section>
 
 <!-- Loan Calculator Section - Edge to Edge Full Width -->
 <section class="calculator-section">
@@ -1046,73 +976,6 @@
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
         });
-    });
-
-    // Image Slider Functionality
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('sliderDots');
-    let currentSlide = 0;
-    let slideInterval;
-
-    // Create dots
-    slides.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.dot');
-
-    function goToSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentSlide = index;
-    }
-
-    function nextSlide() {
-        let next = currentSlide + 1;
-        if (next >= slides.length) next = 0;
-        goToSlide(next);
-    }
-
-    function startSlider() {
-        slideInterval = setInterval(nextSlide, 3000);
-    }
-
-    function stopSlider() {
-        clearInterval(slideInterval);
-    }
-
-    // Start the slider
-    startSlider();
-
-    // Pause on hover
-    const sliderContainer = document.getElementById('sliderContainer');
-    sliderContainer.addEventListener('mouseenter', stopSlider);
-    sliderContainer.addEventListener('mouseleave', startSlider);
-
-    // Touch support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    sliderContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    sliderContainer.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) {
-            nextSlide();
-        } else if (touchEndX - touchStartX > 50) {
-            let prev = currentSlide - 1;
-            if (prev < 0) prev = slides.length - 1;
-            goToSlide(prev);
-        }
     });
 
     // Loan Calculator
