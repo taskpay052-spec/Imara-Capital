@@ -772,22 +772,46 @@
 <!-- Hero Section - Single Professional Image -->
 <section class="hero-section"></section>
 
-<!-- Loan Calculator Section - Edge to Edge Full Width -->
+<!-- Loan Calculator Section - Premium Design -->
 <section class="calculator-section">
     <div class="calculator-wrapper">
         <div class="calculator-card">
+            <div class="calculator-badge">
+                <i class="fas fa-calculator"></i> Instant Calculator
+            </div>
             <h2 class="calculator-title">How much do you need?</h2>
-            <p class="calculator-subtitle">Use our calculator to estimate your monthly payment</p>
+            <p class="calculator-subtitle">Get an instant estimate in seconds. No impact on your credit score.</p>
+            
             <div class="calculator-form">
+                <!-- Loan Amount Field -->
                 <div class="calculator-field">
-                    <label>Loan Amount (KSh)</label>
+                    <div class="field-header">
+                        <label><i class="fas fa-money-bill-wave"></i> Loan Amount (KSh)</label>
+                        <span class="amount-hint">From KSh 1,000 to KSh 500,000</span>
+                    </div>
                     <div class="amount-input">
                         <input type="range" id="loanAmount" min="1000" max="500000" step="1000" value="50000">
-                        <input type="number" id="loanAmountValue" value="50000">
+                        <div class="amount-value-wrapper">
+                            <span class="currency">KSh</span>
+                            <input type="number" id="loanAmountValue" value="50000">
+                        </div>
+                    </div>
+                    <div class="amount-scale">
+                        <span>1k</span>
+                        <span>100k</span>
+                        <span>200k</span>
+                        <span>300k</span>
+                        <span>400k</span>
+                        <span>500k</span>
                     </div>
                 </div>
+                
+                <!-- Repayment Period Field -->
                 <div class="calculator-field">
-                    <label>Repayment Period (months)</label>
+                    <div class="field-header">
+                        <label><i class="fas fa-calendar-alt"></i> Repayment Period</label>
+                        <span class="amount-hint">Choose your flexible term</span>
+                    </div>
                     <div class="period-input">
                         <select id="loanTerm">
                             <option value="1">1 month</option>
@@ -805,22 +829,47 @@
                         </select>
                     </div>
                 </div>
+                
+                <!-- Results Cards -->
                 <div class="calculator-results">
-                    <div class="result-item">
-                        <span class="result-label">Monthly Payment</span>
-                        <span class="result-value" id="monthlyPayment">KSh 0</span>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Monthly Payment</span>
+                            <span class="result-value" id="monthlyPayment">KSh 0</span>
+                        </div>
                     </div>
-                    <div class="result-item">
-                        <span class="result-label">Total Repayment</span>
-                        <span class="result-value" id="totalRepayment">KSh 0</span>
+                    <div class="result-card highlight">
+                        <div class="result-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Total Repayment</span>
+                            <span class="result-value" id="totalRepayment">KSh 0</span>
+                        </div>
                     </div>
-                    <div class="result-item">
-                        <span class="result-label">Interest Rate</span>
-                        <span class="result-value" id="interestRate">4% per month</span>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-label">Interest Rate</span>
+                            <span class="result-value" id="interestRate">4% per month</span>
+                        </div>
                     </div>
                 </div>
-                <a href="apply.html" class="btn btn-primary calculator-apply btn-large">Apply Now →</a>
-                <p class="calculator-note">Rates range from 3% to 12% per month based on credit profile. Terms and conditions apply.</p>
+                
+                <!-- CTA Button -->
+                <a href="apply.html" class="btn btn-primary calculator-apply btn-large">
+                    <span>Apply Now</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <p class="calculator-note">
+                    <i class="fas fa-shield-alt"></i> Rates range from 3% to 12% per month based on credit profile. Terms and conditions apply.
+                </p>
             </div>
         </div>
     </div>
