@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Apply Now | Imara Capital</title>
     
     <!-- Google Fonts -->
@@ -20,12 +20,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #F7F9FC;
+            background: linear-gradient(135deg, #F8FAFF 0%, #F1F4F9 100%);
             color: #1A2C3E;
+            min-height: 100vh;
         }
 
         :root {
             --navy: #0A1E3C;
+            --navy-light: #1E3A5F;
             --gold: #C6A43F;
             --gold-dark: #B28C2E;
             --gray-dark: #2D3A4B;
@@ -33,12 +35,15 @@
             --gray-light: #F7F9FC;
             --white: #FFFFFF;
             --green: #2E7D32;
+            --green-light: #E8F5E9;
             --red: #D32F2F;
-            --shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -46,7 +51,8 @@
         /* Navigation */
         .navbar {
             background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
             padding: 16px 0;
             position: sticky;
             top: 0;
@@ -66,6 +72,9 @@
             font-size: 28px;
             font-weight: 800;
             text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
         }
 
         .logo-imara {
@@ -80,15 +89,19 @@
             color: var(--gray);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 40px;
+            background: var(--gray-light);
         }
 
         .back-link:hover {
             color: var(--gold);
-        }
-
-        .back-link i {
-            margin-right: 8px;
+            background: rgba(198, 164, 63, 0.1);
+            transform: translateX(-4px);
         }
 
         /* Main Content */
@@ -102,8 +115,12 @@
         }
 
         .application-header h1 {
-            font-size: 36px;
-            color: var(--navy);
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 12px;
         }
 
@@ -112,13 +129,14 @@
             font-size: 18px;
         }
 
-        /* Progress Bar */
+        /* Progress Bar - Modern Design */
         .progress-container {
             background: var(--white);
-            border-radius: 16px;
-            padding: 24px;
+            border-radius: 32px;
+            padding: 28px 32px;
             margin-bottom: 32px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
         .progress-steps {
@@ -130,12 +148,13 @@
         .progress-steps::before {
             content: '';
             position: absolute;
-            top: 24px;
-            left: 0;
-            right: 0;
+            top: 28px;
+            left: 10%;
+            right: 10%;
             height: 3px;
-            background: #E2E8F0;
+            background: linear-gradient(90deg, #E2E8F0, #CBD5E1, #E2E8F0);
             z-index: 1;
+            border-radius: 3px;
         }
 
         .step {
@@ -146,25 +165,28 @@
         }
 
         .step-circle {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             background: var(--white);
-            border: 3px solid #E2E8F0;
+            border: 2px solid #E2E8F0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 12px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 20px;
             color: var(--gray);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
         }
 
         .step.active .step-circle {
             border-color: var(--gold);
             background: var(--gold);
             color: var(--navy);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(198, 164, 63, 0.3);
         }
 
         .step.completed .step-circle {
@@ -177,6 +199,7 @@
             content: '\f00c';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
+            font-size: 20px;
         }
 
         .step.completed .step-circle span {
@@ -184,9 +207,10 @@
         }
 
         .step-label {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--gray);
+            letter-spacing: 0.3px;
         }
 
         .step.active .step-label {
@@ -194,31 +218,64 @@
             font-weight: 600;
         }
 
+        .step.completed .step-label {
+            color: var(--green);
+        }
+
         /* Form Container */
         .form-container {
             background: var(--white);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: var(--shadow);
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
         .form-step {
             display: none;
+            animation: fadeIn 0.4s ease;
         }
 
         .form-step.active-step {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-title i {
+            color: var(--gold);
+            font-size: 28px;
+        }
+
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .form-group label {
             display: block;
             font-weight: 600;
             color: var(--gray-dark);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
 
         .form-group label .required {
@@ -230,12 +287,18 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
+            padding: 14px 18px;
+            border: 1.5px solid #E9EDF2;
+            border-radius: 16px;
             font-size: 16px;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .form-group input:hover,
+        .form-group select:hover {
+            border-color: #CBD5E1;
         }
 
         .form-group input:focus,
@@ -243,45 +306,57 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(198, 164, 63, 0.1);
+            box-shadow: 0 0 0 4px rgba(198, 164, 63, 0.1);
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 24px;
         }
 
         /* Radio & Checkbox */
         .radio-group {
             display: flex;
-            gap: 24px;
+            gap: 32px;
             flex-wrap: wrap;
         }
 
         .radio-option {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 0;
         }
 
         .radio-option input {
-            width: auto;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .radio-option span {
+            color: var(--gray-dark);
+            font-weight: 500;
         }
 
         /* Document Upload */
         .upload-area {
             border: 2px dashed #E2E8F0;
-            border-radius: 16px;
-            padding: 32px;
+            border-radius: 20px;
+            padding: 40px 24px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
+            background: var(--gray-light);
         }
 
         .upload-area:hover {
             border-color: var(--gold);
-            background: rgba(198, 164, 63, 0.05);
+            background: rgba(198, 164, 63, 0.03);
+            transform: translateY(-2px);
         }
 
         .upload-area i {
@@ -293,6 +368,7 @@
         .upload-area p {
             color: var(--gray);
             margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .upload-area small {
@@ -310,78 +386,134 @@
 
         .file-item {
             background: var(--gray-light);
-            padding: 10px 16px;
-            border-radius: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
             margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid #E9EDF2;
         }
 
         .file-item span {
             font-size: 14px;
+            color: var(--gray-dark);
         }
 
         .file-item i {
-            color: var(--green);
+            color: var(--red);
             cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .file-item i:hover {
+            opacity: 1;
         }
 
         /* Form Buttons */
         .form-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid #E2E8F0;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #E9EDF2;
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             padding: 14px 32px;
-            border-radius: 48px;
+            border-radius: 60px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             border: none;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
+            min-width: 140px;
         }
 
         .btn-primary {
             background: var(--gold);
             color: var(--navy);
+            box-shadow: 0 2px 8px rgba(198, 164, 63, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--gold-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(198, 164, 63, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: var(--white);
             color: var(--gray);
-            border: 1px solid #E2E8F0;
+            border: 1.5px solid #E9EDF2;
         }
 
         .btn-secondary:hover {
             border-color: var(--gold);
             color: var(--gold);
+            transform: translateX(-4px);
         }
 
         .btn-save {
             background: transparent;
             color: var(--gray);
+            border: 1.5px solid #E9EDF2;
         }
 
         .btn-save:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* Review Content */
+        .review-card {
+            background: linear-gradient(135deg, var(--gray-light) 0%, #FFFFFF 100%);
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 28px;
+            border: 1px solid #E9EDF2;
+        }
+
+        .review-section {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #E9EDF2;
+        }
+
+        .review-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .review-section h4 {
+            font-size: 16px;
+            font-weight: 700;
             color: var(--gold);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .review-section p {
+            color: var(--gray-dark);
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         /* Success Message */
         .success-message {
             text-align: center;
-            padding: 40px;
+            padding: 48px 32px;
+            animation: fadeIn 0.5s ease;
         }
 
         .success-message i {
@@ -402,19 +534,21 @@
         }
 
         .reference-number {
-            background: var(--gray-light);
-            padding: 16px;
-            border-radius: 12px;
+            background: var(--green-light);
+            padding: 20px;
+            border-radius: 20px;
             margin: 24px 0;
             font-size: 20px;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--green);
+            border: 1px solid rgba(46, 125, 50, 0.2);
         }
 
         /* Error Styling */
         .form-group.error input,
         .form-group.error select {
             border-color: var(--red);
+            background: rgba(211, 47, 47, 0.02);
         }
 
         .error-message {
@@ -424,48 +558,111 @@
             display: block;
         }
 
-        /* Mobile */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .form-container {
-                padding: 24px;
+            .container {
+                padding: 0 20px;
             }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 16px;
+
+            .application-header h1 {
+                font-size: 32px;
             }
-            
+
+            .application-header p {
+                font-size: 15px;
+            }
+
+            .progress-container {
+                padding: 20px;
+                border-radius: 24px;
+            }
+
+            .progress-steps::before {
+                display: none;
+            }
+
             .progress-steps {
                 flex-direction: column;
                 gap: 16px;
             }
-            
-            .progress-steps::before {
-                display: none;
-            }
-            
+
             .step {
                 display: flex;
                 align-items: center;
                 gap: 16px;
+                text-align: left;
             }
-            
+
             .step-circle {
                 margin: 0;
+                width: 48px;
+                height: 48px;
+                font-size: 18px;
             }
-            
+
+            .step-label {
+                font-size: 14px;
+            }
+
+            .form-container {
+                padding: 28px 24px;
+                border-radius: 28px;
+            }
+
+            .step-title {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-buttons {
+                flex-direction: column-reverse;
+                gap: 12px;
+            }
+
+            .form-buttons .btn {
+                width: 100%;
+                padding: 14px 20px;
+            }
+
+            .radio-group {
+                gap: 20px;
+            }
+
+            .upload-area {
+                padding: 28px 20px;
+            }
+
+            .upload-area i {
+                font-size: 40px;
+            }
+
+            .review-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .application-header h1 {
                 font-size: 28px;
             }
-            
-            .form-buttons {
-                flex-direction: column;
-                gap: 12px;
+
+            .form-container {
+                padding: 24px 20px;
             }
-            
-            .form-buttons .btn {
-                width: 100%;
-                text-align: center;
+
+            .step-title {
+                font-size: 22px;
+            }
+
+            .step-circle {
+                width: 44px;
+                height: 44px;
+                font-size: 16px;
             }
         }
     </style>
@@ -476,7 +673,7 @@
 <nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="logo">
-            <span class="logo-imara">Imara</span> <span class="logo-capital">Capital</span>
+            <span class="logo-imara">Imara</span><span class="logo-capital">Capital</span>
         </a>
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
     </div>
@@ -487,7 +684,7 @@
     <div class="container">
         <div class="application-header">
             <h1>Apply for a Loan</h1>
-            <p>Fill out the form below. Takes 2–3 minutes.</p>
+            <p>Complete the form below. Takes just 2–3 minutes.</p>
         </div>
 
         <!-- Progress Bar -->
@@ -521,7 +718,10 @@
             <form id="loanApplicationForm">
                 <!-- Step 1: Personal Information -->
                 <div class="form-step active-step" data-step="1">
-                    <h3 style="margin-bottom: 24px; color: var(--navy);">Personal Information</h3>
+                    <div class="step-title">
+                        <i class="fas fa-user-circle"></i>
+                        Personal Information
+                    </div>
                     
                     <div class="form-group">
                         <label>Full Name (as on ID) <span class="required">*</span></label>
@@ -560,6 +760,8 @@
                                 <option>Kisumu</option>
                                 <option>Nakuru</option>
                                 <option>Kiambu</option>
+                                <option>Uasin Gishu</option>
+                                <option>Machakos</option>
                                 <option>Other</option>
                             </select>
                         </div>
@@ -572,7 +774,10 @@
 
                 <!-- Step 2: Loan Details -->
                 <div class="form-step" data-step="2">
-                    <h3 style="margin-bottom: 24px; color: var(--navy);">Loan Details</h3>
+                    <div class="step-title">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        Loan Details
+                    </div>
                     
                     <div class="form-group">
                         <label>Loan Product <span class="required">*</span></label>
@@ -630,7 +835,10 @@
 
                 <!-- Step 3: Financial Information -->
                 <div class="form-step" data-step="3">
-                    <h3 style="margin-bottom: 24px; color: var(--navy);">Financial Information</h3>
+                    <div class="step-title">
+                        <i class="fas fa-chart-line"></i>
+                        Financial Information
+                    </div>
                     
                     <div class="form-group">
                         <label>Employment Status <span class="required">*</span></label>
@@ -670,10 +878,10 @@
                         <label>Do you have any existing loans?</label>
                         <div class="radio-group">
                             <label class="radio-option">
-                                <input type="radio" name="existingLoans" value="no" checked> No
+                                <input type="radio" name="existingLoans" value="no" checked> <span>No</span>
                             </label>
                             <label class="radio-option">
-                                <input type="radio" name="existingLoans" value="yes"> Yes
+                                <input type="radio" name="existingLoans" value="yes"> <span>Yes</span>
                             </label>
                         </div>
                     </div>
@@ -686,8 +894,11 @@
 
                 <!-- Step 4: Document Upload -->
                 <div class="form-step" data-step="4">
-                    <h3 style="margin-bottom: 24px; color: var(--navy);">Upload Documents</h3>
-                    <p style="color: var(--gray); margin-bottom: 24px;">All documents are encrypted and securely stored.</p>
+                    <div class="step-title">
+                        <i class="fas fa-upload"></i>
+                        Upload Documents
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 28px;">All documents are encrypted and securely stored.</p>
                     
                     <div class="form-group">
                         <label>National ID (Front & Back) <span class="required">*</span></label>
@@ -725,10 +936,13 @@
 
                 <!-- Step 5: Review & Submit -->
                 <div class="form-step" data-step="5">
-                    <h3 style="margin-bottom: 24px; color: var(--navy);">Review & Submit</h3>
+                    <div class="step-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        Review & Submit
+                    </div>
                     <p style="color: var(--gray); margin-bottom: 24px;">Please review your information before submitting.</p>
                     
-                    <div id="reviewContent" style="background: var(--gray-light); padding: 20px; border-radius: 16px; margin-bottom: 24px;">
+                    <div id="reviewContent" class="review-card">
                         <!-- Review content will be populated via JavaScript -->
                     </div>
                     
@@ -749,29 +963,29 @@
                     <div class="form-group">
                         <label class="radio-option" style="display: flex; gap: 12px; align-items: flex-start;">
                             <input type="checkbox" id="consent3" style="width: 20px; margin-top: 2px;">
-                            <span>I have read and agree to the <a href="#" style="color: var(--gold);">Terms & Conditions</a> and <a href="#" style="color: var(--gold);">Privacy Policy</a>.</span>
+                            <span>I have read and agree to the <a href="terms.html" style="color: var(--gold);">Terms & Conditions</a> and <a href="privacy-policy.html" style="color: var(--gold);">Privacy Policy</a>.</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Form Buttons -->
                 <div class="form-buttons">
-                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">← Previous</button>
-                    <button type="button" class="btn btn-save" id="saveBtn"><i class="fas fa-save"></i> Save & Resume Later</button>
-                    <button type="button" class="btn btn-primary" id="nextBtn">Next →</button>
-                    <button type="button" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Application</button>
+                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-save" id="saveBtn"><i class="fas fa-save"></i> Save & Resume</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
+                    <button type="button" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Application <i class="fas fa-check"></i></button>
                 </div>
             </form>
             
             <!-- Success Message (hidden initially) -->
-            <div id="successMessage" style="display: none;">
-                <!-- Will be shown after submission -->
-            </div>
+            <div id="successMessage" style="display: none;"></div>
         </div>
     </div>
 </main>
 
 <script>
+    // Mobile Menu Toggle (if needed)
+    // Loan Calculator and other functionality preserved
     let currentStep = 1;
     const totalSteps = 5;
     
@@ -807,18 +1021,17 @@
             }
         });
         
-        prevBtn.style.display = currentStep === 1 ? 'none' : 'inline-block';
+        prevBtn.style.display = currentStep === 1 ? 'none' : 'inline-flex';
         
         if (currentStep === totalSteps) {
             nextBtn.style.display = 'none';
-            submitBtn.style.display = 'inline-block';
+            submitBtn.style.display = 'inline-flex';
         } else {
-            nextBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'inline-flex';
             submitBtn.style.display = 'none';
         }
         
-        // Scroll to top of form
-        document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
     // Validate current step
@@ -836,7 +1049,6 @@
             }
         });
         
-        // Special validation for Step 4 (documents)
         if (step === 4) {
             const idFile = document.getElementById('nationalIdFile').files.length;
             const incomeFile = document.getElementById('incomeFile').files.length;
@@ -851,7 +1063,6 @@
             }
         }
         
-        // Special validation for Step 5 (consents)
         if (step === 5) {
             const consent1 = document.getElementById('consent1').checked;
             const consent2 = document.getElementById('consent2').checked;
@@ -886,23 +1097,23 @@
         else loanProductText = loanProduct;
         
         reviewContent.innerHTML = `
-            <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #E2E8F0;">
-                <strong style="color: var(--gold);">Personal Information</strong><br>
-                Name: ${fullName}<br>
-                ID Number: ${nationalId}<br>
-                Phone: ${phone}<br>
-                Email: ${email}<br>
-                County: ${county}
+            <div class="review-section">
+                <h4><i class="fas fa-user"></i> Personal Information</h4>
+                <p><strong>Name:</strong> ${fullName}<br>
+                <strong>ID Number:</strong> ${nationalId}<br>
+                <strong>Phone:</strong> ${phone}<br>
+                <strong>Email:</strong> ${email}<br>
+                <strong>County:</strong> ${county}</p>
             </div>
-            <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #E2E8F0;">
-                <strong style="color: var(--gold);">Loan Details</strong><br>
-                Product: ${loanProductText}<br>
-                Amount: KSh ${parseInt(loanAmount).toLocaleString()}<br>
-                Term: ${repaymentPeriod} months
+            <div class="review-section">
+                <h4><i class="fas fa-hand-holding-usd"></i> Loan Details</h4>
+                <p><strong>Product:</strong> ${loanProductText}<br>
+                <strong>Amount:</strong> KSh ${parseInt(loanAmount).toLocaleString()}<br>
+                <strong>Term:</strong> ${repaymentPeriod} months</p>
             </div>
-            <div>
-                <strong style="color: var(--gold);">Financial Information</strong><br>
-                Monthly Income: KSh ${parseInt(monthlyIncome).toLocaleString()}
+            <div class="review-section">
+                <h4><i class="fas fa-chart-line"></i> Financial Information</h4>
+                <p><strong>Monthly Income:</strong> KSh ${parseInt(monthlyIncome).toLocaleString()}</p>
             </div>
         `;
     }
@@ -927,28 +1138,25 @@
     // Submit button
     submitBtn.addEventListener('click', () => {
         if (validateStep(5)) {
-            // Generate reference number
             const refNumber = 'IM-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 10000);
             
-            // Hide form, show success message
             document.getElementById('loanApplicationForm').style.display = 'none';
             const successDiv = document.getElementById('successMessage');
             successDiv.style.display = 'block';
             successDiv.innerHTML = `
                 <div class="success-message">
                     <i class="fas fa-check-circle"></i>
-                    <h2>Application Submitted Successfully!</h2>
+                    <h2>Application Submitted!</h2>
                     <p>Thank you for choosing Imara Capital.</p>
                     <div class="reference-number">
-                        Reference Number: ${refNumber}
+                        Reference: ${refNumber}
                     </div>
                     <p>We'll review your application within 24 hours.</p>
                     <p style="margin-top: 16px;">Check your SMS and email for updates.</p>
-                    <a href="index.html" class="btn btn-primary" style="margin-top: 24px;">Return to Home</a>
+                    <a href="index.html" class="btn btn-primary" style="margin-top: 24px; display: inline-flex; gap: 8px;">Return Home <i class="fas fa-home"></i></a>
                 </div>
             `;
             
-            // In a real implementation, you would send data to your backend here
             console.log('Application submitted with reference:', refNumber);
         }
     });
@@ -963,10 +1171,10 @@
             }
         });
         localStorage.setItem('imaraCapitalApplication', JSON.stringify(formData));
-        alert('Your application has been saved. Come back anytime to continue.');
+        alert('✓ Your application has been saved. Come back anytime to continue.');
     });
     
-    // Load saved data on page load
+    // Load saved data
     function loadSavedData() {
         const saved = localStorage.getItem('imaraCapitalApplication');
         if (saved) {
@@ -977,10 +1185,8 @@
                     field.value = value;
                 }
             }
-            const confirmLoad = confirm('We found a saved application. Do you want to continue where you left off?');
-            if (confirmLoad) {
-                // Could set current step based on saved data
-            } else {
+            const confirmLoad = confirm('We found a saved application. Continue where you left off?');
+            if (!confirmLoad) {
                 localStorage.removeItem('imaraCapitalApplication');
             }
         }
@@ -1000,8 +1206,8 @@
                 const fileItem = document.createElement('div');
                 fileItem.className = 'file-item';
                 fileItem.innerHTML = `
-                    <span><i class="fas fa-file"></i> ${file.name} (${(file.size / 1024).toFixed(2)} KB)</span>
-                    <i class="fas fa-trash" onclick="this.parentElement.remove()"></i>
+                    <span><i class="fas fa-file-pdf"></i> ${file.name} (${(file.size / 1024).toFixed(2)} KB)</span>
+                    <i class="fas fa-trash-alt" onclick="this.parentElement.remove()"></i>
                 `;
                 fileList.appendChild(fileItem);
             });
