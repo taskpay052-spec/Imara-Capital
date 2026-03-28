@@ -80,52 +80,6 @@
             color: var(--teal);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray);
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 40px;
-            transition: all 0.3s;
-        }
-
-        .nav-links a:hover {
-            background: var(--gray-light);
-            color: var(--teal);
-        }
-
-        .nav-links a.active {
-            background: var(--teal);
-            color: var(--white);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .user-avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--teal), var(--navy));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
         .back-btn {
             background: var(--gray-light);
             border: 1px solid #E2E8F0;
@@ -473,10 +427,6 @@
                 padding: 0 20px;
             }
             
-            .nav-links {
-                display: none;
-            }
-            
             .main-container {
                 padding: 20px;
             }
@@ -591,10 +541,7 @@
         <a href="index.html" class="logo">
             <span class="logo-imara">Imara</span><span class="logo-capital">Capital</span>
         </a>
-        <div class="user-menu">
-            <div class="user-avatar" id="userAvatar">GW</div>
-            <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Back</button>
-        </div>
+        <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Back</button>
     </div>
 </nav>
 
@@ -706,23 +653,9 @@
         }
     ];
 
-    let currentUser = null;
-
     function loadUserData() {
-        const session = localStorage.getItem('imaraSession') || sessionStorage.getItem('imaraSession');
-        if (session) {
-            try {
-                const sessionData = JSON.parse(session);
-                if (sessionData.isLoggedIn && sessionData.user) {
-                    currentUser = sessionData.user;
-                    const userName = currentUser.fullName || 'Valued Customer';
-                    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-                    document.getElementById('userAvatar').textContent = initials;
-                    return true;
-                }
-            } catch(e) {}
-        }
-        return false;
+        // Avatar removed - no longer needed
+        return true;
     }
 
     function updateStats(loans) {
