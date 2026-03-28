@@ -405,12 +405,12 @@
                     <div class="error-message" id="usernameError"></div>
                 </div>
 
-                <!-- Password -->
+                <!-- Password (Optional for now) -->
                 <div class="form-group">
                     <label>Password <span class="required">*</span></label>
                     <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="password" placeholder="Enter your password">
+                        <input type="password" id="password" placeholder="Enter your password (any password works)">
                     </div>
                     <div class="error-message" id="passwordError"></div>
                     <div class="password-options">
@@ -463,7 +463,7 @@
             usernameInput.classList.remove('error');
         }
         
-        // Password
+        // Password - just check it's not empty (no restriction)
         const password = passwordInput.value;
         const passwordError = document.getElementById('passwordError');
         if (password === '') {
@@ -488,13 +488,12 @@
         
         if (validateForm()) {
             const username = usernameInput.value.trim();
-            const password = passwordInput.value;
             const rememberMe = document.getElementById('rememberMe').checked;
             
-            // Check against registered user in localStorage
+            // Check if user exists in localStorage
             const registeredUser = localStorage.getItem('imaraUser');
-            let isAuthenticated = false;
             let userData = null;
+            let userExists = false;
             
             if (registeredUser) {
                 userData = JSON.parse(registeredUser);
@@ -502,60 +501,51 @@
                 const phoneMatch = userData.phone === username;
                 const emailMatch = userData.email && userData.email === username;
                 
-                // For this demo, password is stored as 'password123' during registration
-                if ((phoneMatch || emailMatch) && password === 'password123') {
-                    isAuthenticated = true;
+                if (phoneMatch || emailMatch) {
+                    userExists = true;
                 }
             }
             
-            if (isAuthenticated) {
-                // Store login session
-                const session = {
-                    isLoggedIn: true,
-                    user: userData,
-                    loginTime: new Date().toISOString(),
-                    rememberMe: rememberMe
+            // If user doesn't exist, create a temporary session with the entered details
+            if (!userExists) {
+                // Create a temporary user profile from entered info
+                userData = {
+                    fullName: username.includes('@') ? username.split('@')[0] : username,
+                    phone: username,
+                    email: username.includes('@') ? username : null,
+                    loginMethod: 'temporary'
                 };
-                
-                if (rememberMe) {
-                    localStorage.setItem('imaraSession', JSON.stringify(session));
-                } else {
-                    sessionStorage.setItem('imaraSession', JSON.stringify(session));
-                }
-                
-                // Show success message
-                alertMessage.style.display = 'flex';
-                alertMessage.className = 'alert-message success';
-                alertMessage.innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <span>Welcome back, ${userData.fullName || 'Valued Customer'}! Redirecting to your dashboard...</span>
-                `;
-                
-                // Disable submit button to prevent double submission
-                submitBtn.disabled = true;
-                
-                // Redirect to dashboard after 1.5 seconds
-                setTimeout(() => {
-                    window.location.href = 'dashboard.html';
-                }, 1500);
-            } else {
-                // Show error message
-                alertMessage.style.display = 'flex';
-                alertMessage.className = 'alert-message error';
-                alertMessage.innerHTML = `
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span>Invalid credentials. Please check your phone number/email and password.</span>
-                `;
-                
-                // Clear password field for security
-                passwordInput.value = '';
-                passwordInput.classList.add('error');
-                
-                // Auto-hide error after 4 seconds
-                setTimeout(() => {
-                    alertMessage.style.display = 'none';
-                }, 4000);
             }
+            
+            // Store login session (no password validation required)
+            const session = {
+                isLoggedIn: true,
+                user: userData,
+                loginTime: new Date().toISOString(),
+                rememberMe: rememberMe
+            };
+            
+            if (rememberMe) {
+                localStorage.setItem('imaraSession', JSON.stringify(session));
+            } else {
+                sessionStorage.setItem('imaraSession', JSON.stringify(session));
+            }
+            
+            // Show success message
+            alertMessage.style.display = 'flex';
+            alertMessage.className = 'alert-message success';
+            alertMessage.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>Welcome back, ${userData.fullName || 'Valued Customer'}! Redirecting to your dashboard...</span>
+            `;
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            
+            // Redirect to dashboard after 1.5 seconds
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1500);
         }
     });
     
@@ -566,7 +556,6 @@
             try {
                 const sessionData = JSON.parse(session);
                 if (sessionData.isLoggedIn) {
-                    // Redirect to dashboard
                     window.location.href = 'dashboard.html';
                 }
             } catch(e) {
