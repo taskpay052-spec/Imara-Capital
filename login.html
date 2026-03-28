@@ -280,78 +280,6 @@
             transform: none;
         }
 
-        /* Divider */
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 24px 0;
-            color: var(--gray);
-            font-size: 13px;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #E9EDF2;
-        }
-
-        .divider span {
-            margin: 0 16px;
-        }
-
-        /* Demo Credentials */
-        .demo-credentials {
-            background: linear-gradient(135deg, rgba(44, 122, 123, 0.05) 0%, rgba(44, 122, 123, 0.02) 100%);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(44, 122, 123, 0.15);
-        }
-
-        .demo-credentials h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--teal);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .demo-credentials p {
-            font-size: 13px;
-            color: var(--gray);
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .demo-credentials strong {
-            color: var(--navy);
-        }
-
-        .demo-btn {
-            background: transparent;
-            border: 1px solid var(--teal);
-            color: var(--teal);
-            padding: 6px 12px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 8px;
-        }
-
-        .demo-btn:hover {
-            background: var(--teal);
-            color: var(--white);
-        }
-
         /* Register Link */
         .register-link {
             text-align: center;
@@ -375,7 +303,7 @@
             text-decoration: underline;
         }
 
-        /* Success/Error Messages */
+        /* Alert Messages */
         .alert-message {
             background: rgba(46, 125, 50, 0.1);
             border: 1px solid var(--green);
@@ -403,12 +331,6 @@
 
         .alert-message.error i {
             color: var(--red);
-        }
-
-        .alert-message span {
-            font-size: 13px;
-            color: var(--gray-dark);
-            flex: 1;
         }
 
         @keyframes slideIn {
@@ -444,11 +366,6 @@
             .input-wrapper i {
                 left: 14px;
                 font-size: 16px;
-            }
-
-            .demo-credentials p {
-                flex-direction: column;
-                gap: 4px;
             }
         }
     </style>
@@ -509,46 +426,19 @@
                 <button type="submit" class="btn btn-primary" id="submitBtn">Sign In →</button>
             </form>
 
-            <!-- Demo Credentials (for testing) -->
-            <div class="demo-credentials">
-                <h4><i class="fas fa-flask"></i> Demo Credentials</h4>
-                <p><span><strong>Phone:</strong> 0712345678</span> <span><strong>Password:</strong> password123</span></p>
-                <button type="button" class="demo-btn" id="demoFillBtn">Use Demo Credentials</button>
-            </div>
-
-            <div class="divider">
-                <span>New to Imara Capital?</span>
-            </div>
-
             <div class="register-link">
-                <p><a href="register.html">Create an account</a> — It takes less than 2 minutes</p>
+                <p>Don't have an account? <a href="register.html">Create an account</a></p>
             </div>
         </div>
     </div>
 </main>
 
 <script>
-    // Demo Credentials Fill
-    const demoFillBtn = document.getElementById('demoFillBtn');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const submitBtn = document.getElementById('submitBtn');
     const loginForm = document.getElementById('loginForm');
     const alertMessage = document.getElementById('alertMessage');
-
-    demoFillBtn.addEventListener('click', () => {
-        usernameInput.value = '0712345678';
-        passwordInput.value = 'password123';
-        // Clear any errors
-        document.getElementById('usernameError').textContent = '';
-        document.getElementById('passwordError').textContent = '';
-        usernameInput.classList.remove('error');
-        passwordInput.classList.remove('error');
-        // Hide any existing alert
-        alertMessage.style.display = 'none';
-        // Trigger validation
-        validateForm();
-    });
 
     // Form Validation
     function validateForm() {
@@ -601,28 +491,21 @@
             const password = passwordInput.value;
             const rememberMe = document.getElementById('rememberMe').checked;
             
-            // Simulate authentication (check against registered users in localStorage)
+            // Check against registered user in localStorage
             const registeredUser = localStorage.getItem('imaraUser');
             let isAuthenticated = false;
             let userData = null;
             
             if (registeredUser) {
                 userData = JSON.parse(registeredUser);
-                // Check if username matches phone or email, and password is correct (demo: password123)
+                // Check if username matches phone or email
                 const phoneMatch = userData.phone === username;
                 const emailMatch = userData.email && userData.email === username;
                 
-                // For demo purposes, accept 'password123' as valid password
+                // For this demo, password is stored as 'password123' during registration
                 if ((phoneMatch || emailMatch) && password === 'password123') {
                     isAuthenticated = true;
                 }
-            }
-            
-            // Also allow demo credentials
-            if ((username === '0712345678' && password === 'password123') || 
-                (username === 'demo@imaracapital.co.ke' && password === 'password123')) {
-                isAuthenticated = true;
-                userData = { fullName: 'Demo User', phone: '0712345678', email: 'demo@imaracapital.co.ke' };
             }
             
             if (isAuthenticated) {
