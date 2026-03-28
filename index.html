@@ -193,7 +193,7 @@
             color: var(--white);
         }
 
-        /* Hero Section - Original Format */
+        /* Hero Section - Brighter Image */
         .hero-section {
             position: relative;
             width: 100%;
@@ -206,6 +206,19 @@
             background-repeat: no-repeat;
         }
 
+        /* Brighter image effect */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -213,7 +226,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 37, 64, 0.75) 0%, rgba(10, 37, 64, 0.6) 100%);
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.7) 0%, rgba(10, 37, 64, 0.55) 100%);
             z-index: 1;
         }
 
@@ -987,7 +1000,7 @@
     <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
 </div>
 
-<!-- Hero Section - Clean & Simple -->
+<!-- Hero Section - Brighter Image -->
 <section class="hero-section">
     <div class="hero-text-overlay">
         <span class="hero-badge">🇰🇪 Empowering Women Entrepreneurs in Kenya</span>
