@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+        /* All your existing styles remain exactly the same */
         * {
             margin: 0;
             padding: 0;
@@ -84,16 +85,6 @@
         .btn-secondary:hover {
             background: var(--teal);
             color: var(--white);
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: var(--navy);
-        }
-
-        .btn-gold:hover {
-            background: var(--gold-dark);
-            transform: translateY(-2px);
         }
 
         /* Navigation */
@@ -175,8 +166,10 @@
             flex-direction: column;
             background: var(--white);
             padding: 20px;
-            gap: 16px;
+            gap: 8px;
             border-top: 1px solid #E2E8F0;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .mobile-menu a {
@@ -185,12 +178,62 @@
             font-weight: 500;
             padding: 12px 0;
             min-height: 44px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu a i {
+            width: 24px;
+            color: var(--teal);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--teal);
+            padding-left: 8px;
+        }
+
+        .menu-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 12px 0;
+        }
+
+        .menu-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 16px 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-section-title i {
+            font-size: 12px;
+            color: var(--teal);
         }
 
         .mobile-apply {
             text-align: center;
             background: var(--teal);
-            color: var(--white);
+            color: var(--white) !important;
+            justify-content: center;
+            border-radius: 48px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .mobile-apply i {
+            color: var(--white) !important;
+        }
+
+        .mobile-apply:hover {
+            background: var(--teal-dark);
+            padding-left: 0 !important;
         }
 
         /* Hero Section */
@@ -989,49 +1032,64 @@
     </div>
 </nav>
 
-<!-- Mobile Menu - Updated with All Pages -->
+<!-- Mobile Menu - Organized Exactly as Requested -->
 <div class="mobile-menu" id="mobileMenu">
-    <!-- Main Navigation -->
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="how-it-works.html"><i class="fas fa-question-circle"></i> How It Works</a>
-    <a href="rates.html"><i class="fas fa-percent"></i> Rates</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="faq.html"><i class="fas fa-comments"></i> FAQ</a>
+    <!-- ACCOUNT SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-key"></i> ACCOUNT
+    </div>
+    <a href="register.html"><i class="fas fa-user-plus"></i> ✨ Create Account</a>
+    <a href="login.html"><i class="fas fa-sign-in-alt"></i> 🔑 Sign In</a>
+    <a href="profile.html"><i class="fas fa-user-circle"></i> 👤 My Profile</a>
     
-    <div style="height: 1px; background: #E2E8F0; margin: 8px 0;"></div>
+    <div class="menu-divider"></div>
     
-    <!-- User Account -->
-    <a href="register.html"><i class="fas fa-user-plus"></i> Create Account</a>
-    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-    <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
+    <!-- MY LOANS SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-hand-holding-usd"></i> MY LOANS
+    </div>
+    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> 📊 Dashboard</a>
+    <a href="my-loans.html"><i class="fas fa-folder-open"></i> 📁 Active Loans</a>
+    <a href="loan-history.html"><i class="fas fa-history"></i> 📜 Loan History</a>
+    <a href="apply.html"><i class="fas fa-hand-holding-usd"></i> 💰 Apply for Loan</a>
     
-    <div style="height: 1px; background: #E2E8F0; margin: 8px 0;"></div>
+    <div class="menu-divider"></div>
     
-    <!-- Loans -->
-    <a href="apply.html"><i class="fas fa-hand-holding-usd"></i> Apply for Loan</a>
-    <a href="my-loans.html"><i class="fas fa-folder-open"></i> My Loans</a>
-    <a href="loan-history.html"><i class="fas fa-history"></i> Loan History</a>
+    <!-- MEMBERSHIP SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-crown"></i> MEMBERSHIP
+    </div>
+    <a href="membership.html"><i class="fas fa-crown"></i> 🎯 Membership Plans</a>
+    <a href="payment.html"><i class="fas fa-credit-card"></i> 💳 Make Payment</a>
     
-    <div style="height: 1px; background: #E2E8F0; margin: 8px 0;"></div>
+    <div class="menu-divider"></div>
     
-    <!-- Membership -->
-    <a href="membership.html"><i class="fas fa-crown"></i> Membership Plans</a>
-    <a href="payment.html"><i class="fas fa-credit-card"></i> Make Payment</a>
+    <!-- INFORMATION SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-info-circle"></i> INFORMATION
+    </div>
+    <a href="how-it-works.html"><i class="fas fa-question-circle"></i> ❓ How It Works</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> 📞 Contact</a>
+    <a href="faq.html"><i class="fas fa-comments"></i> 💬 FAQ</a>
+    <a href="about.html"><i class="fas fa-users"></i> 👥 About</a>
     
-    <div style="height: 1px; background: #E2E8F0; margin: 8px 0;"></div>
+    <div class="menu-divider"></div>
     
-    <!-- Legal -->
-    <a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-    <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-    <a href="econsent.html"><i class="fas fa-signature"></i> E-Sign Consent</a>
-    <a href="crb-disclosure.html"><i class="fas fa-chart-line"></i> CRB Disclosure</a>
+    <!-- LEGAL SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-gavel"></i> LEGAL
+    </div>
+    <a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> 🔒 Privacy Policy</a>
+    <a href="terms.html"><i class="fas fa-file-contract"></i> 📄 Terms & Conditions</a>
+    <a href="econsent.html"><i class="fas fa-signature"></i> ✍️ E-Sign Consent</a>
+    <a href="crb-disclosure.html"><i class="fas fa-chart-line"></i> 📈 CRB Disclosure</a>
     
-    <div style="height: 1px; background: #E2E8F0; margin: 8px 0;"></div>
+    <div class="menu-divider"></div>
     
-    <!-- Apply Button -->
-    <a href="apply.html" class="btn btn-primary mobile-apply" style="text-align: center; margin-top: 8px;">Apply Now →</a>
+    <!-- APPLY NOW BUTTON -->
+    <a href="apply.html" class="mobile-apply">
+        <i class="fas fa-arrow-right"></i> 🚀 APPLY NOW
+    </a>
 </div>
 
 <!-- Hero Section -->
