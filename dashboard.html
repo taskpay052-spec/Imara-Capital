@@ -150,8 +150,8 @@
             display: none;
             flex-direction: column;
             background: var(--white);
-            padding: 20px;
-            gap: 8px;
+            padding: 16px 20px;
+            gap: 4px;
             border-top: 1px solid #E2E8F0;
             max-height: 80vh;
             overflow-y: auto;
@@ -161,7 +161,7 @@
             text-decoration: none;
             color: var(--gray-dark);
             font-weight: 500;
-            padding: 12px 0;
+            padding: 10px 0;
             min-height: 44px;
             display: flex;
             align-items: center;
@@ -182,23 +182,23 @@
         .menu-divider {
             height: 1px;
             background: #E2E8F0;
-            margin: 12px 0;
+            margin: 8px 0;
         }
 
         .menu-section-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--gray);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 16px 0 8px 0;
+            margin: 12px 0 6px 0;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .menu-section-title i {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--teal);
         }
 
@@ -689,18 +689,9 @@
     </div>
 </nav>
 
-<!-- Mobile Menu - Simplified for Logged-In Users -->
+<!-- Mobile Menu - Tight Spacing, Reordered Sections -->
 <div class="mobile-menu" id="mobileMenu">
-    <!-- ACCOUNT SECTION -->
-    <div class="menu-section-title">
-        <i class="fas fa-user-circle"></i> ACCOUNT
-    </div>
-    <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
-    <a href="#" id="mobileLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    
-    <div class="menu-divider"></div>
-    
-    <!-- MY LOANS SECTION -->
+    <!-- MY LOANS SECTION - FIRST -->
     <div class="menu-section-title">
         <i class="fas fa-hand-holding-usd"></i> MY LOANS
     </div>
@@ -711,7 +702,7 @@
     
     <div class="menu-divider"></div>
     
-    <!-- MEMBERSHIP SECTION -->
+    <!-- MEMBERSHIP SECTION - SECOND -->
     <div class="menu-section-title">
         <i class="fas fa-crown"></i> MEMBERSHIP
     </div>
@@ -720,7 +711,16 @@
     
     <div class="menu-divider"></div>
     
-    <!-- INFORMATION SECTION -->
+    <!-- ACCOUNT SECTION - THIRD -->
+    <div class="menu-section-title">
+        <i class="fas fa-user-circle"></i> ACCOUNT
+    </div>
+    <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
+    <a href="#" id="mobileLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    
+    <div class="menu-divider"></div>
+    
+    <!-- INFORMATION SECTION - FOURTH -->
     <div class="menu-section-title">
         <i class="fas fa-info-circle"></i> INFORMATION
     </div>
@@ -731,7 +731,7 @@
     
     <div class="menu-divider"></div>
     
-    <!-- LEGAL SECTION -->
+    <!-- LEGAL SECTION - FIFTH -->
     <div class="menu-section-title">
         <i class="fas fa-gavel"></i> LEGAL
     </div>
