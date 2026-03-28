@@ -126,71 +126,27 @@
             transition: all 0.3s;
         }
 
-        .user-avatar:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--navy);
-            min-height: 44px;
-            min-width: 44px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background: var(--white);
-            padding: 16px 20px;
-            gap: 4px;
-            border-top: 1px solid #E2E8F0;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .mobile-menu a {
-            text-decoration: none;
-            color: var(--gray-dark);
-            font-weight: 500;
-            padding: 10px 0;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s;
-        }
-
-        .mobile-menu a i {
-            width: 24px;
-            color: var(--teal);
-        }
-
-        .mobile-menu a:hover {
-            color: var(--teal);
-            padding-left: 8px;
-        }
-
-        .menu-divider {
-            height: 1px;
-            background: #E2E8F0;
-            margin: 8px 0;
-        }
-
-        .menu-section-title {
-            font-size: 11px;
-            font-weight: 700;
+        .back-btn {
+            background: var(--gray-light);
+            border: 1px solid #E2E8F0;
+            padding: 8px 20px;
+            border-radius: 40px;
             color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 12px 0 6px 0;
-            display: flex;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: var(--white);
+            transform: translateX(-4px);
         }
 
         /* Main Container */
@@ -521,14 +477,6 @@
                 display: none;
             }
             
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .mobile-menu.active {
-                display: flex;
-            }
-            
             .main-container {
                 padding: 20px;
             }
@@ -643,58 +591,12 @@
         <a href="index.html" class="logo">
             <span class="logo-imara">Imara</span><span class="logo-capital">Capital</span>
         </a>
-        <div class="nav-links">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="my-loans.html" class="active">My Loans</a>
-            <a href="apply.html">Apply</a>
-            <a href="membership.html">Membership</a>
-            <a href="profile.html">Profile</a>
-        </div>
         <div class="user-menu">
             <div class="user-avatar" id="userAvatar">GW</div>
-            <div class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Back</button>
         </div>
     </div>
 </nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <div class="menu-section-title"><i class="fas fa-hand-holding-usd"></i> MY LOANS</div>
-    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-    <a href="my-loans.html"><i class="fas fa-folder-open"></i> Active Loans</a>
-    <a href="loan-history.html"><i class="fas fa-history"></i> Loan History</a>
-    <a href="apply.html"><i class="fas fa-hand-holding-usd"></i> Apply for Loan</a>
-    
-    <div class="menu-divider"></div>
-    
-    <div class="menu-section-title"><i class="fas fa-crown"></i> MEMBERSHIP</div>
-    <a href="membership.html"><i class="fas fa-crown"></i> Membership Plans</a>
-    <a href="payment.html"><i class="fas fa-credit-card"></i> Make Payment</a>
-    
-    <div class="menu-divider"></div>
-    
-    <div class="menu-section-title"><i class="fas fa-user-circle"></i> ACCOUNT</div>
-    <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
-    <a href="#" id="mobileLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    
-    <div class="menu-divider"></div>
-    
-    <div class="menu-section-title"><i class="fas fa-info-circle"></i> INFORMATION</div>
-    <a href="how-it-works.html"><i class="fas fa-question-circle"></i> How It Works</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="faq.html"><i class="fas fa-comments"></i> FAQ</a>
-    <a href="about.html"><i class="fas fa-users"></i> About</a>
-    
-    <div class="menu-divider"></div>
-    
-    <div class="menu-section-title"><i class="fas fa-gavel"></i> LEGAL</div>
-    <a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-    <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-    <a href="econsent.html"><i class="fas fa-signature"></i> E-Sign Consent</a>
-    <a href="crb-disclosure.html"><i class="fas fa-chart-line"></i> CRB Disclosure</a>
-</div>
 
 <!-- Main Content -->
 <main class="main-container">
@@ -957,23 +859,12 @@
         return true;
     }
 
-    function logout() {
-        localStorage.removeItem('imaraSession');
-        sessionStorage.removeItem('imaraSession');
-        window.location.href = 'index.html';
+    function goBack() {
+        window.history.back();
     }
 
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
-    }
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
-    
-    const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
-    if (mobileLogoutBtn) mobileLogoutBtn.addEventListener('click', (e) => { e.preventDefault(); logout(); });
+    // Back button
+    document.getElementById('backBtn').addEventListener('click', goBack);
 
     // Tab functionality
     document.querySelectorAll('.tab').forEach(tab => {
