@@ -80,160 +80,127 @@
             color: var(--teal);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray);
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 40px;
-            transition: all 0.3s;
-        }
-
-        .nav-links a:hover {
+        .back-btn {
             background: var(--gray-light);
-            color: var(--teal);
-        }
-
-        .nav-links a.active {
-            background: var(--teal);
-            color: var(--white);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .user-avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--teal), var(--navy));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .logout-btn {
-            background: transparent;
             border: 1px solid #E2E8F0;
-            padding: 8px 16px;
+            padding: 8px 20px;
             border-radius: 40px;
             color: var(--gray);
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
         }
 
-        .logout-btn:hover {
-            background: var(--red);
-            border-color: var(--red);
+        .back-btn:hover {
+            background: var(--teal);
+            border-color: var(--teal);
             color: var(--white);
+            transform: translateX(-4px);
         }
 
         /* Main Container */
         .main-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 32px;
+            padding: 24px;
         }
 
         /* Header */
         .page-header {
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .page-header h1 {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--navy);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .page-header p {
             color: var(--gray);
-            font-size: 16px;
+            font-size: 13px;
         }
 
-        /* Stats Row */
+        /* Stats Row - Compact Horizontal */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-bottom: 32px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .stat-card {
             background: var(--white);
-            border-radius: 20px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 12px 10px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 10px;
             box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .stat-icon {
-            width: 52px;
-            height: 52px;
+            width: 40px;
+            height: 40px;
             background: rgba(44, 122, 123, 0.1);
-            border-radius: 16px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .stat-icon i {
-            font-size: 24px;
+            font-size: 18px;
             color: var(--teal);
         }
 
         .stat-info h4 {
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 800;
             color: var(--navy);
+            line-height: 1.2;
         }
 
         .stat-info p {
-            font-size: 13px;
+            font-size: 10px;
             color: var(--gray);
         }
 
-        /* Filters */
+        /* Filters - Compact */
         .filters {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 24px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .filter-tabs {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 8px 20px;
+            padding: 6px 14px;
             border-radius: 40px;
             background: var(--white);
             border: 1px solid #E2E8F0;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.3s;
             font-family: 'Inter', sans-serif;
@@ -253,22 +220,23 @@
 
         .date-range {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             align-items: center;
         }
 
         .date-input {
-            padding: 8px 12px;
+            padding: 6px 10px;
             border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            font-size: 13px;
+            border-radius: 10px;
+            font-size: 12px;
             font-family: 'Inter', sans-serif;
+            background: var(--white);
         }
 
-        /* Transaction Table */
+        /* Transaction Container - Compact */
         .transactions-container {
             background: var(--white);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
         }
@@ -276,22 +244,23 @@
         .transaction-table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 13px;
         }
 
         .transaction-table th {
             text-align: left;
-            padding: 16px 20px;
+            padding: 12px 12px;
             background: var(--gray-light);
             font-weight: 600;
             color: var(--navy);
-            font-size: 13px;
+            font-size: 11px;
             border-bottom: 1px solid #E2E8F0;
         }
 
         .transaction-table td {
-            padding: 16px 20px;
+            padding: 12px 12px;
             border-bottom: 1px solid #E9EDF2;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .transaction-table tr:last-child td {
@@ -305,16 +274,17 @@
         .transaction-type {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .type-icon {
-            width: 36px;
-            height: 36px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .type-icon.disbursement {
@@ -332,9 +302,8 @@
             color: var(--gold);
         }
 
-        .type-icon.interest {
-            background: rgba(243, 156, 18, 0.1);
-            color: var(--orange);
+        .type-icon i {
+            font-size: 12px;
         }
 
         .amount-positive {
@@ -349,9 +318,9 @@
 
         .status-badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 30px;
+            font-size: 10px;
             font-weight: 600;
         }
 
@@ -365,28 +334,24 @@
             color: var(--orange);
         }
 
-        .status-badge.failed {
-            background: rgba(211, 47, 47, 0.1);
-            color: var(--red);
-        }
-
-        /* Pagination */
+        /* Pagination - Compact */
         .pagination {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            padding: 24px;
+            gap: 6px;
+            padding: 16px;
             border-top: 1px solid #E9EDF2;
         }
 
         .page-btn {
-            padding: 8px 14px;
-            border-radius: 40px;
+            padding: 6px 12px;
+            border-radius: 30px;
             background: var(--white);
             border: 1px solid #E2E8F0;
             cursor: pointer;
             transition: all 0.3s;
             font-family: 'Inter', sans-serif;
+            font-size: 12px;
         }
 
         .page-btn:hover {
@@ -403,65 +368,132 @@
         /* Empty State */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         .empty-state i {
-            font-size: 64px;
+            font-size: 48px;
             color: var(--gray-light);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .empty-state h3 {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--navy);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .empty-state p {
             color: var(--gray);
+            font-size: 13px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .stats-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .transaction-table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 20px;
             }
             
             .main-container {
-                padding: 20px;
-            }
-            
-            .nav-links {
-                display: none;
+                padding: 16px;
             }
             
             .page-header h1 {
-                font-size: 28px;
+                font-size: 24px;
             }
             
+            /* Stats Row - 2x2 grid on mobile */
             .stats-row {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+            
+            .stat-card {
+                padding: 10px 8px;
+                gap: 8px;
+            }
+            
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .stat-icon i {
+                font-size: 14px;
+            }
+            
+            .stat-info h4 {
+                font-size: 14px;
+            }
+            
+            .stat-info p {
+                font-size: 9px;
             }
             
             .filters {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 10px;
+            }
+            
+            .filter-tabs {
+                justify-content: center;
             }
             
             .date-range {
                 justify-content: space-between;
+            }
+            
+            /* Table becomes scrollable on mobile */
+            .transactions-container {
+                overflow-x: auto;
+            }
+            
+            .transaction-table {
+                min-width: 600px;
+            }
+            
+            .transaction-table th,
+            .transaction-table td {
+                padding: 10px 8px;
+            }
+            
+            .transaction-type span {
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-row {
+                gap: 8px;
+            }
+            
+            .stat-card {
+                padding: 8px 6px;
+            }
+            
+            .stat-icon {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .stat-icon i {
+                font-size: 12px;
+            }
+            
+            .stat-info h4 {
+                font-size: 12px;
+            }
+            
+            .filter-btn {
+                padding: 5px 12px;
+                font-size: 11px;
+            }
+            
+            .date-input {
+                font-size: 11px;
+                padding: 5px 8px;
             }
         }
     </style>
@@ -474,17 +506,7 @@
         <a href="index.html" class="logo">
             <span class="logo-imara">Imara</span><span class="logo-capital">Capital</span>
         </a>
-        <div class="nav-links">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="my-loans.html">My Loans</a>
-            <a href="apply.html">Apply</a>
-            <a href="membership.html">Membership</a>
-            <a href="profile.html">Profile</a>
-        </div>
-        <div class="user-menu">
-            <div class="user-avatar" id="userAvatar">GW</div>
-            <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
-        </div>
+        <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Back</button>
     </div>
 </nav>
 
@@ -492,42 +514,42 @@
 <main class="main-container">
     <div class="page-header">
         <h1>Loan History</h1>
-        <p>View all your transactions, payments, and loan activities</p>
+        <p>View all your transactions and payments</p>
     </div>
 
-    <!-- Stats Row -->
+    <!-- Stats Row - Compact Horizontal -->
     <div class="stats-row">
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
             <div class="stat-info">
-                <h4 id="totalDisbursed">KSh 165,000</h4>
-                <p>Total Disbursed</p>
+                <h4 id="totalDisbursed">KSh 165K</h4>
+                <p>Disbursed</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-arrow-down"></i></div>
             <div class="stat-info">
-                <h4 id="totalPaid">KSh 98,500</h4>
-                <p>Total Paid</p>
+                <h4 id="totalPaid">KSh 98.5K</h4>
+                <p>Paid</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-clock"></i></div>
             <div class="stat-info">
                 <h4 id="totalPending">KSh 0</h4>
-                <p>Pending Payments</p>
+                <p>Pending</p>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-calendar"></i></div>
             <div class="stat-info">
                 <h4 id="totalTransactions">12</h4>
-                <p>Total Transactions</p>
+                <p>Transactions</p>
             </div>
         </div>
     </div>
 
-    <!-- Filters -->
+    <!-- Filters - Compact -->
     <div class="filters">
         <div class="filter-tabs">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -545,15 +567,13 @@
 
     <!-- Transactions Table -->
     <div class="transactions-container">
-        <table class="transaction-table" id="transactionTable">
+        <table class="transaction-table">
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Description</th>
-                    <th>Type</th>
                     <th>Amount</th>
                     <th>Status</th>
-                    <th>Reference</th>
                 </tr>
             </thead>
             <tbody id="transactionsBody">
@@ -585,27 +605,9 @@
 
     let currentFilter = 'all';
     let currentPage = 1;
-    const itemsPerPage = 8;
+    const itemsPerPage = 10;
     let filteredTransactions = [...transactionsData];
 
-    // Load user data
-    function loadUserData() {
-        const session = localStorage.getItem('imaraSession') || sessionStorage.getItem('imaraSession');
-        if (session) {
-            try {
-                const sessionData = JSON.parse(session);
-                if (sessionData.isLoggedIn && sessionData.user) {
-                    const user = sessionData.user;
-                    const initials = user.fullName?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'GW';
-                    document.getElementById('userAvatar').textContent = initials;
-                    return true;
-                }
-            } catch(e) {}
-        }
-        return false;
-    }
-
-    // Calculate stats
     function updateStats(transactions) {
         const totalDisbursed = transactions
             .filter(t => t.type === 'disbursement' && t.status === 'completed')
@@ -621,9 +623,9 @@
         
         const totalTransactions = transactions.length;
         
-        document.getElementById('totalDisbursed').textContent = `KSh ${totalDisbursed.toLocaleString()}`;
-        document.getElementById('totalPaid').textContent = `KSh ${totalPaid.toLocaleString()}`;
-        document.getElementById('totalPending').textContent = totalPending > 0 ? `KSh ${totalPending.toLocaleString()}` : 'KSh 0';
+        document.getElementById('totalDisbursed').textContent = totalDisbursed >= 100000 ? `KSh ${Math.round(totalDisbursed / 1000)}K` : `KSh ${totalDisbursed.toLocaleString()}`;
+        document.getElementById('totalPaid').textContent = totalPaid >= 100000 ? `KSh ${Math.round(totalPaid / 1000)}K` : `KSh ${totalPaid.toLocaleString()}`;
+        document.getElementById('totalPending').textContent = totalPending > 0 ? (totalPending >= 100000 ? `KSh ${Math.round(totalPending / 1000)}K` : `KSh ${totalPending.toLocaleString()}`) : 'KSh 0';
         document.getElementById('totalTransactions').textContent = totalTransactions;
     }
 
@@ -641,20 +643,10 @@
         }
     }
 
-    function getTypeName(type) {
-        switch(type) {
-            case 'disbursement': return 'Disbursement';
-            case 'payment': return 'Loan Payment';
-            case 'membership': return 'Membership';
-            default: return type;
-        }
-    }
-
     function getStatusBadge(status) {
         switch(status) {
             case 'completed': return '<span class="status-badge completed">Completed</span>';
             case 'pending': return '<span class="status-badge pending">Pending</span>';
-            case 'failed': return '<span class="status-badge failed">Failed</span>';
             default: return '<span class="status-badge">' + status + '</span>';
         }
     }
@@ -668,11 +660,11 @@
         if (pageTransactions.length === 0) {
             tbody.innerHTML = `
                 <tr>
-                    <td colspan="6" style="text-align: center; padding: 60px;">
+                    <td colspan="4" style="text-align: center; padding: 40px;">
                         <div class="empty-state">
                             <i class="fas fa-receipt"></i>
                             <h3>No transactions found</h3>
-                            <p>Try adjusting your filters or date range</p>
+                            <p>Try adjusting your filters</p>
                         </div>
                     </td>
                 </tr>
@@ -683,21 +675,19 @@
         
         tbody.innerHTML = pageTransactions.map(transaction => `
             <tr>
-                <td>${formatDate(transaction.date)}</td>
+                <td style="white-space: nowrap;">${formatDate(transaction.date)}</td>
                 <td>
                     <div class="transaction-type">
                         ${getTypeIcon(transaction.type)}
                         <span>${transaction.description}</span>
                     </div>
                 </td>
-                <td>${getTypeName(transaction.type)}</td>
                 <td>
                     <span class="${transaction.amount > 0 ? 'amount-positive' : 'amount-negative'}">
-                        ${transaction.amount > 0 ? '+' : ''}KSh ${Math.abs(transaction.amount).toLocaleString()}
+                        ${transaction.amount > 0 ? '+' : '-'}KSh ${Math.abs(transaction.amount).toLocaleString()}
                     </span>
                 </td>
                 <td>${getStatusBadge(transaction.status)}</td>
-                <td><span style="font-family: monospace; font-size: 12px;">${transaction.reference}</span></td>
             </tr>
         `).join('');
         
@@ -714,22 +704,17 @@
         }
         
         let pagesHtml = '';
-        
-        // Previous button
         pagesHtml += `<button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled style="opacity:0.5"' : ''}>‹</button>`;
         
-        // Page numbers
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
                 pagesHtml += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             } else if (i === currentPage - 2 || i === currentPage + 2) {
-                pagesHtml += `<span style="padding: 8px;">...</span>`;
+                pagesHtml += `<span style="padding: 6px;">...</span>`;
             }
         }
         
-        // Next button
         pagesHtml += `<button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled style="opacity:0.5"' : ''}>›</button>`;
-        
         paginationDiv.innerHTML = pagesHtml;
     }
 
@@ -743,12 +728,10 @@
     function applyFilters() {
         let filtered = [...transactionsData];
         
-        // Apply type filter
         if (currentFilter !== 'all') {
             filtered = filtered.filter(t => t.type === currentFilter);
         }
         
-        // Apply date filter
         const startMonth = document.getElementById('startMonth').value;
         const endMonth = document.getElementById('endMonth').value;
         
@@ -786,17 +769,14 @@
         return true;
     }
 
-    function logout() {
-        localStorage.removeItem('imaraSession');
-        sessionStorage.removeItem('imaraSession');
-        window.location.href = 'index.html';
+    function goBack() {
+        window.history.back();
     }
 
-    document.getElementById('logoutBtn').addEventListener('click', logout);
+    document.getElementById('backBtn').addEventListener('click', goBack);
 
     // Initialize
     if (checkAuth()) {
-        loadUserData();
         updateStats(transactionsData);
         renderTransactions();
     }
