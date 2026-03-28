@@ -202,25 +202,6 @@
             color: var(--teal);
         }
 
-        .mobile-apply {
-            text-align: center;
-            background: var(--teal);
-            color: var(--white) !important;
-            justify-content: center;
-            border-radius: 48px;
-            margin-top: 16px;
-            margin-bottom: 8px;
-        }
-
-        .mobile-apply i {
-            color: var(--white) !important;
-        }
-
-        .mobile-apply:hover {
-            background: var(--teal-dark);
-            padding-left: 0 !important;
-        }
-
         /* Main Container */
         .main-container {
             max-width: 1400px;
@@ -708,14 +689,12 @@
     </div>
 </nav>
 
-<!-- Mobile Menu - Complete Navigation -->
+<!-- Mobile Menu - Simplified for Logged-In Users -->
 <div class="mobile-menu" id="mobileMenu">
     <!-- ACCOUNT SECTION -->
     <div class="menu-section-title">
-        <i class="fas fa-key"></i> ACCOUNT
+        <i class="fas fa-user-circle"></i> ACCOUNT
     </div>
-    <a href="register.html"><i class="fas fa-user-plus"></i> Create Account</a>
-    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
     <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
     <a href="#" id="mobileLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
     
@@ -760,13 +739,6 @@
     <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
     <a href="econsent.html"><i class="fas fa-signature"></i> E-Sign Consent</a>
     <a href="crb-disclosure.html"><i class="fas fa-chart-line"></i> CRB Disclosure</a>
-    
-    <div class="menu-divider"></div>
-    
-    <!-- APPLY NOW BUTTON -->
-    <a href="apply.html" class="mobile-apply">
-        <i class="fas fa-arrow-right"></i> APPLY NOW
-    </a>
 </div>
 
 <!-- Main Content -->
