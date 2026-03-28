@@ -135,21 +135,90 @@
             box-shadow: var(--shadow-md);
         }
 
-        .logout-btn {
-            background: transparent;
-            border: 1px solid #E2E8F0;
-            padding: 8px 16px;
-            border-radius: 40px;
-            color: var(--gray);
-            font-weight: 500;
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
             cursor: pointer;
+            color: var(--navy);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            padding: 20px;
+            gap: 8px;
+            border-top: 1px solid #E2E8F0;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            padding: 12px 0;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             transition: all 0.3s;
         }
 
-        .logout-btn:hover {
-            background: var(--red);
-            border-color: var(--red);
-            color: var(--white);
+        .mobile-menu a i {
+            width: 24px;
+            color: var(--teal);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--teal);
+            padding-left: 8px;
+        }
+
+        .menu-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 12px 0;
+        }
+
+        .menu-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 16px 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-section-title i {
+            font-size: 12px;
+            color: var(--teal);
+        }
+
+        .mobile-apply {
+            text-align: center;
+            background: var(--teal);
+            color: var(--white) !important;
+            justify-content: center;
+            border-radius: 48px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .mobile-apply i {
+            color: var(--white) !important;
+        }
+
+        .mobile-apply:hover {
+            background: var(--teal-dark);
+            padding-left: 0 !important;
         }
 
         /* Main Container */
@@ -176,7 +245,7 @@
             font-size: 16px;
         }
 
-        /* Stats Grid */
+        /* Stats Grid - HORIZONTAL */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -519,10 +588,6 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
@@ -533,17 +598,48 @@
                 padding: 0 20px;
             }
             
-            .main-container {
-                padding: 20px;
-            }
-            
             .nav-links {
                 display: none;
             }
             
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .main-container {
+                padding: 20px;
+            }
+            
+            /* Stats Grid - HORIZONTAL on mobile (2x2 grid) */
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
+            }
+            
+            .stat-card {
+                padding: 16px;
+            }
+            
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 12px;
+            }
+            
+            .stat-icon i {
+                font-size: 20px;
+            }
+            
+            .stat-value {
+                font-size: 22px;
+            }
+            
+            .stat-label {
+                font-size: 12px;
             }
             
             .welcome-section h1 {
@@ -558,6 +654,33 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                gap: 12px;
+            }
+            
+            .stat-card {
+                padding: 12px;
+            }
+            
+            .stat-value {
+                font-size: 18px;
+            }
+            
+            .stat-label {
+                font-size: 10px;
+            }
+            
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .stat-icon i {
+                font-size: 16px;
             }
         }
     </style>
@@ -578,10 +701,73 @@
         </div>
         <div class="user-menu">
             <div class="user-avatar" id="userAvatar">GW</div>
-            <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
 </nav>
+
+<!-- Mobile Menu - Complete Navigation -->
+<div class="mobile-menu" id="mobileMenu">
+    <!-- ACCOUNT SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-key"></i> ACCOUNT
+    </div>
+    <a href="register.html"><i class="fas fa-user-plus"></i> Create Account</a>
+    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+    <a href="profile.html"><i class="fas fa-user-circle"></i> My Profile</a>
+    <a href="#" id="mobileLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    
+    <div class="menu-divider"></div>
+    
+    <!-- MY LOANS SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-hand-holding-usd"></i> MY LOANS
+    </div>
+    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="my-loans.html"><i class="fas fa-folder-open"></i> Active Loans</a>
+    <a href="loan-history.html"><i class="fas fa-history"></i> Loan History</a>
+    <a href="apply.html"><i class="fas fa-hand-holding-usd"></i> Apply for Loan</a>
+    
+    <div class="menu-divider"></div>
+    
+    <!-- MEMBERSHIP SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-crown"></i> MEMBERSHIP
+    </div>
+    <a href="membership.html"><i class="fas fa-crown"></i> Membership Plans</a>
+    <a href="payment.html"><i class="fas fa-credit-card"></i> Make Payment</a>
+    
+    <div class="menu-divider"></div>
+    
+    <!-- INFORMATION SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-info-circle"></i> INFORMATION
+    </div>
+    <a href="how-it-works.html"><i class="fas fa-question-circle"></i> How It Works</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="faq.html"><i class="fas fa-comments"></i> FAQ</a>
+    <a href="about.html"><i class="fas fa-users"></i> About</a>
+    
+    <div class="menu-divider"></div>
+    
+    <!-- LEGAL SECTION -->
+    <div class="menu-section-title">
+        <i class="fas fa-gavel"></i> LEGAL
+    </div>
+    <a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+    <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
+    <a href="econsent.html"><i class="fas fa-signature"></i> E-Sign Consent</a>
+    <a href="crb-disclosure.html"><i class="fas fa-chart-line"></i> CRB Disclosure</a>
+    
+    <div class="menu-divider"></div>
+    
+    <!-- APPLY NOW BUTTON -->
+    <a href="apply.html" class="mobile-apply">
+        <i class="fas fa-arrow-right"></i> APPLY NOW
+    </a>
+</div>
 
 <!-- Main Content -->
 <main class="main-container">
@@ -591,7 +777,7 @@
         <p>Here's what's happening with your finances today.</p>
     </div>
 
-    <!-- Stats Grid -->
+    <!-- Stats Grid - HORIZONTAL LAYOUT -->
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-hand-holding-usd"></i></div>
@@ -763,6 +949,37 @@
 </main>
 
 <script>
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // Logout function for mobile menu
+    function logout() {
+        localStorage.removeItem('imaraSession');
+        sessionStorage.removeItem('imaraSession');
+        window.location.href = 'index.html';
+    }
+    
+    // Mobile logout button
+    const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
+    if (mobileLogoutBtn) {
+        mobileLogoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            logout();
+        });
+    }
+
     // Load user data from localStorage
     function loadUserData() {
         const session = localStorage.getItem('imaraSession') || sessionStorage.getItem('imaraSession');
@@ -798,20 +1015,10 @@
         return true;
     }
     
-    // Logout function
-    function logout() {
-        localStorage.removeItem('imaraSession');
-        sessionStorage.removeItem('imaraSession');
-        window.location.href = 'index.html';
-    }
-    
     // Initialize dashboard
     function init() {
         if (!checkAuth()) return;
         loadUserData();
-        
-        // Set logout button
-        document.getElementById('logoutBtn').addEventListener('click', logout);
     }
     
     // Run on page load
