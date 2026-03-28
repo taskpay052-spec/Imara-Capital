@@ -83,11 +83,6 @@
             color: var(--navy);
         }
 
-        .btn-large {
-            padding: 16px 40px;
-            font-size: 18px;
-        }
-
         /* Navigation */
         .navbar {
             background: var(--white);
@@ -102,6 +97,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         .logo {
@@ -174,7 +172,7 @@
             text-align: center;
         }
 
-        /* Hero Section - Single Image */
+        /* Hero Section */
         .hero-section {
             position: relative;
             width: 100%;
@@ -198,7 +196,7 @@
             z-index: 1;
         }
 
-        /* Loan Calculator Section - Full Width Edge to Edge */
+        /* Calculator Section (unchanged) */
         .calculator-section {
             background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%);
             padding: 0;
@@ -245,7 +243,6 @@
             margin: 0 auto;
         }
 
-        /* Left Side - Inputs */
         .calculator-inputs {
             padding-right: 24px;
         }
@@ -330,7 +327,6 @@
             font-size: 20px;
         }
 
-        /* Term Options */
         .term-options {
             display: flex;
             gap: 12px;
@@ -361,7 +357,6 @@
             color: var(--navy);
         }
 
-        /* Right Side - Breakdown - Horizontal Layout */
         .calculator-breakdown {
             background: linear-gradient(135deg, var(--gray-light) 0%, #FFFFFF 100%);
             border-radius: 32px;
@@ -387,7 +382,6 @@
             border-radius: 2px;
         }
 
-        /* Horizontal Breakdown Grid */
         .breakdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -418,10 +412,6 @@
         .breakdown-card.highlight .breakdown-label,
         .breakdown-card.highlight .breakdown-value {
             color: var(--white);
-        }
-
-        .breakdown-card.highlight .breakdown-icon i {
-            color: var(--gold);
         }
 
         .breakdown-icon {
@@ -491,14 +481,6 @@
             gap: 16px;
         }
 
-        .apply-btn i {
-            transition: transform 0.3s ease;
-        }
-
-        .apply-btn:hover i {
-            transform: translateX(6px);
-        }
-
         .calculator-note {
             font-size: 11px;
             color: var(--gray);
@@ -510,54 +492,148 @@
             gap: 6px;
         }
 
-        .calculator-note i {
-            color: var(--gold);
-        }
+        /* ======================================== */
+        /* REDESIGNED SECTIONS - MODERN & MOBILE-FRIENDLY */
+        /* ======================================== */
 
-        /* Other Sections */
-        .section {
+        /* Loan Products Section - Modern Cards */
+        .products-section {
             padding: 80px 0;
+            background: var(--white);
         }
 
-        .section-title {
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
             font-size: 36px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--navy);
             margin-bottom: 16px;
-            text-align: center;
         }
 
-        .section-subtitle {
+        .section-header p {
             font-size: 18px;
             color: var(--gray);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 48px auto;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .products-grid {
+        .products-grid-modern {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
-        .product-card {
+        .product-card-modern {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid #E9EDF2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .product-card-modern:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-card-modern:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-icon-modern {
+            width: 80px;
+            height: 80px;
+            background: rgba(198, 164, 63, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .product-icon-modern i {
+            font-size: 36px;
+            color: var(--gold);
+        }
+
+        .product-card-modern h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .product-card-modern p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .product-features span {
+            background: var(--gray-light);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        /* Features Grid - Modern */
+        .features-section-modern {
+            background: var(--gray-light);
+            padding: 80px 0;
+        }
+
+        .features-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 32px 24px;
             background: var(--white);
             border-radius: 24px;
-            padding: 32px;
-            box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid #E2E8F0;
+            border: 1px solid #E9EDF2;
         }
 
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+        .feature-card:hover {
+            transform: translateY(-5px);
             border-color: var(--gold);
+            box-shadow: var(--shadow);
         }
 
-        .product-icon {
+        .feature-icon-modern {
             width: 70px;
             height: 70px;
             background: rgba(198, 164, 63, 0.1);
@@ -568,92 +644,52 @@
             margin: 0 auto 20px;
         }
 
-        .product-icon i {
-            font-size: 32px;
+        .feature-icon-modern i {
+            font-size: 30px;
             color: var(--gold);
         }
 
-        .product-title {
-            font-size: 24px;
+        .feature-card h3 {
+            font-size: 20px;
             font-weight: 700;
             color: var(--navy);
             margin-bottom: 12px;
         }
 
-        .product-description {
+        .feature-card p {
             color: var(--gray);
-            margin-bottom: 20px;
             line-height: 1.6;
-        }
-
-        .product-details {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 24px;
             font-size: 14px;
-            font-weight: 500;
-            color: var(--gold);
-            flex-wrap: wrap;
         }
 
-        .features-section {
-            background: var(--gray-light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 24px;
-            transition: all 0.3s;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
+        /* Steps Section - Modern */
+        .steps-section-modern {
+            padding: 80px 0;
             background: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: var(--shadow);
         }
 
-        .feature-icon i {
-            font-size: 28px;
-            color: var(--gold);
-        }
-
-        .feature-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-
-        .feature-description {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .steps-grid {
+        .steps-grid-modern {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            text-align: center;
         }
 
-        .step-number {
+        .step-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--white);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            border: 1px solid #E9EDF2;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .step-number-modern {
             width: 56px;
             height: 56px;
             background: var(--gold);
@@ -667,24 +703,28 @@
             margin: 0 auto 20px;
         }
 
-        .step-icon i {
-            font-size: 48px;
-            color: var(--gold);
+        .step-icon-modern {
             margin-bottom: 20px;
         }
 
-        .step-title {
+        .step-icon-modern i {
+            font-size: 48px;
+            color: var(--gold);
+        }
+
+        .step-card h3 {
             font-size: 20px;
             font-weight: 700;
             color: var(--navy);
             margin-bottom: 12px;
         }
 
-        .step-description {
+        .step-card p {
             color: var(--gray);
             line-height: 1.6;
         }
 
+        /* Footer */
         .footer {
             background: var(--navy);
             color: var(--white);
@@ -744,7 +784,6 @@
             .hero-section {
                 height: 45vh;
                 min-height: 320px;
-                max-height: 400px;
             }
             
             .calculator-card {
@@ -764,11 +803,6 @@
                 font-size: 28px;
             }
             
-            .calculator-subtitle {
-                font-size: 14px;
-                margin-bottom: 24px;
-            }
-            
             .term-options {
                 gap: 8px;
             }
@@ -780,93 +814,45 @@
                 text-align: center;
             }
             
-            .current-amount {
-                font-size: 24px;
-            }
-            
-            .amount-slider-container {
-                padding: 20px;
-            }
-            
-            /* Horizontal breakdown on mobile - still horizontal but smaller */
             .breakdown-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             
-            .breakdown-card {
-                padding: 12px 8px;
+            .section-header h2 {
+                font-size: 28px;
             }
             
-            .breakdown-icon {
-                width: 36px;
-                height: 36px;
-                margin-bottom: 8px;
-            }
-            
-            .breakdown-icon i {
+            .section-header p {
                 font-size: 16px;
+                padding: 0 20px;
             }
             
-            .breakdown-label {
-                font-size: 9px;
-            }
-            
-            .breakdown-value {
-                font-size: 14px;
-            }
-            
-            .calculator-breakdown {
-                padding: 24px;
-            }
-            
-            .products-grid, .features-grid, .steps-grid, .footer-grid {
+            .products-grid-modern,
+            .features-grid-modern,
+            .steps-grid-modern,
+            .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
             
-            .section {
+            .product-card-modern,
+            .feature-card,
+            .step-card {
+                padding: 28px 20px;
+                margin: 0 16px;
+            }
+            
+            .product-card-modern h3,
+            .feature-card h3,
+            .step-card h3 {
+                font-size: 20px;
+            }
+            
+            .products-section,
+            .features-section-modern,
+            .steps-section-modern {
                 padding: 48px 0;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .section-subtitle {
-                font-size: 16px;
-                padding: 0 16px;
-                margin-bottom: 32px;
-            }
-            
-            .product-card {
-                padding: 24px;
-            }
-            
-            .product-title {
-                font-size: 20px;
-            }
-            
-            .feature {
-                padding: 20px;
-            }
-            
-            .feature-title {
-                font-size: 18px;
-            }
-            
-            .step-number {
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-            }
-            
-            .step-icon i {
-                font-size: 40px;
-            }
-            
-            .step-title {
-                font-size: 18px;
             }
             
             .footer {
@@ -881,28 +867,10 @@
         @media (max-width: 550px) {
             .breakdown-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
             }
             
             .breakdown-card {
-                padding: 16px 12px;
-            }
-            
-            .breakdown-icon {
-                width: 44px;
-                height: 44px;
-            }
-            
-            .breakdown-icon i {
-                font-size: 18px;
-            }
-            
-            .breakdown-label {
-                font-size: 10px;
-            }
-            
-            .breakdown-value {
-                font-size: 16px;
+                padding: 12px 8px;
             }
         }
         
@@ -912,20 +880,11 @@
                 min-height: 280px;
             }
             
-            .calculator-card {
-                padding: 24px 16px;
-            }
-            
             .calculator-title {
                 font-size: 24px;
             }
             
-            .calculator-badge {
-                font-size: 11px;
-                padding: 6px 16px;
-            }
-            
-            .section-title {
+            .section-header h2 {
                 font-size: 24px;
             }
             
@@ -939,47 +898,9 @@
                 gap: 8px;
             }
             
-            .term-btn {
-                padding: 10px 12px;
-                font-size: 12px;
+            .product-card-modern {
+                margin: 0;
             }
-            
-            .current-amount {
-                font-size: 20px;
-            }
-            
-            .amount-values {
-                font-size: 10px;
-            }
-            
-            .breakdown-grid {
-                gap: 10px;
-            }
-            
-            .breakdown-card {
-                padding: 12px 8px;
-            }
-            
-            .breakdown-value {
-                font-size: 14px;
-            }
-            
-            .apply-btn {
-                padding: 14px 20px;
-                font-size: 14px;
-            }
-        }
-        
-        /* Disable zoom on input focus for mobile */
-        @media (max-width: 768px) {
-            input, select, textarea {
-                font-size: 16px !important;
-            }
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -1017,10 +938,10 @@
     <a href="apply.html" class="btn btn-primary mobile-apply">Apply Now</a>
 </div>
 
-<!-- Hero Section - Single Professional Image -->
+<!-- Hero Section -->
 <section class="hero-section"></section>
 
-<!-- Loan Calculator Section - Full Width Edge to Edge -->
+<!-- Loan Calculator Section -->
 <section class="calculator-section">
     <div class="calculator-wrapper">
         <div class="calculator-card">
@@ -1029,12 +950,10 @@
             </div>
             
             <div class="calculator-grid">
-                <!-- Left Side: Inputs -->
                 <div class="calculator-inputs">
                     <h2 class="calculator-title">How much do you need?</h2>
                     <p class="calculator-subtitle">Adjust the sliders to see your estimated repayment</p>
                     
-                    <!-- Loan Amount Field -->
                     <div class="input-group">
                         <label><i class="fas fa-money-bill-wave"></i> Loan Amount</label>
                         <div class="amount-slider-container">
@@ -1050,7 +969,6 @@
                         </div>
                     </div>
                     
-                    <!-- Loan Term Field -->
                     <div class="input-group">
                         <label><i class="fas fa-calendar-week"></i> Loan Term</label>
                         <div class="term-options" id="termOptions">
@@ -1063,54 +981,35 @@
                     </div>
                 </div>
                 
-                <!-- Right Side: Breakdown - Horizontal Cards -->
                 <div class="calculator-breakdown">
                     <h3>Loan Breakdown</h3>
-                    
                     <div class="breakdown-grid">
-                        <!-- Principal Card -->
                         <div class="breakdown-card">
-                            <div class="breakdown-icon">
-                                <i class="fas fa-coins"></i>
-                            </div>
+                            <div class="breakdown-icon"><i class="fas fa-coins"></i></div>
                             <span class="breakdown-label">Principal</span>
                             <span class="breakdown-value" id="principalAmount">KSh 50,000</span>
                         </div>
-                        
-                        <!-- Interest Card -->
                         <div class="breakdown-card">
-                            <div class="breakdown-icon">
-                                <i class="fas fa-percent"></i>
-                            </div>
+                            <div class="breakdown-icon"><i class="fas fa-percent"></i></div>
                             <span class="breakdown-label">Interest</span>
                             <span class="breakdown-value" id="interestAmount">KSh 3,500</span>
                             <span class="interest-badge" id="interestRateBadge">7%</span>
                         </div>
-                        
-                        <!-- Weekly Payment Card -->
                         <div class="breakdown-card">
-                            <div class="breakdown-icon">
-                                <i class="fas fa-calendar-week"></i>
-                            </div>
+                            <div class="breakdown-icon"><i class="fas fa-calendar-week"></i></div>
                             <span class="breakdown-label">Weekly Payment</span>
                             <span class="breakdown-value" id="weeklyPayment">KSh 4,458</span>
                         </div>
-                        
-                        <!-- Total Cost Card - Highlighted -->
                         <div class="breakdown-card highlight">
-                            <div class="breakdown-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
+                            <div class="breakdown-icon"><i class="fas fa-chart-line"></i></div>
                             <span class="breakdown-label">Total Cost</span>
                             <span class="breakdown-value" id="totalCost">KSh 53,500</span>
                         </div>
                     </div>
-                    
                     <a href="apply.html" class="apply-btn">
                         <span>Apply Now</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    
                     <p class="calculator-note">
                         <i class="fas fa-shield-alt"></i> Rates from 5% to 15% based on credit profile
                     </p>
@@ -1120,37 +1019,39 @@
     </div>
 </section>
 
-<!-- Loan Products Section -->
-<section class="section">
+<!-- Loan Products Section - Modern Redesign -->
+<section class="products-section">
     <div class="container">
-        <h2 class="section-title">Loan Products</h2>
-        <p class="section-subtitle">Choose the loan that fits your needs. Transparent rates, flexible terms, and fast funding.</p>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-icon"><i class="fas fa-user"></i></div>
-                <h3 class="product-title">Personal Loans</h3>
-                <p class="product-description">For salaried individuals and professionals. School fees, medical emergencies, home improvements.</p>
-                <div class="product-details">
+        <div class="section-header">
+            <h2>Loan Products</h2>
+            <p>Choose the loan that fits your needs. Transparent rates, flexible terms, and fast funding.</p>
+        </div>
+        <div class="products-grid-modern">
+            <div class="product-card-modern">
+                <div class="product-icon-modern"><i class="fas fa-user"></i></div>
+                <h3>Personal Loans</h3>
+                <p>For salaried individuals and professionals. School fees, medical emergencies, home improvements.</p>
+                <div class="product-features">
                     <span>KSh 5,000 – 300,000</span>
                     <span>3–12 months</span>
                 </div>
                 <a href="apply.html" class="btn btn-secondary">Learn More →</a>
             </div>
-            <div class="product-card">
-                <div class="product-icon"><i class="fas fa-briefcase"></i></div>
-                <h3 class="product-title">Business Loans</h3>
-                <p class="product-description">For SMEs, startups, and entrepreneurs. Grow your inventory, expand operations, manage cash flow.</p>
-                <div class="product-details">
+            <div class="product-card-modern">
+                <div class="product-icon-modern"><i class="fas fa-briefcase"></i></div>
+                <h3>Business Loans</h3>
+                <p>For SMEs, startups, and entrepreneurs. Grow your inventory, expand operations, manage cash flow.</p>
+                <div class="product-features">
                     <span>KSh 10,000 – 500,000</span>
                     <span>3–12 months</span>
                 </div>
                 <a href="apply.html" class="btn btn-secondary">Learn More →</a>
             </div>
-            <div class="product-card">
-                <div class="product-icon"><i class="fas fa-mobile-alt"></i></div>
-                <h3 class="product-title">Asset Finance</h3>
-                <p class="product-description">Get electronics, equipment, or vehicles. We purchase the asset and you pay over time.</p>
-                <div class="product-details">
+            <div class="product-card-modern">
+                <div class="product-icon-modern"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Asset Finance</h3>
+                <p>Get electronics, equipment, or vehicles. We purchase the asset and you pay over time.</p>
+                <div class="product-features">
                     <span>KSh 5,000 – 200,000</span>
                     <span>2–6 months</span>
                 </div>
@@ -1160,59 +1061,63 @@
     </div>
 </section>
 
-<!-- Why Choose Us Section -->
-<section class="section features-section">
+<!-- Why Choose Us Section - Modern Redesign -->
+<section class="features-section-modern">
     <div class="container">
-        <h2 class="section-title">Why Kenyans Trust Imara Capital</h2>
-        <p class="section-subtitle">We're building a better lending experience for Kenya.</p>
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                <h3 class="feature-title">Fast Disbursement</h3>
-                <p class="feature-description">Funds sent directly to your M-Pesa within 24 hours of approval.</p>
+        <div class="section-header">
+            <h2>Why Kenyans Trust Imara Capital</h2>
+            <p>We're building a better lending experience for Kenya.</p>
+        </div>
+        <div class="features-grid-modern">
+            <div class="feature-card">
+                <div class="feature-icon-modern"><i class="fas fa-bolt"></i></div>
+                <h3>Fast Disbursement</h3>
+                <p>Funds sent directly to your M-Pesa within 24 hours of approval.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3 class="feature-title">Secure & Compliant</h3>
-                <p class="feature-description">Fully licensed by CBK. Your data is protected under Kenyan law.</p>
+            <div class="feature-card">
+                <div class="feature-icon-modern"><i class="fas fa-shield-alt"></i></div>
+                <h3>Secure & Compliant</h3>
+                <p>Fully licensed by CBK. Your data is protected under Kenyan law.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
-                <h3 class="feature-title">Simple Process</h3>
-                <p class="feature-description">Apply on your phone. No paperwork. No branches.</p>
+            <div class="feature-card">
+                <div class="feature-icon-modern"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Simple Process</h3>
+                <p>Apply on your phone. No paperwork. No branches.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                <h3 class="feature-title">Transparent Rates</h3>
-                <p class="feature-description">What you see is what you pay. No hidden fees.</p>
+            <div class="feature-card">
+                <div class="feature-icon-modern"><i class="fas fa-chart-line"></i></div>
+                <h3>Transparent Rates</h3>
+                <p>What you see is what you pay. No hidden fees.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- How It Works Section -->
-<section class="section">
+<!-- How It Works Section - Modern Redesign -->
+<section class="steps-section-modern">
     <div class="container">
-        <h2 class="section-title">Get Your Loan in 3 Simple Steps</h2>
-        <p class="section-subtitle">No branches. No paperwork. Just a few clicks and you're on your way.</p>
-        <div class="steps-grid">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-icon"><i class="fas fa-edit"></i></div>
-                <h3 class="step-title">Apply Online</h3>
-                <p class="step-description">Fill out our simple application form. Takes 2–3 minutes.</p>
+        <div class="section-header">
+            <h2>Get Your Loan in 3 Simple Steps</h2>
+            <p>No branches. No paperwork. Just a few clicks and you're on your way.</p>
+        </div>
+        <div class="steps-grid-modern">
+            <div class="step-card">
+                <div class="step-number-modern">1</div>
+                <div class="step-icon-modern"><i class="fas fa-edit"></i></div>
+                <h3>Apply Online</h3>
+                <p>Fill out our simple application form. Takes 2–3 minutes.</p>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-icon"><i class="fas fa-clock"></i></div>
-                <h3 class="step-title">Get Approved</h3>
-                <p class="step-description">We review and approve within hours. We'll call if we need anything.</p>
+            <div class="step-card">
+                <div class="step-number-modern">2</div>
+                <div class="step-icon-modern"><i class="fas fa-clock"></i></div>
+                <h3>Get Approved</h3>
+                <p>We review and approve within hours. We'll call if we need anything.</p>
             </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-icon"><i class="fas fa-money-bill-wave"></i></div>
-                <h3 class="step-title">Receive Funds</h3>
-                <p class="step-description">Funds sent directly to your M-Pesa. Simple repayment via PayBill.</p>
+            <div class="step-card">
+                <div class="step-number-modern">3</div>
+                <div class="step-icon-modern"><i class="fas fa-money-bill-wave"></i></div>
+                <h3>Receive Funds</h3>
+                <p>Funds sent directly to your M-Pesa. Simple repayment via PayBill.</p>
             </div>
         </div>
     </div>
@@ -1264,7 +1169,6 @@
         mobileMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when a link is clicked
     const mobileLinks = document.querySelectorAll('.mobile-menu a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -1282,14 +1186,13 @@
     const interestRateBadge = document.getElementById('interestRateBadge');
     
     const termBtns = document.querySelectorAll('.term-btn');
-    let currentTermWeeks = 12; // Default 12 weeks
+    let currentTermWeeks = 12;
     
     function calculateLoan() {
         let amount = parseFloat(loanSlider.value);
         let weeks = currentTermWeeks;
         
-        // Calculate interest rate based on amount
-        let rate = 0.07; // 7% default
+        let rate = 0.07;
         if (amount < 10000) rate = 0.09;
         else if (amount < 50000) rate = 0.08;
         else if (amount < 200000) rate = 0.07;
@@ -1299,10 +1202,8 @@
         let total = amount + interestAmount;
         let weeklyPayment = total / weeks;
         
-        // Format numbers
         const formatKSh = (num) => `KSh ${Math.round(num).toLocaleString()}`;
         
-        // Update DOM
         currentAmountSpan.textContent = Math.round(amount).toLocaleString();
         principalSpan.textContent = formatKSh(amount);
         interestSpan.textContent = formatKSh(interestAmount);
@@ -1311,12 +1212,8 @@
         interestRateBadge.textContent = `${Math.round(rate * 100)}%`;
     }
     
-    // Slider event
-    loanSlider.addEventListener('input', function() {
-        calculateLoan();
-    });
+    loanSlider.addEventListener('input', calculateLoan);
     
-    // Term buttons
     termBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             termBtns.forEach(b => b.classList.remove('active'));
@@ -1326,7 +1223,6 @@
         });
     });
     
-    // Initialize
     calculateLoan();
 </script>
 
