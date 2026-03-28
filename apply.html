@@ -26,50 +26,44 @@
         }
 
         :root {
-            --navy: #0A1E3C;
-            --navy-light: #1E3A5F;
-            --gold: #C6A43F;
-            --gold-dark: #B28C2E;
+            --navy: #0A2540;
+            --navy-light: #1A3A5C;
+            --teal: #2C7A7B;
+            --teal-dark: #235B5C;
+            --gold: #F5A623;
+            --gold-dark: #E09512;
             --gray-dark: #2D3A4B;
             --gray: #4A5568;
-            --gray-light: #F7F9FC;
+            --gray-light: #F8F9FA;
             --white: #FFFFFF;
             --green: #2E7D32;
-            --green-light: #E8F5E9;
             --red: #D32F2F;
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         /* Navigation */
         .navbar {
             background: var(--white);
-            backdrop-filter: blur(10px);
             box-shadow: var(--shadow-sm);
-            padding: 16px 0;
+            padding: 14px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .nav-container {
-            max-width: 1280px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             text-decoration: none;
             display: flex;
@@ -82,83 +76,83 @@
         }
 
         .logo-capital {
-            color: var(--gold);
+            color: var(--teal);
         }
 
-        .back-link {
+        .back-btn {
+            background: var(--gray-light);
+            border: 1px solid #E2E8F0;
+            padding: 6px 16px;
+            border-radius: 40px;
             color: var(--gray);
-            text-decoration: none;
             font-weight: 500;
+            cursor: pointer;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 40px;
-            background: var(--gray-light);
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
         }
 
-        .back-link:hover {
-            color: var(--gold);
-            background: rgba(198, 164, 63, 0.1);
+        .back-btn:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: var(--white);
             transform: translateX(-4px);
         }
 
         /* Main Content */
         .main-content {
-            padding: 48px 0 80px;
+            padding: 24px 0 48px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .application-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .application-header h1 {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 6px;
         }
 
         .application-header p {
             color: var(--gray);
-            font-size: 18px;
+            font-size: 14px;
         }
 
-        /* Progress Bar - Modern Design - HORIZONTAL ON ALL DEVICES */
+        /* Progress Bar */
         .progress-container {
             background: var(--white);
-            border-radius: 32px;
-            padding: 28px 24px;
-            margin-bottom: 32px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
         }
 
         .progress-steps {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
             position: relative;
-            min-width: 500px;
         }
 
         .progress-steps::before {
             content: '';
             position: absolute;
-            top: 28px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #E2E8F0, #CBD5E1, #E2E8F0);
+            top: 22px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #E2E8F0;
             z-index: 1;
-            border-radius: 3px;
         }
 
         .step {
@@ -169,28 +163,25 @@
         }
 
         .step-circle {
-            width: 56px;
-            height: 56px;
+            width: 44px;
+            height: 44px;
             background: var(--white);
             border: 2px solid #E2E8F0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px;
+            margin: 0 auto 8px;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             color: var(--gray);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
         }
 
         .step.active .step-circle {
-            border-color: var(--gold);
-            background: var(--gold);
-            color: var(--navy);
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(198, 164, 63, 0.3);
+            border-color: var(--teal);
+            background: var(--teal);
+            color: var(--white);
         }
 
         .step.completed .step-circle {
@@ -203,7 +194,7 @@
             content: '\f00c';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            font-size: 20px;
+            font-size: 14px;
         }
 
         .step.completed .step-circle span {
@@ -211,34 +202,27 @@
         }
 
         .step-label {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 500;
             color: var(--gray);
-            letter-spacing: 0.3px;
-            white-space: nowrap;
         }
 
         .step.active .step-label {
-            color: var(--gold);
+            color: var(--teal);
             font-weight: 600;
-        }
-
-        .step.completed .step-label {
-            color: var(--green);
         }
 
         /* Form Container */
         .form-container {
             background: var(--white);
-            border-radius: 32px;
-            padding: 48px;
+            border-radius: 24px;
+            padding: 28px 24px;
             box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
         .form-step {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
         }
 
         .form-step.active-step {
@@ -248,7 +232,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(8px);
             }
             to {
                 opacity: 1;
@@ -257,30 +241,30 @@
         }
 
         .step-title {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--navy);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .step-title i {
-            color: var(--gold);
-            font-size: 28px;
+            color: var(--teal);
+            font-size: 22px;
         }
 
         .form-group {
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             font-weight: 600;
             color: var(--gray-dark);
-            margin-bottom: 10px;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-size: 13px;
         }
 
         .form-group label .required {
@@ -292,66 +276,60 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 14px;
             border: 1.5px solid #E9EDF2;
-            border-radius: 16px;
-            font-size: 16px;
+            border-radius: 14px;
+            font-size: 14px;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s;
             background: var(--white);
-        }
-
-        .form-group input:hover,
-        .form-group select:hover {
-            border-color: #CBD5E1;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px rgba(198, 164, 63, 0.1);
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(44, 122, 123, 0.1);
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 16px;
         }
 
         /* Radio & Checkbox */
         .radio-group {
             display: flex;
-            gap: 32px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
         .radio-option {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
-            padding: 8px 0;
         }
 
         .radio-option input {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             cursor: pointer;
-            accent-color: var(--gold);
+            accent-color: var(--teal);
         }
 
         .radio-option span {
+            font-size: 13px;
             color: var(--gray-dark);
-            font-weight: 500;
         }
 
         /* Document Upload */
         .upload-area {
             border: 2px dashed #E2E8F0;
-            border-radius: 20px;
-            padding: 40px 24px;
+            border-radius: 16px;
+            padding: 24px 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
@@ -359,26 +337,25 @@
         }
 
         .upload-area:hover {
-            border-color: var(--gold);
-            background: rgba(198, 164, 63, 0.03);
-            transform: translateY(-2px);
+            border-color: var(--teal);
+            background: rgba(44, 122, 123, 0.03);
         }
 
         .upload-area i {
-            font-size: 48px;
-            color: var(--gold);
-            margin-bottom: 16px;
+            font-size: 36px;
+            color: var(--teal);
+            margin-bottom: 12px;
         }
 
         .upload-area p {
             color: var(--gray);
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 6px;
+            font-size: 13px;
         }
 
         .upload-area small {
             color: #94A3B8;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .upload-area input {
@@ -386,14 +363,14 @@
         }
 
         .file-list {
-            margin-top: 16px;
+            margin-top: 12px;
         }
 
         .file-item {
             background: var(--gray-light);
-            padding: 12px 16px;
-            border-radius: 12px;
-            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-bottom: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -401,7 +378,7 @@
         }
 
         .file-item span {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--gray-dark);
         }
 
@@ -409,7 +386,6 @@
             color: var(--red);
             cursor: pointer;
             opacity: 0.6;
-            transition: opacity 0.3s;
         }
 
         .file-item i:hover {
@@ -421,8 +397,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
-            padding-top: 32px;
+            margin-top: 28px;
+            padding-top: 20px;
             border-top: 1px solid #E9EDF2;
         }
 
@@ -430,46 +406,43 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 60px;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             border: none;
-            font-size: 15px;
+            font-size: 13px;
             cursor: pointer;
-            min-width: 140px;
+            font-family: 'Inter', sans-serif;
         }
 
         .btn-primary {
-            background: var(--gold);
-            color: var(--navy);
-            box-shadow: 0 2px 8px rgba(198, 164, 63, 0.3);
+            background: var(--teal);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--gold-dark);
+            background: var(--teal-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(198, 164, 63, 0.4);
         }
 
         .btn-secondary {
             background: var(--white);
             color: var(--gray);
-            border: 1.5px solid #E9EDF2;
+            border: 1px solid #E2E8F0;
         }
 
         .btn-secondary:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateX(-4px);
+            border-color: var(--teal);
+            color: var(--teal);
         }
 
         .btn-save {
             background: transparent;
             color: var(--gray);
-            border: 1.5px solid #E9EDF2;
+            border: 1px solid #E2E8F0;
         }
 
         .btn-save:hover {
@@ -477,19 +450,18 @@
             color: var(--green);
         }
 
-        /* Review Content */
+        /* Review Card */
         .review-card {
-            background: linear-gradient(135deg, var(--gray-light) 0%, #FFFFFF 100%);
-            border-radius: 24px;
-            padding: 28px;
-            margin-bottom: 28px;
-            border: 1px solid #E9EDF2;
+            background: var(--gray-light);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 24px;
         }
 
         .review-section {
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #E9EDF2;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #E2E8F0;
         }
 
         .review-section:last-child {
@@ -499,10 +471,10 @@
         }
 
         .review-section h4 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 12px;
+            color: var(--teal);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -510,185 +482,116 @@
 
         .review-section p {
             color: var(--gray-dark);
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         /* Success Message */
         .success-message {
             text-align: center;
-            padding: 48px 32px;
-            animation: fadeIn 0.5s ease;
+            padding: 32px 20px;
         }
 
         .success-message i {
-            font-size: 80px;
+            font-size: 56px;
             color: var(--green);
-            margin-bottom: 24px;
-        }
-
-        .success-message h2 {
-            font-size: 28px;
-            color: var(--navy);
             margin-bottom: 16px;
         }
 
-        .success-message p {
-            color: var(--gray);
-            margin-bottom: 8px;
+        .success-message h2 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 12px;
         }
 
         .reference-number {
             background: var(--green-light);
-            padding: 20px;
-            border-radius: 20px;
-            margin: 24px 0;
-            font-size: 20px;
+            padding: 14px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-size: 18px;
             font-weight: 700;
             color: var(--green);
-            border: 1px solid rgba(46, 125, 50, 0.2);
         }
 
         /* Error Styling */
         .form-group.error input,
         .form-group.error select {
             border-color: var(--red);
-            background: rgba(211, 47, 47, 0.02);
         }
 
         .error-message {
             color: var(--red);
-            font-size: 12px;
-            margin-top: 6px;
+            font-size: 11px;
+            margin-top: 4px;
             display: block;
         }
 
-        /* Mobile Responsive - PROGRESS STEPS REMAIN HORIZONTAL */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
+            .main-content {
+                padding: 16px 0 32px;
             }
-
+            
             .application-header h1 {
-                font-size: 32px;
-            }
-
-            .application-header p {
-                font-size: 15px;
-            }
-
-            .progress-container {
-                padding: 20px 16px;
-                border-radius: 24px;
-                overflow-x: auto;
-            }
-
-            .progress-steps {
-                min-width: 450px;
-                gap: 8px;
-            }
-
-            .progress-steps::before {
-                top: 24px;
-            }
-
-            .step-circle {
-                width: 48px;
-                height: 48px;
-                font-size: 18px;
-                margin-bottom: 8px;
-            }
-
-            .step-label {
-                font-size: 11px;
-                white-space: normal;
-                word-break: keep-all;
-            }
-
-            .form-container {
-                padding: 28px 24px;
-                border-radius: 28px;
-            }
-
-            .step-title {
                 font-size: 24px;
-                margin-bottom: 24px;
             }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            
+            .progress-container {
+                padding: 16px;
             }
-
-            .form-buttons {
-                flex-direction: column-reverse;
-                gap: 12px;
+            
+            .progress-steps::before {
+                top: 18px;
             }
-
-            .form-buttons .btn {
-                width: 100%;
-                padding: 14px 20px;
-            }
-
-            .radio-group {
-                gap: 20px;
-            }
-
-            .upload-area {
-                padding: 28px 20px;
-            }
-
-            .upload-area i {
-                font-size: 40px;
-            }
-
-            .review-card {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 550px) {
-            .progress-steps {
-                min-width: 400px;
-                gap: 4px;
-            }
-
+            
             .step-circle {
-                width: 42px;
-                height: 42px;
-                font-size: 16px;
-            }
-
-            .step-label {
-                font-size: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .application-header h1 {
-                font-size: 28px;
-            }
-
-            .form-container {
-                padding: 24px 20px;
-            }
-
-            .step-title {
-                font-size: 22px;
-            }
-
-            .progress-steps {
-                min-width: 380px;
-            }
-
-            .step-circle {
-                width: 38px;
-                height: 38px;
+                width: 36px;
+                height: 36px;
                 font-size: 14px;
             }
-
+            
             .step-label {
                 font-size: 9px;
+            }
+            
+            .form-container {
+                padding: 20px 16px;
+            }
+            
+            .step-title {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            
+            .form-group {
+                margin-bottom: 16px;
+            }
+            
+            .form-buttons {
+                flex-direction: column-reverse;
+                gap: 10px;
+            }
+            
+            .form-buttons .btn {
+                width: 100%;
+            }
+            
+            .upload-area {
+                padding: 20px 16px;
+            }
+            
+            .upload-area i {
+                font-size: 32px;
+            }
+            
+            .review-card {
+                padding: 16px;
             }
         }
     </style>
@@ -701,7 +604,7 @@
         <a href="index.html" class="logo">
             <span class="logo-imara">Imara</span><span class="logo-capital">Capital</span>
         </a>
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <button class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Back</button>
     </div>
 </nav>
 
@@ -713,7 +616,7 @@
             <p>Complete the form below. Takes just 2–3 minutes.</p>
         </div>
 
-        <!-- Progress Bar - HORIZONTAL ON ALL DEVICES -->
+        <!-- Progress Bar -->
         <div class="progress-container">
             <div class="progress-steps" id="progressSteps">
                 <div class="step active" data-step="1">
@@ -734,7 +637,7 @@
                 </div>
                 <div class="step" data-step="5">
                     <div class="step-circle"><span>5</span></div>
-                    <div class="step-label">Review & Submit</div>
+                    <div class="step-label">Review</div>
                 </div>
             </div>
         </div>
@@ -767,8 +670,8 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Phone Number (M-Pesa registered) <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="e.g., 0712345678">
+                            <label>Phone Number (M-Pesa) <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="0712345678">
                         </div>
                         <div class="form-group">
                             <label>Email Address</label>
@@ -786,9 +689,6 @@
                                 <option>Kisumu</option>
                                 <option>Nakuru</option>
                                 <option>Kiambu</option>
-                                <option>Uasin Gishu</option>
-                                <option>Machakos</option>
-                                <option>Other</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -878,8 +778,8 @@
                     </div>
                     
                     <div class="form-group" id="employerGroup">
-                        <label>Employer Name / Business Name</label>
-                        <input type="text" id="employerName" placeholder="e.g., Safaricom, Self Employed">
+                        <label>Employer / Business Name</label>
+                        <input type="text" id="employerName" placeholder="e.g., Safaricom">
                     </div>
                     
                     <div class="form-row">
@@ -895,13 +795,12 @@
                                 <option value="business">Business</option>
                                 <option value="investments">Investments</option>
                                 <option value="remittances">Remittances</option>
-                                <option value="other">Other</option>
                             </select>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label>Do you have any existing loans?</label>
+                        <label>Existing loans?</label>
                         <div class="radio-group">
                             <label class="radio-option">
                                 <input type="radio" name="existingLoans" value="no" checked> <span>No</span>
@@ -924,13 +823,13 @@
                         <i class="fas fa-upload"></i>
                         Upload Documents
                     </div>
-                    <p style="color: var(--gray); margin-bottom: 28px;">All documents are encrypted and securely stored.</p>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-size: 13px;">All documents are encrypted and securely stored.</p>
                     
                     <div class="form-group">
-                        <label>National ID (Front & Back) <span class="required">*</span></label>
+                        <label>National ID <span class="required">*</span></label>
                         <div class="upload-area" id="uploadId">
                             <i class="fas fa-id-card"></i>
-                            <p>Click to upload or drag and drop</p>
+                            <p>Click to upload</p>
                             <small>PDF, JPG, PNG (Max 5MB)</small>
                             <input type="file" id="nationalIdFile" accept=".pdf,.jpg,.jpeg,.png" multiple>
                         </div>
@@ -938,10 +837,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>Proof of Income (Bank Statement or Payslip) <span class="required">*</span></label>
+                        <label>Proof of Income <span class="required">*</span></label>
                         <div class="upload-area" id="uploadIncome">
                             <i class="fas fa-file-invoice-dollar"></i>
-                            <p>Click to upload or drag and drop</p>
+                            <p>Bank statement or payslip</p>
                             <small>PDF (Max 10MB)</small>
                             <input type="file" id="incomeFile" accept=".pdf">
                         </div>
@@ -949,10 +848,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>M-Pesa Statement (Last 3 months)</label>
+                        <label>M-Pesa Statement</label>
                         <div class="upload-area" id="uploadMpesa">
                             <i class="fas fa-mobile-alt"></i>
-                            <p>Click to upload or drag and drop</p>
+                            <p>Last 3 months (optional)</p>
                             <small>PDF (Max 10MB)</small>
                             <input type="file" id="mpesaFile" accept=".pdf">
                         </div>
@@ -966,44 +865,44 @@
                         <i class="fas fa-clipboard-list"></i>
                         Review & Submit
                     </div>
-                    <p style="color: var(--gray); margin-bottom: 24px;">Please review your information before submitting.</p>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-size: 13px;">Please review your information before submitting.</p>
                     
                     <div id="reviewContent" class="review-card">
-                        <!-- Review content will be populated via JavaScript -->
+                        <!-- Review content populated via JS -->
                     </div>
                     
                     <div class="form-group">
-                        <label class="radio-option" style="display: flex; gap: 12px; align-items: flex-start;">
-                            <input type="checkbox" id="consent1" style="width: 20px; margin-top: 2px;">
-                            <span>I confirm that all information provided is true and accurate.</span>
+                        <label class="radio-option" style="display: flex; gap: 10px; align-items: flex-start;">
+                            <input type="checkbox" id="consent1" style="width: 18px; margin-top: 2px;">
+                            <span style="font-size: 12px;">I confirm that all information is true and accurate.</span>
                         </label>
                     </div>
                     
                     <div class="form-group">
-                        <label class="radio-option" style="display: flex; gap: 12px; align-items: flex-start;">
-                            <input type="checkbox" id="consent2" style="width: 20px; margin-top: 2px;">
-                            <span>I consent to Imara Capital conducting a credit check via CRB.</span>
+                        <label class="radio-option" style="display: flex; gap: 10px; align-items: flex-start;">
+                            <input type="checkbox" id="consent2" style="width: 18px; margin-top: 2px;">
+                            <span style="font-size: 12px;">I consent to a credit check via CRB.</span>
                         </label>
                     </div>
                     
                     <div class="form-group">
-                        <label class="radio-option" style="display: flex; gap: 12px; align-items: flex-start;">
-                            <input type="checkbox" id="consent3" style="width: 20px; margin-top: 2px;">
-                            <span>I have read and agree to the <a href="terms.html" style="color: var(--gold);">Terms & Conditions</a> and <a href="privacy-policy.html" style="color: var(--gold);">Privacy Policy</a>.</span>
+                        <label class="radio-option" style="display: flex; gap: 10px; align-items: flex-start;">
+                            <input type="checkbox" id="consent3" style="width: 18px; margin-top: 2px;">
+                            <span style="font-size: 12px;">I agree to the <a href="terms.html" style="color: var(--teal);">Terms & Conditions</a> and <a href="privacy-policy.html" style="color: var(--teal);">Privacy Policy</a>.</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Form Buttons -->
                 <div class="form-buttons">
-                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;"><i class="fas fa-arrow-left"></i> Previous</button>
-                    <button type="button" class="btn btn-save" id="saveBtn"><i class="fas fa-save"></i> Save & Resume</button>
-                    <button type="button" class="btn btn-primary" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
-                    <button type="button" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Application <i class="fas fa-check"></i></button>
+                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">← Previous</button>
+                    <button type="button" class="btn btn-save" id="saveBtn"><i class="fas fa-save"></i> Save</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next →</button>
+                    <button type="button" class="btn btn-primary" id="submitBtn" style="display: none;">Submit ✓</button>
                 </div>
             </form>
             
-            <!-- Success Message (hidden initially) -->
+            <!-- Success Message -->
             <div id="successMessage" style="display: none;"></div>
         </div>
     </div>
@@ -1073,157 +972,96 @@
         if (step === 4) {
             const idFile = document.getElementById('nationalIdFile').files.length;
             const incomeFile = document.getElementById('incomeFile').files.length;
-            
-            if (idFile === 0) {
-                alert('Please upload your National ID');
-                isValid = false;
-            }
-            if (incomeFile === 0) {
-                alert('Please upload proof of income');
-                isValid = false;
-            }
+            if (idFile === 0) { alert('Please upload your National ID'); isValid = false; }
+            if (incomeFile === 0) { alert('Please upload proof of income'); isValid = false; }
         }
         
         if (step === 5) {
-            const consent1 = document.getElementById('consent1').checked;
-            const consent2 = document.getElementById('consent2').checked;
-            const consent3 = document.getElementById('consent3').checked;
-            
-            if (!consent1 || !consent2 || !consent3) {
-                alert('Please agree to all terms to continue');
-                isValid = false;
-            }
+            const c1 = document.getElementById('consent1').checked;
+            const c2 = document.getElementById('consent2').checked;
+            const c3 = document.getElementById('consent3').checked;
+            if (!c1 || !c2 || !c3) { alert('Please agree to all terms'); isValid = false; }
         }
         
         return isValid;
     }
     
     function populateReview() {
-        const reviewContent = document.getElementById('reviewContent');
+        const rc = document.getElementById('reviewContent');
         const fullName = document.getElementById('fullName').value || 'Not provided';
         const nationalId = document.getElementById('nationalId').value || 'Not provided';
         const phone = document.getElementById('phone').value || 'Not provided';
-        const email = document.getElementById('email').value || 'Not provided';
         const county = document.getElementById('county').value || 'Not provided';
         const loanProduct = document.getElementById('loanProduct').value || 'Not provided';
         const loanAmount = document.getElementById('loanAmount').value || '0';
-        const repaymentPeriod = document.getElementById('repaymentPeriod').value || '0';
-        const monthlyIncome = document.getElementById('monthlyIncome').value || '0';
+        const term = document.getElementById('repaymentPeriod').value || '0';
+        const income = document.getElementById('monthlyIncome').value || '0';
         
-        let loanProductText = '';
-        if (loanProduct === 'personal') loanProductText = 'Personal Loan';
-        else if (loanProduct === 'business') loanProductText = 'Business Loan';
-        else if (loanProduct === 'asset') loanProductText = 'Asset Finance';
-        else loanProductText = loanProduct;
+        let productText = '';
+        if (loanProduct === 'personal') productText = 'Personal Loan';
+        else if (loanProduct === 'business') productText = 'Business Loan';
+        else if (loanProduct === 'asset') productText = 'Asset Finance';
+        else productText = loanProduct;
         
-        reviewContent.innerHTML = `
-            <div class="review-section">
-                <h4><i class="fas fa-user"></i> Personal Information</h4>
-                <p><strong>Name:</strong> ${fullName}<br>
-                <strong>ID Number:</strong> ${nationalId}<br>
-                <strong>Phone:</strong> ${phone}<br>
-                <strong>Email:</strong> ${email}<br>
-                <strong>County:</strong> ${county}</p>
-            </div>
-            <div class="review-section">
-                <h4><i class="fas fa-hand-holding-usd"></i> Loan Details</h4>
-                <p><strong>Product:</strong> ${loanProductText}<br>
-                <strong>Amount:</strong> KSh ${parseInt(loanAmount).toLocaleString()}<br>
-                <strong>Term:</strong> ${repaymentPeriod} months</p>
-            </div>
-            <div class="review-section">
-                <h4><i class="fas fa-chart-line"></i> Financial Information</h4>
-                <p><strong>Monthly Income:</strong> KSh ${parseInt(monthlyIncome).toLocaleString()}</p>
-            </div>
+        rc.innerHTML = `
+            <div class="review-section"><h4><i class="fas fa-user"></i> Personal</h4><p>${fullName} | ${nationalId}<br>${phone} | ${county}</p></div>
+            <div class="review-section"><h4><i class="fas fa-hand-holding-usd"></i> Loan</h4><p>${productText} | KSh ${parseInt(loanAmount).toLocaleString()} | ${term} months</p></div>
+            <div class="review-section"><h4><i class="fas fa-chart-line"></i> Financial</h4><p>Monthly Income: KSh ${parseInt(income).toLocaleString()}</p></div>
         `;
     }
     
     nextBtn.addEventListener('click', () => {
         if (validateStep(currentStep)) {
-            if (currentStep === 4) {
-                populateReview();
-            }
+            if (currentStep === 4) populateReview();
             currentStep++;
             updateProgress();
         }
     });
     
-    prevBtn.addEventListener('click', () => {
-        currentStep--;
-        updateProgress();
-    });
+    prevBtn.addEventListener('click', () => { currentStep--; updateProgress(); });
     
     submitBtn.addEventListener('click', () => {
         if (validateStep(5)) {
-            const refNumber = 'IM-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 10000);
-            
+            const ref = 'IM-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 10000);
             document.getElementById('loanApplicationForm').style.display = 'none';
             const successDiv = document.getElementById('successMessage');
             successDiv.style.display = 'block';
-            successDiv.innerHTML = `
-                <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <h2>Application Submitted!</h2>
-                    <p>Thank you for choosing Imara Capital.</p>
-                    <div class="reference-number">
-                        Reference: ${refNumber}
-                    </div>
-                    <p>We'll review your application within 24 hours.</p>
-                    <p style="margin-top: 16px;">Check your SMS and email for updates.</p>
-                    <a href="index.html" class="btn btn-primary" style="margin-top: 24px; display: inline-flex; gap: 8px;">Return Home <i class="fas fa-home"></i></a>
-                </div>
-            `;
-            
-            console.log('Application submitted with reference:', refNumber);
+            successDiv.innerHTML = `<div class="success-message"><i class="fas fa-check-circle"></i><h2>Application Submitted!</h2><p>Thank you for choosing Imara Capital.</p><div class="reference-number">Ref: ${ref}</div><p>We'll review within 24 hours.</p><a href="index.html" class="btn btn-primary" style="margin-top: 20px; display: inline-flex;">Return Home →</a></div>`;
         }
     });
     
     saveBtn.addEventListener('click', () => {
         const formData = {};
-        const inputs = document.querySelectorAll('#loanApplicationForm input, #loanApplicationForm select, #loanApplicationForm textarea');
-        inputs.forEach(input => {
-            if (input.id) {
-                formData[input.id] = input.value;
-            }
+        document.querySelectorAll('#loanApplicationForm input, #loanApplicationForm select, #loanApplicationForm textarea').forEach(input => {
+            if (input.id) formData[input.id] = input.value;
         });
         localStorage.setItem('imaraCapitalApplication', JSON.stringify(formData));
-        alert('✓ Your application has been saved. Come back anytime to continue.');
+        alert('✓ Application saved. Come back anytime.');
     });
     
     function loadSavedData() {
         const saved = localStorage.getItem('imaraCapitalApplication');
-        if (saved) {
+        if (saved && confirm('Found saved application. Continue?')) {
             const data = JSON.parse(saved);
-            for (const [key, value] of Object.entries(data)) {
+            for (const [key, val] of Object.entries(data)) {
                 const field = document.getElementById(key);
-                if (field && value) {
-                    field.value = value;
-                }
-            }
-            const confirmLoad = confirm('We found a saved application. Continue where you left off?');
-            if (!confirmLoad) {
-                localStorage.removeItem('imaraCapitalApplication');
+                if (field && val) field.value = val;
             }
         }
     }
     
     function setupUpload(uploadId, fileInputId, listId) {
-        const uploadArea = document.getElementById(uploadId);
-        const fileInput = document.getElementById(fileInputId);
-        const fileList = document.getElementById(listId);
-        
-        uploadArea.addEventListener('click', () => fileInput.click());
-        
-        fileInput.addEventListener('change', () => {
-            fileList.innerHTML = '';
-            Array.from(fileInput.files).forEach(file => {
-                const fileItem = document.createElement('div');
-                fileItem.className = 'file-item';
-                fileItem.innerHTML = `
-                    <span><i class="fas fa-file-pdf"></i> ${file.name} (${(file.size / 1024).toFixed(2)} KB)</span>
-                    <i class="fas fa-trash-alt" onclick="this.parentElement.remove()"></i>
-                `;
-                fileList.appendChild(fileItem);
+        const area = document.getElementById(uploadId);
+        const input = document.getElementById(fileInputId);
+        const list = document.getElementById(listId);
+        area.addEventListener('click', () => input.click());
+        input.addEventListener('change', () => {
+            list.innerHTML = '';
+            Array.from(input.files).forEach(f => {
+                const item = document.createElement('div');
+                item.className = 'file-item';
+                item.innerHTML = `<span><i class="fas fa-file"></i> ${f.name}</span><i class="fas fa-trash-alt" onclick="this.parentElement.remove()"></i>`;
+                list.appendChild(item);
             });
         });
     }
@@ -1233,22 +1071,21 @@
     setupUpload('uploadMpesa', 'mpesaFile', 'mpesaFileList');
     
     document.getElementById('loanPurpose').addEventListener('change', function() {
-        const otherGroup = document.getElementById('otherPurposeGroup');
-        otherGroup.style.display = this.value === 'other' ? 'block' : 'none';
+        document.getElementById('otherPurposeGroup').style.display = this.value === 'other' ? 'block' : 'none';
     });
     
-    document.querySelectorAll('input[name="existingLoans"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            const loanGroup = document.getElementById('existingLoanGroup');
-            loanGroup.style.display = this.value === 'yes' ? 'block' : 'none';
+    document.querySelectorAll('input[name="existingLoans"]').forEach(r => {
+        r.addEventListener('change', function() {
+            document.getElementById('existingLoanGroup').style.display = this.value === 'yes' ? 'block' : 'none';
         });
     });
     
-    document.querySelectorAll('input, select').forEach(field => {
-        field.addEventListener('input', () => {
-            field.closest('.form-group')?.classList.remove('error');
-        });
+    document.querySelectorAll('input, select').forEach(f => {
+        f.addEventListener('input', () => f.closest('.form-group')?.classList.remove('error'));
     });
+    
+    function goBack() { window.history.back(); }
+    document.getElementById('backBtn').addEventListener('click', goBack);
     
     updateProgress();
     loadSavedData();
