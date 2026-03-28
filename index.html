@@ -178,9 +178,9 @@
         .hero-section {
             position: relative;
             width: 100%;
-            height: 70vh;
-            min-height: 500px;
-            max-height: 650px;
+            height: 65vh;
+            min-height: 450px;
+            max-height: 600px;
             background-image: url('https://images.pexels.com/photos/5691792/pexels-photo-5691792.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
             background-size: cover;
             background-position: center 30%;
@@ -198,26 +198,30 @@
             z-index: 1;
         }
 
-        /* Loan Calculator Section - Premium Design */
+        /* Loan Calculator Section - Full Width Edge to Edge */
         .calculator-section {
-            background: linear-gradient(135deg, #F8FAFF 0%, #FFFFFF 100%);
-            padding: 60px 0;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%);
+            padding: 0;
+            margin: 0;
             width: 100%;
         }
 
         .calculator-wrapper {
             width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
+            padding: 0;
+            background: transparent;
         }
 
         .calculator-card {
             background: var(--white);
-            border-radius: 40px;
-            padding: 48px;
-            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 0;
+            padding: 48px 24px;
+            box-shadow: none;
+            max-width: 100%;
+            margin: 0;
+            border: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
         }
 
         .calculator-badge {
@@ -237,6 +241,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 48px;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         /* Left Side - Inputs */
@@ -689,7 +695,10 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Mobile Responsive */
+        /* ======================================== */
+        /* ENHANCED MOBILE OPTIMIZATION */
+        /* ======================================== */
+
         @media (max-width: 768px) {
             .nav-links, .nav-apply {
                 display: none;
@@ -704,18 +713,13 @@
             }
             
             .hero-section {
-                height: 50vh;
-                min-height: 350px;
-                max-height: 450px;
-                background-position: center 40%;
-            }
-            
-            .calculator-section {
-                padding: 40px 0;
+                height: 45vh;
+                min-height: 320px;
+                max-height: 400px;
             }
             
             .calculator-card {
-                padding: 32px 24px;
+                padding: 32px 20px;
             }
             
             .calculator-grid {
@@ -731,6 +735,11 @@
                 font-size: 28px;
             }
             
+            .calculator-subtitle {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+            
             .term-options {
                 gap: 8px;
             }
@@ -738,10 +747,34 @@
             .term-btn {
                 padding: 10px 18px;
                 font-size: 13px;
+                flex: 1;
+                text-align: center;
             }
             
             .current-amount {
                 font-size: 24px;
+            }
+            
+            .amount-slider-container {
+                padding: 20px;
+            }
+            
+            .calculator-breakdown {
+                padding: 24px;
+            }
+            
+            .breakdown-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .breakdown-label {
+                justify-content: center;
+            }
+            
+            .breakdown-item.total .breakdown-value {
+                font-size: 22px;
             }
             
             .products-grid, .features-grid, .steps-grid, .footer-grid {
@@ -765,11 +798,14 @@
             
             .product-card {
                 padding: 24px;
-                margin: 0 16px;
             }
             
             .product-title {
                 font-size: 20px;
+            }
+            
+            .feature {
+                padding: 20px;
             }
             
             .feature-title {
@@ -801,16 +837,21 @@
         
         @media (max-width: 480px) {
             .hero-section {
-                height: 45vh;
-                min-height: 300px;
+                height: 40vh;
+                min-height: 280px;
             }
             
             .calculator-card {
-                padding: 24px 20px;
+                padding: 24px 16px;
             }
             
             .calculator-title {
                 font-size: 24px;
+            }
+            
+            .calculator-badge {
+                font-size: 11px;
+                padding: 6px 16px;
             }
             
             .section-title {
@@ -824,28 +865,37 @@
             .term-options {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .term-btn {
-                text-align: center;
-            }
-            
-            .breakdown-item {
-                flex-direction: column;
-                text-align: center;
                 gap: 8px;
             }
             
-            .breakdown-label {
-                justify-content: center;
+            .term-btn {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            
+            .current-amount {
+                font-size: 20px;
+            }
+            
+            .amount-values {
+                font-size: 10px;
+            }
+            
+            .breakdown-value {
+                font-size: 16px;
             }
             
             .breakdown-item.total .breakdown-value {
                 font-size: 20px;
             }
+            
+            .apply-btn {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
         }
         
-        /* Disable zoom on input focus */
+        /* Disable zoom on input focus for mobile */
         @media (max-width: 768px) {
             input, select, textarea {
                 font-size: 16px !important;
@@ -895,7 +945,7 @@
 <!-- Hero Section - Single Professional Image -->
 <section class="hero-section"></section>
 
-<!-- Loan Calculator Section - Premium Design -->
+<!-- Loan Calculator Section - Full Width Edge to Edge -->
 <section class="calculator-section">
     <div class="calculator-wrapper">
         <div class="calculator-card">
