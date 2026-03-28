@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Membership Plans | Imara Capital</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #F8FAFF 0%, #F1F4F9 100%);
+            color: #1A2C3E;
+            min-height: 100vh;
+        }
+
+        :root {
+            --navy: #0A2540;
+            --navy-light: #1A3A5C;
+            --teal: #2C7A7B;
+            --teal-dark: #235B5C;
+            --gold: #F5A623;
+            --gold-dark: #E09512;
+            --gray-dark: #2D3A4B;
+            --gray: #4A5568;
+            --gray-light: #F8F9FA;
+            --white: #FFFFFF;
+            --green: #2E7D32;
+            --red: #D32F2F;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+
+        .logo-imara {
+            color: var(--navy);
+        }
+
+        .logo-capital {
+            color: var(--teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: var(--gray-light);
+            color: var(--teal);
+        }
+
+        .nav-links a.active {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--teal), var(--navy));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #E2E8F0;
+            padding: 8px 16px;
+            border-radius: 40px;
+            color: var(--gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: var(--red);
+            border-color: var(--red);
+            color: var(--white);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px 32px;
+        }
+
+        /* Header */
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .pricing-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .pricing-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Toggle Switch */
+        .billing-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .toggle-label {
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .toggle-label.active {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 32px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #E2E8F0;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--teal);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(28px);
+        }
+
+        .save-badge {
+            background: var(--green);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-left: 8px;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 32px;
+            padding: 32px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--gold);
+            transform: scale(1.02);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 40px;
+            transform: rotate(45deg);
+            width: 120px;
+            text-align: center;
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            margin-bottom: 24px;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--teal);
+        }
+
+        .price-period {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .plan-description {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--gray-dark);
+            border-bottom: 1px solid #E9EDF2;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li i {
+            width: 20px;
+            font-size: 14px;
+        }
+
+        .features-list li .fa-check-circle {
+            color: var(--green);
+        }
+
+        .features-list li .fa-times-circle {
+            color: var(--red);
+        }
+
+        .features-list li .fa-star {
+            color: var(--gold);
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 48px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .plan-btn.free {
+            background: var(--gray-light);
+            color: var(--gray);
+            border: 1px solid #E2E8F0;
+        }
+
+        .plan-btn.free:hover {
+            background: var(--teal);
+            color: var(--white);
+            border-color: var(--teal);
+        }
+
+        .plan-btn.basic {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .plan-btn.basic:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .plan-btn.premium {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .plan-btn.premium:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .plan-btn.business {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .plan-btn.business:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .plan-btn.active-plan {
+            background: var(--green);
+            color: var(--white);
+            cursor: default;
+        }
+
+        .plan-btn.active-plan:hover {
+            transform: none;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: var(--white);
+            border-radius: 32px;
+            padding: 32px;
+            margin-top: 48px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #E9EDF2;
+        }
+
+        .comparison-table th {
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--gray-light);
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-dark);
+        }
+
+        .comparison-table .check {
+            color: var(--green);
+            font-size: 18px;
+        }
+
+        .comparison-table .cross {
+            color: var(--red);
+            font-size: 18px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 48px;
+        }
+
+        .faq-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Current Membership Banner */
+        .current-membership {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 24px;
+            padding: 24px 32px;
+            margin-bottom: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .current-membership-info h3 {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .current-membership-info p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .current-membership-badge {
+            background: var(--gold);
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .main-container {
+                padding: 32px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .pricing-header h1 {
+                font-size: 32px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .comparison-table {
+                font-size: 12px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+            
+            .current-membership {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-imara">Imara</span><span class="logo-capital">Capital</span>
+        </a>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="my-loans.html">My Loans</a>
+            <a href="apply.html">Apply</a>
+            <a href="membership.html" class="active">Membership</a>
+            <a href="profile.html">Profile</a>
+        </div>
+        <div class="user-menu">
+            <div class="user-avatar" id="userAvatar">GW</div>
+            <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-container">
+    <!-- Pricing Header -->
+    <div class="pricing-header">
+        <h1>Choose Your Membership Plan</h1>
+        <p>Unlock better rates, higher loan limits, and exclusive benefits</p>
+    </div>
+
+    <!-- Current Membership Banner (hidden if not logged in) -->
+    <div class="current-membership" id="currentMembershipBanner" style="display: none;">
+        <div class="current-membership-info">
+            <h3>🌟 Your Current Plan: <span id="currentPlan">Free</span></h3>
+            <p>Upgrade to unlock more benefits and lower interest rates</p>
+        </div>
+        <div class="current-membership-badge" id="currentPlanBadge">Free Member</div>
+    </div>
+
+    <!-- Billing Toggle -->
+    <div class="billing-toggle">
+        <span class="toggle-label active" id="monthlyLabel">Monthly</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="billingToggle">
+            <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label" id="yearlyLabel">Yearly <span class="save-badge">Save 20%</span></span>
+    </div>
+
+    <!-- Pricing Grid -->
+    <div class="pricing-grid">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+            <div class="plan-name">Free</div>
+            <div class="plan-price">
+                <span class="price-amount" id="freePrice">KSh 0</span>
+                <span class="price-period">/month</span>
+            </div>
+            <div class="plan-description">Essential features to get started</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Loan up to KSh 10,000</li>
+                <li><i class="fas fa-check-circle"></i> 9% interest rate</li>
+                <li><i class="fas fa-check-circle"></i> 3-6 months term</li>
+                <li><i class="fas fa-times-circle"></i> Priority approval</li>
+                <li><i class="fas fa-times-circle"></i> Dedicated support</li>
+            </ul>
+            <button class="plan-btn free" id="freeBtn">Current Plan</button>
+        </div>
+
+        <!-- Basic Plan -->
+        <div class="pricing-card">
+            <div class="plan-name">Basic</div>
+            <div class="plan-price">
+                <span class="price-amount" id="basicPrice">KSh 199</span>
+                <span class="price-period">/month</span>
+            </div>
+            <div class="plan-description">Perfect for everyday borrowing</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Loan up to KSh 50,000</li>
+                <li><i class="fas fa-check-circle"></i> 7% interest rate</li>
+                <li><i class="fas fa-check-circle"></i> 3-12 months term</li>
+                <li><i class="fas fa-check-circle"></i> 24-hour approval</li>
+                <li><i class="fas fa-times-circle"></i> Dedicated support</li>
+            </ul>
+            <button class="plan-btn basic" id="basicBtn">Upgrade to Basic</button>
+        </div>
+
+        <!-- Premium Plan (Popular) -->
+        <div class="pricing-card popular">
+            <div class="popular-badge">POPULAR</div>
+            <div class="plan-name">Premium</div>
+            <div class="plan-price">
+                <span class="price-amount" id="premiumPrice">KSh 499</span>
+                <span class="price-period">/month</span>
+            </div>
+            <div class="plan-description">Best value for serious borrowers</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Loan up to KSh 200,000</li>
+                <li><i class="fas fa-check-circle"></i> 5% interest rate</li>
+                <li><i class="fas fa-check-circle"></i> 3-24 months term</li>
+                <li><i class="fas fa-check-circle"></i> Priority approval (12hrs)</li>
+                <li><i class="fas fa-check-circle"></i> Dedicated support</li>
+            </ul>
+            <button class="plan-btn premium" id="premiumBtn">Upgrade to Premium</button>
+        </div>
+
+        <!-- Business Plan -->
+        <div class="pricing-card">
+            <div class="plan-name">Business</div>
+            <div class="plan-price">
+                <span class="price-amount" id="businessPrice">KSh 999</span>
+                <span class="price-period">/month</span>
+            </div>
+            <div class="plan-description">For growing businesses</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> Loan up to KSh 500,000</li>
+                <li><i class="fas fa-check-circle"></i> 4% interest rate</li>
+                <li><i class="fas fa-check-circle"></i> 3-36 months term</li>
+                <li><i class="fas fa-check-circle"></i> Instant approval</li>
+                <li><i class="fas fa-check-circle"></i> 24/7 dedicated support</li>
+            </ul>
+            <button class="plan-btn business" id="businessBtn">Upgrade to Business</button>
+        </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-section">
+        <h2>Compare All Plans</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Free</th>
+                    <th>Basic</th>
+                    <th>Premium</th>
+                    <th>Business</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Maximum Loan Amount</td><td>KSh 10,000</td><td>KSh 50,000</td><td>KSh 200,000</td><td>KSh 500,000</td></tr>
+                <tr><td>Interest Rate</td><td>9%</td><td>7%</td><td>5%</td><td>4%</td></tr>
+                <tr><td>Loan Term</td><td>3-6 months</td><td>3-12 months</td><td>3-24 months</td><td>3-36 months</td></tr>
+                <tr><td>Approval Time</td><td>24-48 hrs</td><td>24 hrs</td><td>12 hrs</td><td>Instant</td></tr>
+                <tr><td>Priority Support</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
+                <tr><td>Dedicated Account Manager</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+                <tr><td>Business Consultation</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td><td class="check">✓</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Can I upgrade or downgrade anytime?</h4>
+                <p>Yes! You can change your membership plan at any time. Changes take effect immediately.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How does the yearly plan work?</h4>
+                <p>Pay for 12 months upfront and get 2 months free — that's a 20% discount!</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens if I cancel?</h4>
+                <p>You'll revert to the Free plan at the end of your billing cycle. No cancellation fees.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I pay for membership?</h4>
+                <p>Pay via M-Pesa PayBill. We'll send you payment instructions after you select your plan.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // User session check
+    let currentUserPlan = 'Free';
+    let currentUser = null;
+    let billingCycle = 'monthly'; // monthly or yearly
+
+    // Plan prices
+    const prices = {
+        monthly: {
+            free: 0,
+            basic: 199,
+            premium: 499,
+            business: 999
+        },
+        yearly: {
+            free: 0,
+            basic: 1900,
+            premium: 4790,
+            business: 9590
+        }
+    };
+
+    // Load user data
+    function loadUserData() {
+        const session = localStorage.getItem('imaraSession') || sessionStorage.getItem('imaraSession');
+        if (session) {
+            try {
+                const sessionData = JSON.parse(session);
+                if (sessionData.isLoggedIn && sessionData.user) {
+                    currentUser = sessionData.user;
+                    const userName = currentUser.fullName || 'Valued Customer';
+                    const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                    document.getElementById('userAvatar').textContent = initials;
+                    
+                    // Check if user has a membership plan stored
+                    const savedPlan = localStorage.getItem('imaraMembership');
+                    if (savedPlan) {
+                        currentUserPlan = savedPlan;
+                    }
+                    
+                    updateCurrentMembershipBanner();
+                    updateButtonsState();
+                    return true;
+                }
+            } catch(e) {}
+        }
+        return false;
+    }
+
+    function updateCurrentMembershipBanner() {
+        const banner = document.getElementById('currentMembershipBanner');
+        if (currentUserPlan !== 'Free') {
+            banner.style.display = 'flex';
+            document.getElementById('currentPlan').textContent = currentUserPlan;
+            document.getElementById('currentPlanBadge').textContent = currentUserPlan + ' Member';
+        } else {
+            banner.style.display = 'none';
+        }
+    }
+
+    function updateButtonsState() {
+        const buttons = {
+            free: document.getElementById('freeBtn'),
+            basic: document.getElementById('basicBtn'),
+            premium: document.getElementById('premiumBtn'),
+            business: document.getElementById('businessBtn')
+        };
+        
+        Object.keys(buttons).forEach(plan => {
+            if (currentUserPlan === plan.charAt(0).toUpperCase() + plan.slice(1)) {
+                buttons[plan].textContent = 'Current Plan';
+                buttons[plan].classList.add('active-plan');
+                buttons[plan].disabled = true;
+            } else {
+                const planName = plan.charAt(0).toUpperCase() + plan.slice(1);
+                buttons[plan].textContent = `Upgrade to ${planName}`;
+                buttons[plan].classList.remove('active-plan');
+                buttons[plan].disabled = false;
+            }
+        });
+    }
+
+    function updatePrices() {
+        const isYearly = document.getElementById('billingToggle').checked;
+        billingCycle = isYearly ? 'yearly' : 'monthly';
+        
+        const priceData = prices[billingCycle];
+        
+        document.getElementById('freePrice').textContent = `KSh ${priceData.free}`;
+        document.getElementById('basicPrice').textContent = `KSh ${priceData.basic}`;
+        document.getElementById('premiumPrice').textContent = `KSh ${priceData.premium}`;
+        document.getElementById('businessPrice').textContent = `KSh ${priceData.business}`;
+        
+        const periodText = isYearly ? '/year' : '/month';
+        document.querySelectorAll('.price-period').forEach(el => {
+            el.textContent = periodText;
+        });
+        
+        const monthlyLabel = document.getElementById('monthlyLabel');
+        const yearlyLabel = document.getElementById('yearlyLabel');
+        if (isYearly) {
+            monthlyLabel.classList.remove('active');
+            yearlyLabel.classList.add('active');
+        } else {
+            monthlyLabel.classList.add('active');
+            yearlyLabel.classList.remove('active');
+        }
+    }
+
+    function upgradePlan(plan) {
+        if (!currentUser) {
+            window.location.href = 'login.html';
+            return;
+        }
+        
+        const price = prices[billingCycle][plan.toLowerCase()];
+        if (price === 0) {
+            // Free plan
+            localStorage.setItem('imaraMembership', 'Free');
+            currentUserPlan = 'Free';
+            updateCurrentMembershipBanner();
+            updateButtonsState();
+            alert('You are now on the Free plan.');
+        } else {
+            // Redirect to payment
+            const planName = plan.charAt(0).toUpperCase() + plan.slice(1);
+            const period = billingCycle === 'yearly' ? 'year' : 'month';
+            localStorage.setItem('pendingMembership', JSON.stringify({
+                plan: planName,
+                price: price,
+                period: period,
+                billingCycle: billingCycle
+            }));
+            window.location.href = `payment.html?plan=${planName}&amount=${price}&period=${period}`;
+        }
+    }
+
+    function checkAuth() {
+        const session = localStorage.getItem('imaraSession') || sessionStorage.getItem('imaraSession');
+        if (!session) {
+            // Not logged in, but still show plans
+            document.getElementById('currentMembershipBanner').style.display = 'none';
+            return false;
+        }
+        return true;
+    }
+
+    function logout() {
+        localStorage.removeItem('imaraSession');
+        sessionStorage.removeItem('imaraSession');
+        window.location.href = 'index.html';
+    }
+
+    // Event listeners
+    document.getElementById('billingToggle').addEventListener('change', updatePrices);
+    document.getElementById('freeBtn').addEventListener('click', () => upgradePlan('Free'));
+    document.getElementById('basicBtn').addEventListener('click', () => upgradePlan('Basic'));
+    document.getElementById('premiumBtn').addEventListener('click', () => upgradePlan('Premium'));
+    document.getElementById('businessBtn').addEventListener('click', () => upgradePlan('Business'));
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    // Initialize
+    checkAuth();
+    loadUserData();
+    updatePrices();
+</script>
+
+</body>
+</html>
